@@ -2,7 +2,9 @@ using DAWM_Project.Settings;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Logger;
 
-[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Log4Net.config", Watch = true)]
+
+log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,4 +34,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+log.Info("Application started ...");
 app.Run();
