@@ -1,13 +1,18 @@
+using DAWM_Project.Settings;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Logger;
 
-[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Log4Net.config", Watch = true)]
+
+log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+Dependencies.Inject(builder);
 
+// Add services to the container.
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -29,4 +34,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+log.Info("Application started ...");
 app.Run();
