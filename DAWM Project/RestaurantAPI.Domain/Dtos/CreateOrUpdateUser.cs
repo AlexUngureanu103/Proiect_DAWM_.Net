@@ -1,4 +1,5 @@
 ﻿using RestaurantAPI.Domain.Enums;
+using RestaurantAPI.Domain.Models.Users;
 
 namespace RestaurantAPI.Domain.Dtos
 {
@@ -9,5 +10,7 @@ namespace RestaurantAPI.Domain.Dtos
         public string Password { get; set; }
 
         public Role Role { get; set; }
+
+        public PersonalDataDto PersonalDataDto { get; set; }
     }
 }
