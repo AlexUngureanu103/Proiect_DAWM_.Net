@@ -8,12 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Settings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\RestaurantAPI.Domain\RestaurantAPI.Domain.csproj" />
+    <ProjectReference Include="..\RestaurantAPI.Logger\RestaurantAPI.Logger.csproj" />
   </ItemGroup>
 
 </Project>
