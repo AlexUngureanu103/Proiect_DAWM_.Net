@@ -23,11 +23,13 @@ namespace DataLayer
             UsersRepository = usersRepository;
         }
 
-        public void SaveChanges()
+        public async Task<bool> SaveChanges()
         {
             try
             {
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
+
+                return true;
             }
             catch (Exception exception)
             {
@@ -36,7 +38,9 @@ namespace DataLayer
                     + $"{exception.InnerException}\n\n"
                     + $"{exception.StackTrace}\n\n";
 
-                Console.WriteLine(errorMessage);
+                Console.WriteLine(errorMessage); //modificare in logger
+
+                return false;
             }
         }
     }

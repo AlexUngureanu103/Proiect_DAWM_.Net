@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestaurantAPI.Domain.Models.Users;
+using System.Security.Claims;
 
 namespace DataLayer
 {
@@ -15,6 +16,10 @@ namespace DataLayer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>()
+            .HasIndex(e => e.Email)
+            .IsUnique();
         }
 
         public DbSet<User> Users { get; set; }

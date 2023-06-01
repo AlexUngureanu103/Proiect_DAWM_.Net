@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RestaurantAPI.Domain.Dtos;
 
 namespace DAWM_Project.Controllers
 {
@@ -18,14 +19,21 @@ namespace DAWM_Project.Controllers
 
         [HttpPost("/register")]
         [AllowAnonymous]
-        public IActionResult Register()
+        public async Task<IActionResult> Register(CreateOrUpdateUser payload)
         {
-            return Ok();
+            bool result = await UsersService.Register(payload);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
 
         [HttpPost("/login")]
         [AllowAnonymous]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
             return Ok();
         }

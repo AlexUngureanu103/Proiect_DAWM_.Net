@@ -14,8 +14,8 @@ namespace RestaurantAPI.Domain.Mapping
                 Role = user.Role,
                 PersonalData = new PersonalData
                 {
-                    FirstName = user.PersonalDataDto.FirstName,
-                    LastName = user.PersonalDataDto.LastName
+                    FirstName = user.FirstName,
+                    LastName = user.LastName
                 }
             };
         }
