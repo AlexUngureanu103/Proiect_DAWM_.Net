@@ -12,14 +12,14 @@ namespace Core.Services
     {
         private readonly UnitOfWork unitOfWork;
 
-        private AuthorizationService authService { get; set; }
+        private readonly IAuthorizationService _authService;
 
         private readonly IDataLogger logger;
 
-        public UsersService(UnitOfWork unitOfWork, AuthorizationService authService, IDataLogger logger)
+        public UsersService(UnitOfWork unitOfWork, IAuthorizationService authService, IDataLogger logger)
         {
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            this.authService = authService ?? throw new ArgumentNullException(nameof(authService));
+            this._authService = authService ?? throw new ArgumentNullException(nameof(authService));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
         public async Task<bool> Register(CreateOrUpdateUser registerData)
@@ -46,7 +46,7 @@ namespace Core.Services
                 return false;
             }
 
-            registerData.Password = authService.HashPassword(registerData.Password);
+            registerData.Password = _authService.HashPassword(registerData.Password);
 
             User user = UserMapping.MapToUser(registerData);
             logger.LogInfo($"User: {user.PersonalData.FirstName}  {user.PersonalData.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");

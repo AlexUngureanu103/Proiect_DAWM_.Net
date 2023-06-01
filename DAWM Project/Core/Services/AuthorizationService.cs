@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Models.Users;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace Core.Services
 {
-    public class AuthorizationService
+    public class AuthorizationService : IAuthorizationService
     {
         private readonly string _securityKey;
 
