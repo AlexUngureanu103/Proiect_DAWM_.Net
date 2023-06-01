@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,18 @@ namespace DataLayer
 {
     public class UnitOfWork
     {
+        public UsersRepository UsersRepository { get; }
+
         private readonly AppDbContext _dbContext;
 
         public UnitOfWork
         (
-            AppDbContext dbContext
+            AppDbContext dbContext,
+            UsersRepository usersRepository
         )
         {
             _dbContext = dbContext;
+            UsersRepository = usersRepository;
         }
 
         public void SaveChanges()

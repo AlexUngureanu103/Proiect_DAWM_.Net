@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestaurantAPI.Domain.Models.Users;
 
 namespace DataLayer
 {
@@ -15,5 +16,7 @@ namespace DataLayer
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }

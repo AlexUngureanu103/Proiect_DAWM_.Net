@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using DataLayer.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using System;
 
@@ -24,6 +25,7 @@ namespace DAWM_Project.Settings
 
         private static void AddRepositories(IServiceCollection services)
         {
+            services.AddScoped<UsersRepository>();
             services.AddScoped<UnitOfWork>();
         }
     }
