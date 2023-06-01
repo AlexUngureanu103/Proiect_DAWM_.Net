@@ -1,5 +1,4 @@
-﻿using DataLayer;
-using RestaurantAPI.Domain;
+﻿using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
@@ -10,13 +9,13 @@ namespace Core.Services
 {
     public class UsersService : IUsersService
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
         private readonly IAuthorizationService _authService;
 
         private readonly IDataLogger logger;
 
-        public UsersService(UnitOfWork unitOfWork, IAuthorizationService authService, IDataLogger logger)
+        public UsersService(IUnitOfWork unitOfWork, IAuthorizationService authService, IDataLogger logger)
         {
             this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             this._authService = authService ?? throw new ArgumentNullException(nameof(authService));
@@ -32,8 +31,8 @@ namespace Core.Services
 
             Role[] enumValues = (Role[])Enum.GetValues(typeof(Role));
 
-            if (registerData.FirstName.Trim() == string.Empty || registerData.LastName.Trim() == string.Empty || registerData.Email.Trim() == string.Empty
-                || registerData.Password.Trim() == string.Empty || (int)registerData.Role > enumValues.Length - 1)
+            if (string.IsNullOrEmpty(registerData.FirstName) || string.IsNullOrEmpty(registerData.LastName) || string.IsNullOrEmpty(registerData.Email)
+                || string.IsNullOrEmpty(registerData.Password) || (int)registerData.Role > enumValues.Length - 1)
             {
                 logger.LogWarn("Register data is not valid");
                 return false;
