@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\RestaurantAPI.Domain\RestaurantAPI.Domain.csproj" />
     <ProjectReference Include="..\RestaurantAPI.Logger\RestaurantAPI.Logger.csproj" />
