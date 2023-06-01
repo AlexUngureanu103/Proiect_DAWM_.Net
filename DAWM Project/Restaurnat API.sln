@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{83B0A123-A757-4CE1-92E4-D6E44FA3B10A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantAPI.Domain", "RestaurantAPI.Domain\RestaurantAPI.Domain.csproj", "{F087BA9F-C780-455C-BE1D-2CE0B0E18CBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantAPI.Domain", "RestaurantAPI.Domain\RestaurantAPI.Domain.csproj", "{F087BA9F-C780-455C-BE1D-2CE0B0E18CBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantAPI.Logger", "RestaurantAPI.Logger\RestaurantAPI.Logger.csproj", "{AFC72846-5E52-43A8-BEA3-B75A26FD43A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantAPI.Logger", "RestaurantAPI.Logger\RestaurantAPI.Logger.csproj", "{AFC72846-5E52-43A8-BEA3-B75A26FD43A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantAPI.Exceptions", "RestaurantAPI.Exceptions\RestaurantAPI.Exceptions.csproj", "{3303050D-A19D-4851-90DF-93C964B22F28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantAPI.Exceptions", "RestaurantAPI.Exceptions\RestaurantAPI.Exceptions.csproj", "{3303050D-A19D-4851-90DF-93C964B22F28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantAPI.Tests", "RestaurantAPI.Tests\RestaurantAPI.Tests.csproj", "{9D329FCC-3BD3-428D-BE87-4DFF4D063627}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{3303050D-A19D-4851-90DF-93C964B22F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3303050D-A19D-4851-90DF-93C964B22F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3303050D-A19D-4851-90DF-93C964B22F28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D329FCC-3BD3-428D-BE87-4DFF4D063627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D329FCC-3BD3-428D-BE87-4DFF4D063627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D329FCC-3BD3-428D-BE87-4DFF4D063627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D329FCC-3BD3-428D-BE87-4DFF4D063627}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

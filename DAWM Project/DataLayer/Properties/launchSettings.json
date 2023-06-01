@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DataLayer": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ConnectionString": "Server=localhost;Database=RestaurantDatabase;User Id=Rares2;Password=1234;"
+      }
+    }
+  }
+}

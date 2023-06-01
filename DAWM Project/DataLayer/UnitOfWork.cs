@@ -1,37 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RestaurantAPI.Domain;
+using RestaurantAPI.Domain.RepositoriesAbstractions;
 
 namespace DataLayer
 {
-    public class UnitOfWork
+    public class UnitOfWork:IUnitOfWork
     {
+        public IUserRepository UsersRepository { get; }
+
         private readonly AppDbContext _dbContext;
+
+        private readonly IDataLogger logger;
 
         public UnitOfWork
         (
-            AppDbContext dbContext
+            AppDbContext dbContext,
+            IUserRepository usersRepository,
+            IDataLogger logger
         )
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            UsersRepository = usersRepository ?? throw new ArgumentNullException(nameof(usersRepository));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public void SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
             try
             {
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
+
+                return true;
             }
             catch (Exception exception)
             {
-                var errorMessage = "Error when saving to the database: "
-                    + $"{exception.Message}\n\n"
-                    + $"{exception.InnerException}\n\n"
-                    + $"{exception.StackTrace}\n\n";
+                string errorMessage = "Error when saving to the database:\n ";
 
-                Console.WriteLine(errorMessage);
+                logger.LogError(errorMessage, exception);
+
+                return false;
             }
         }
     }

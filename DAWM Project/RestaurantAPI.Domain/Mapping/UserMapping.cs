@@ -10,8 +10,13 @@ namespace RestaurantAPI.Domain.Mapping
             return new User
             {
                 Email = user.Email,
-                Password = user.Password,
-                Role = user.Role
+                PasswordHash = user.Password,
+                Role = user.Role,
+                PersonalData = new PersonalData
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName
+                }
             };
         }
     }

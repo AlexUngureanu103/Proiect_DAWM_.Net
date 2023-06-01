@@ -6,8 +6,11 @@ namespace RestaurantAPI.Domain.Models.Users
     {
         public string Email { get; set; }
 
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
 
         public Role Role { get; set; }
+
+        public int PersonalDataId { get; set; }
+        public PersonalData PersonalData { get; set; }
     }
 }
