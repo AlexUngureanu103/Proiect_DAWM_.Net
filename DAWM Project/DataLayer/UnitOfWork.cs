@@ -1,29 +1,29 @@
-﻿using DataLayer.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RestaurantAPI.Domain;
+using RestaurantAPI.Domain.RepositoriesAbstractions;
 
 namespace DataLayer
 {
-    public class UnitOfWork
+    public class UnitOfWork:IUnitOfWork
     {
-        public UsersRepository UsersRepository { get; }
+        public IUserRepository UsersRepository { get; }
 
         private readonly AppDbContext _dbContext;
+
+        private readonly IDataLogger logger;
 
         public UnitOfWork
         (
             AppDbContext dbContext,
-            UsersRepository usersRepository
+            IUserRepository usersRepository,
+            IDataLogger logger
         )
         {
-            _dbContext = dbContext;
-            UsersRepository = usersRepository;
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            UsersRepository = usersRepository ?? throw new ArgumentNullException(nameof(usersRepository));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<bool> SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
             try
             {
@@ -33,12 +33,9 @@ namespace DataLayer
             }
             catch (Exception exception)
             {
-                var errorMessage = "Error when saving to the database: "
-                    + $"{exception.Message}\n\n"
-                    + $"{exception.InnerException}\n\n"
-                    + $"{exception.StackTrace}\n\n";
+                string errorMessage = "Error when saving to the database:\n ";
 
-                Console.WriteLine(errorMessage); //modificare in logger
+                logger.LogError(errorMessage, exception);
 
                 return false;
             }

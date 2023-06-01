@@ -1,13 +1,9 @@
 ﻿using DataLayer;
+using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Services
 {
@@ -16,10 +12,14 @@ namespace Core.Services
         private readonly UnitOfWork unitOfWork;
 
         private AuthorizationService authService { get; set; }
-        public UsersService(UnitOfWork unitOfWork, AuthorizationService authService)
+
+        private readonly IDataLogger logger;
+
+        public UsersService(UnitOfWork unitOfWork, AuthorizationService authService, IDataLogger logger)
         {
-            this.unitOfWork = unitOfWork;
-            this.authService = authService;
+            this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            this.authService = authService ?? throw new ArgumentNullException(nameof(authService));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
         public async Task<bool> Register(CreateOrUpdateUser registerData)
         {
@@ -39,22 +39,23 @@ namespace Core.Services
 
             registerData.Password = authService.HashPassword(registerData.Password);
 
-            User user = UserMapping.MapToUser(registerData);           
+            User user = UserMapping.MapToUser(registerData);
 
             await unitOfWork.UsersRepository.AddAsync(user);
 
-            bool response = await unitOfWork.SaveChanges();
+            bool response = await unitOfWork.SaveChangesAsync();
 
             return response;
         }
 
         public async Task<bool> DeleteAccount(int id)
         {
-            bool response = await unitOfWork.UsersRepository.DeleteAsync(id) is not null;
+            await unitOfWork.UsersRepository.DeleteAsync(id);
 
-            if (response)
+            bool response;
+            if (true)
             {
-                response = await unitOfWork.SaveChanges();
+                response = await unitOfWork.SaveChangesAsync();
             }
 
             return response;

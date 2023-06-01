@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RestaurantAPI.Domain\RestaurantAPI.Domain.csproj" />
+    <ProjectReference Include="..\RestaurantAPI.Exceptions\RestaurantAPI.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

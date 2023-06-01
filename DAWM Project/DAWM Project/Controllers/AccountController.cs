@@ -1,8 +1,7 @@
 ﻿using Core.Services;
-using DataLayer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos;
 
 namespace DAWM_Project.Controllers
@@ -13,9 +12,12 @@ namespace DAWM_Project.Controllers
     {
         private UsersService UsersService { get; set; }
 
-        public AccountController(UsersService usersService)
+        private readonly IDataLogger logger;
+
+        public AccountController(UsersService usersService, IDataLogger logger)
         {
-            this.UsersService = usersService;
+            this.UsersService = usersService ?? throw new ArgumentNullException(nameof(usersService));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpPost("/register")]
@@ -26,9 +28,11 @@ namespace DAWM_Project.Controllers
 
             if (result)
             {
+                logger.LogInfo("Valid");
                 return Ok();
             }
 
+            logger.LogError("Invalid input");
             return BadRequest();
         }
 
@@ -36,6 +40,7 @@ namespace DAWM_Project.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login()
         {
+            logger.LogInfo("Loged In");
             return Ok();
         }
 

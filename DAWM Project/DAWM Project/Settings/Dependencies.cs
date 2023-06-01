@@ -1,8 +1,7 @@
 ﻿using Core.Services;
 using DataLayer;
 using DataLayer.Repositories;
-using Microsoft.AspNetCore.Authorization;
-using System;
+using RestaurantAPI.Domain.RepositoriesAbstractions;
 
 namespace DAWM_Project.Settings
 {
@@ -27,7 +26,7 @@ namespace DAWM_Project.Settings
 
         private static void AddRepositories(IServiceCollection services)
         {
-            services.AddScoped<UsersRepository>();
+            services.AddScoped<IUserRepository, UsersRepository>();
             services.AddScoped<UnitOfWork>();
         }
     }
