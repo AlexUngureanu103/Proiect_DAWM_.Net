@@ -4,5 +4,6 @@ namespace RestaurantAPI.Domain.RepositoriesAbstractions
 {
     public interface IUserRepository : IRepository<User>
     {
+        Task<User> GetUserByEmail(string email);
     }
 }

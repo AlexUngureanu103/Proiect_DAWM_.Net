@@ -4,10 +4,11 @@ using RestaurantAPI.Domain.Dtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.Users;
+using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace Core.Services
 {
-    public class UsersService
+    public class UsersService : IUsersService
     {
         private readonly UnitOfWork unitOfWork;
 
@@ -24,8 +25,8 @@ namespace Core.Services
         public async Task<bool> Register(CreateOrUpdateUser registerData)
         {
             if (registerData == null)
-
             {
+                logger.LogWarn("Register data was null");
                 return false;
             }
 
@@ -34,13 +35,21 @@ namespace Core.Services
             if (registerData.FirstName.Trim() == string.Empty || registerData.LastName.Trim() == string.Empty || registerData.Email.Trim() == string.Empty
                 || registerData.Password.Trim() == string.Empty || (int)registerData.Role > enumValues.Length - 1)
             {
+                logger.LogWarn("Register data is not valid");
+                return false;
+            }
+
+            var userByEmail = await unitOfWork.UsersRepository.GetUserByEmail(registerData.Email);
+            if (userByEmail != null)
+            {
+                logger.LogError($"E-mail: {registerData.Email} already exists in the database.");
                 return false;
             }
 
             registerData.Password = authService.HashPassword(registerData.Password);
 
             User user = UserMapping.MapToUser(registerData);
-
+            logger.LogInfo($"User: {user.PersonalData.FirstName}  {user.PersonalData.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");
             await unitOfWork.UsersRepository.AddAsync(user);
 
             bool response = await unitOfWork.SaveChangesAsync();

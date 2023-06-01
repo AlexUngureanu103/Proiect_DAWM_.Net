@@ -1,4 +1,5 @@
-﻿using RestaurantAPI.Domain.Models.Users;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.RepositoriesAbstractions;
 using RestaurantAPI.Exceptions;
 
@@ -8,6 +9,13 @@ namespace DataLayer.Repositories
     {
         public UsersRepository(AppDbContext dbContext) : base(dbContext)
         {
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            var user = await GetRecords().FirstOrDefaultAsync(u => u.Email == email);
+
+            return user;
         }
 
         public new async Task UpdateAsync(int entityId, User entity)

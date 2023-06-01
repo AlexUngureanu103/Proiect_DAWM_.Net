@@ -2,6 +2,7 @@
 using DataLayer;
 using DataLayer.Repositories;
 using RestaurantAPI.Domain.RepositoriesAbstractions;
+using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Settings
 {
@@ -20,7 +21,7 @@ namespace DAWM_Project.Settings
 
         private static void AddServices(IServiceCollection services)
         {
-            services.AddScoped<UsersService>();
+            services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<AuthorizationService>();
         }
 
