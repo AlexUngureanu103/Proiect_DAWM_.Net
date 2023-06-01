@@ -18,7 +18,7 @@ namespace DataLayer.Repositories
         public async Task<User> AddAsync(User entity)
         {
             var addedEntity = await _dbSet.AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
+
             return addedEntity.Entity;
         }
 
@@ -29,7 +29,7 @@ namespace DataLayer.Repositories
                 return null;
 
             _dbSet.Remove(entity);
-            await _dbContext.SaveChangesAsync();
+
             return entity;
         }
 
@@ -46,6 +46,7 @@ namespace DataLayer.Repositories
         public async Task<User> UpdateAsync(User entity)
         {
             await _dbContext.SaveChangesAsync();
+
             return entity;
         }
     }
