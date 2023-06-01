@@ -1,53 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RestaurantAPI.Domain.Models.Users;
+﻿using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.RepositoriesAbstractions;
+using RestaurantAPI.Exceptions;
 
 namespace DataLayer.Repositories
 {
-    public class UsersRepository : IRepository<User>
+    public class UsersRepository : RepositoryBase<User>, IUserRepository
     {
-        private readonly AppDbContext _dbContext;
-        private readonly DbSet<User> _dbSet;
-
-        public UsersRepository(AppDbContext dbContext)
+        public UsersRepository(AppDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
-            _dbSet = dbContext.Set<User>();
         }
 
-        public async Task<User> AddAsync(User entity)
+        public new async Task UpdateAsync(int entityId, User entity)
         {
-            var addedEntity = await _dbSet.AddAsync(entity);
-
-            return addedEntity.Entity;
-        }
-
-        public async Task<User> DeleteAsync(int id)
-        {
-            var entity = await _dbSet.FindAsync(id);
             if (entity == null)
-                return null;
+                throw new ArgumentNullException(nameof(entity));
 
-            _dbSet.Remove(entity);
+            var entityFromDb = await GetByIdAsync(entityId);
+            if (entityFromDb == null)
+                throw new EntityNotFoundException($"{nameof(User)} with id {entity.Id} does not exist.");
 
-            return entity;
-        }
-
-        public async Task<IEnumerable<User>> GetAllAsync()
-        {
-            return await _dbSet.ToListAsync();
-        }
-
-        public async Task<User> GetByIdAsync(int id)
-        {
-            return await _dbSet.FindAsync(id);
-        }
-
-        public async Task<User> UpdateAsync(User entity)
-        {
-            await _dbContext.SaveChangesAsync();
-
-            return entity;
+            entityFromDb.PersonalData = entity.PersonalData;
+            entityFromDb.PersonalDataId = entity.PersonalDataId;
+            entityFromDb.Role = entity.Role;
+            entityFromDb.Email = entity.Email;
+            entityFromDb.PasswordHash = entity.PasswordHash;
         }
     }
 }

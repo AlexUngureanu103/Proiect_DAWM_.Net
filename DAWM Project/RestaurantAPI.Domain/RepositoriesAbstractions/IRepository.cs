@@ -1,15 +1,17 @@
-﻿namespace RestaurantAPI.Domain.RepositoriesAbstractions
+﻿using RestaurantAPI.Domain.Models;
+
+namespace RestaurantAPI.Domain.RepositoriesAbstractions
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T : BaseEntity
     {
         Task<IEnumerable<T>> GetAllAsync();
 
         Task<T> GetByIdAsync(int id);
-        
-        Task<T> AddAsync(T entity);
-        
-        Task<T> UpdateAsync(T entity);
-        
-        Task<T> DeleteAsync(int id);
+
+        Task AddAsync(T entity);
+
+        Task UpdateAsync(int entityId, T entity);
+
+        Task DeleteAsync(int id);
     }
 }
