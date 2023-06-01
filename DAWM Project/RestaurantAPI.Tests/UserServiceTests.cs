@@ -114,7 +114,7 @@ namespace RestaurantAPI.Tests
         }
 
         [TestMethod]
-        public async Task HavingUserServiceInstance_WhenRegisterDataIsOk_Returntrue()
+        public async Task HavingUserServiceInstance_WhenRegisterDataIsOk_ReturnTrue()
         {
             _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => null);
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);

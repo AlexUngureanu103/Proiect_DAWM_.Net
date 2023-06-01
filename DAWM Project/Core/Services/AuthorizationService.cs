@@ -20,6 +20,8 @@ namespace Core.Services
 
         public AuthorizationService(IConfiguration config)
         {
+            if (config == null)
+                throw new ArgumentNullException(nameof(config));
             _securityKey = config["JWT:SecurityKey"];
         }
 
@@ -80,7 +82,7 @@ namespace Core.Services
 
         public string HashPassword(string password)
         {
-            if (password == null)
+            if (string.IsNullOrEmpty(password))
             {
                 throw new ArgumentNullException("PASSWORD_CANNOT_BE_NULL");
             }
@@ -101,11 +103,11 @@ namespace Core.Services
 
         public bool VerifyHashedPassword(string hashedPassword, string password)
         {
-            if (hashedPassword == null)
+            if (string.IsNullOrEmpty(hashedPassword))
             {
                 return false;
             }
-            if (password == null)
+            if (string.IsNullOrEmpty(password))
             {
                 throw new ArgumentNullException(nameof(password));
             }
