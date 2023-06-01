@@ -31,21 +31,31 @@ namespace Core.Services
 
             Role[] enumValues = (Role[])Enum.GetValues(typeof(Role));
 
-            bool ts = (int)registerData.Role > enumValues.Length - 1;
-
             if (registerData.FirstName.Trim() == string.Empty || registerData.LastName.Trim() == string.Empty || registerData.Email.Trim() == string.Empty
                 || registerData.Password.Trim() == string.Empty || (int)registerData.Role > enumValues.Length - 1)
             {
                 return false;
             }
 
-            var hashedPassword = authService.HashPassword(registerData.Password);
+            registerData.Password = authService.HashPassword(registerData.Password);
 
             User user = UserMapping.MapToUser(registerData);           
 
             await unitOfWork.UsersRepository.AddAsync(user);
 
             bool response = await unitOfWork.SaveChanges();
+
+            return response;
+        }
+
+        public async Task<bool> DeleteAccount(int id)
+        {
+            bool response = await unitOfWork.UsersRepository.DeleteAsync(id) is not null;
+
+            if (response)
+            {
+                response = await unitOfWork.SaveChanges();
+            }
 
             return response;
         }

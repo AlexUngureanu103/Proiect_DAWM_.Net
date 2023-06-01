@@ -1,4 +1,5 @@
 ﻿using Core.Services;
+using DataLayer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,19 @@ namespace DAWM_Project.Controllers
         public async Task<IActionResult> Login()
         {
             return Ok();
+        }
+
+        [HttpDelete("/delete")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Delete(int id)
+        {
+            bool response = await UsersService.DeleteAccount(id);
+            if (response)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
     }
 }
