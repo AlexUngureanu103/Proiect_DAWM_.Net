@@ -1,7 +1,7 @@
 using Core.Services;
 using Moq;
 using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos;
+using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;

@@ -6,7 +6,8 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ConnectionString": "Server=localhost;Database=RestaurantDatabase;User Id=Rares2;Password=1234;TrustServerCertificate=True"
+        "ConnectionString": "Server=localhost;Database=RestaurantDatabase;User Id=Rares2;Password=1234;TrustServerCertificate=True",
+        "ConnectionString1": "Server=localhost;Database=RestaurantDatabase;User Id=AlexUngureanu;Password=123456;TrustServerCertificate=True"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7188;http://localhost:5181"

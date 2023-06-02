@@ -1,7 +1,6 @@
 ﻿using RestaurantAPI.Domain.Enums;
-using RestaurantAPI.Domain.Models.Users;
 
-namespace RestaurantAPI.Domain.Dtos
+namespace RestaurantAPI.Domain.Dtos.UserDtos
 {
     public class CreateOrUpdateUser
     {

@@ -1,4 +1,4 @@
-﻿using RestaurantAPI.Domain.Dtos;
+﻿using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Models.Users;
 
 namespace RestaurantAPI.Domain.Mapping

@@ -1,8 +1,7 @@
-﻿using Core.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos;
+using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
@@ -39,11 +38,20 @@ namespace DAWM_Project.Controllers
 
         [HttpPost("/login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login(LoginDto payload)
         {
-            logger.LogInfo("Loged In");
-            return Ok();
+            string jwtToken = await _userService.ValidateCredentials(payload);
+
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new { token = jwtToken });
         }
+
+        //[HttpPut("/update")]
+        //[]
 
         [HttpDelete("/delete")]
         [AllowAnonymous]

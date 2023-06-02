@@ -1,5 +1,5 @@
 ﻿using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos;
+using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.Users;
@@ -54,6 +54,25 @@ namespace Core.Services
             bool response = await unitOfWork.SaveChangesAsync();
 
             return response;
+        }
+
+        public async Task<string> ValidateCredentials(LoginDto payload)
+        {
+            User userFromDb = await unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
+            if (userFromDb == null)
+            {
+                logger.LogWarn($"Account with E-mail: {payload.Email} not found");
+                return string.Empty;
+            }
+
+            bool passwordFine = _authService.VerifyHashedPassword(userFromDb.PasswordHash, payload.Password);
+            if (!passwordFine)
+            {
+                logger.LogWarn("The inserted password is invalid");
+                return string.Empty;
+            }
+            string role = userFromDb.Role.ToString();
+            return _authService.GetToken(userFromDb, role);
         }
 
         public async Task<bool> DeleteAccount(int id)
