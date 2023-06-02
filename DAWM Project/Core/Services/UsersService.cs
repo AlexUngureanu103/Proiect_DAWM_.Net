@@ -48,7 +48,7 @@ namespace Core.Services
             registerData.Password = _authService.HashPassword(registerData.Password);
 
             User user = UserMapping.MapToUser(registerData);
-            logger.LogInfo($"User: {user.PersonalData.FirstName}  {user.PersonalData.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");
+            logger.LogInfo($"User: {user.FirstName}  {user.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");
             await unitOfWork.UsersRepository.AddAsync(user);
 
             bool response = await unitOfWork.SaveChangesAsync();
