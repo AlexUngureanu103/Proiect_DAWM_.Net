@@ -7,6 +7,8 @@ namespace RestaurantAPI.Domain.Mapping
     {
         public static User MapToUser(CreateOrUpdateUser user)
         {
+            if (user == null)
+                return null;
             return new User
             {
                 Email = user.Email,

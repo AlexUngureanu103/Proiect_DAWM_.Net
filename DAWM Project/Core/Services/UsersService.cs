@@ -72,6 +72,7 @@ namespace Core.Services
                 return string.Empty;
             }
             string role = userFromDb.Role.ToString();
+            logger.LogInfo($"User with E-mail: {userFromDb.Email} logged in");
             return _authService.GetToken(userFromDb, role);
         }
 
