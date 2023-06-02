@@ -4,6 +4,7 @@ using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;
+using RestaurantAPI.Exceptions;
 
 namespace Core.Services
 {
@@ -78,13 +79,18 @@ namespace Core.Services
 
         public async Task<bool> DeleteAccount(int id)
         {
-            await unitOfWork.UsersRepository.DeleteAsync(id);
-
-            bool response;
-            if (true)
+            try
             {
-                response = await unitOfWork.SaveChangesAsync();
+                await unitOfWork.UsersRepository.DeleteAsync(id);
             }
+            catch(EntityNotFoundException exception)
+            {
+                logger.LogError(exception.Message);
+
+                return false;
+            }
+           
+            bool response = await unitOfWork.SaveChangesAsync();
 
             return response;
         }

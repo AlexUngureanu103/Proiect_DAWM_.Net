@@ -22,7 +22,7 @@ namespace DAWM_Project.Controllers
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [HttpPost("/register")]
+        [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register(CreateOrUpdateUser payload)
         {
@@ -38,7 +38,7 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
-        [HttpPost("/login")]
+        [HttpPost("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginDto payload)
         {
@@ -52,7 +52,7 @@ namespace DAWM_Project.Controllers
             return Ok(new { token = jwtToken });
         }
 
-        [HttpPut("/update")]
+        [HttpPut("update")]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> EditUserDetails(CreateOrUpdateUser paylod)
         {
@@ -67,11 +67,12 @@ namespace DAWM_Project.Controllers
             return Ok();
         }
 
-        [HttpDelete("/delete")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("delete")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteAccount(int id)
         {
             bool response = await _userService.DeleteAccount(id);
+
             if (response)
             {
                 return Ok();
