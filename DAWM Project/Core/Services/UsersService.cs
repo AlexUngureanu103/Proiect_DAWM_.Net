@@ -98,10 +98,14 @@ namespace Core.Services
                 return false;
             }
 
+            payload.Password = _authService.HashPassword(payload.Password);
+
             User user = UserMapping.MapToUser(payload);
             await unitOfWork.UsersRepository.UpdateAsync(userId, user);
 
-            return true;
+            bool response = await unitOfWork.SaveChangesAsync();
+
+            return response;
         }
     }
 }
