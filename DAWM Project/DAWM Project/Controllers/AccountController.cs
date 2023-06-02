@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.UserDtos;
+using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;
+using System.Security.Claims;
 
 namespace DAWM_Project.Controllers
 {
@@ -50,8 +52,20 @@ namespace DAWM_Project.Controllers
             return Ok(new { token = jwtToken });
         }
 
-        //[HttpPut("/update")]
-        //[]
+        [HttpPut("/update")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> EditUserDetails(CreateOrUpdateUser paylod)
+        {
+            ClaimsPrincipal user = User;
+
+            int userId = int.Parse(user.FindFirst("userId").Value);
+
+            bool result =await _userService.UpdateUserDetails(userId, paylod);
+            if (!result)
+                return BadRequest();
+            
+            return Ok();
+        }
 
         [HttpDelete("/delete")]
         [AllowAnonymous]

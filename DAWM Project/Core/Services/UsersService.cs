@@ -87,5 +87,20 @@ namespace Core.Services
 
             return response;
         }
+
+        public async Task<bool> UpdateUserDetails(int userId, CreateOrUpdateUser payload)
+        {
+            User userFromDb = await unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
+            if (userFromDb != null && userFromDb.Id != userId)
+            {
+                logger.LogWarn($"E-mail: {payload.Email} is already registered");
+                return false;
+            }
+
+            User user = UserMapping.MapToUser(payload);
+            await unitOfWork.UsersRepository.UpdateAsync(userId, user);
+
+            return true;
+        }
     }
 }
