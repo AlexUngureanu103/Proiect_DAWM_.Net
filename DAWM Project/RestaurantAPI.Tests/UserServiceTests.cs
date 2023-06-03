@@ -106,7 +106,8 @@ namespace RestaurantAPI.Tests
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenEmailsAlreadyExists_ReturnFalse()
         {
-            _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
+
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
 
             bool result = await userService.Register(userData);
@@ -122,8 +123,9 @@ namespace RestaurantAPI.Tests
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenRegisterDataIsOk_ReturnTrue()
         {
-            _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => null);
-            _mockUnitOfWork.Setup(c => c.SaveChangesAsync()).ReturnsAsync(() => true);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => null);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(() => true);
+
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
 
             bool result = await userService.Register(userData);
@@ -152,7 +154,7 @@ namespace RestaurantAPI.Tests
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenValidatingCredentialsAndAccountNotFound_ReturnEmptyString()
         {
-            _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => null);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => null);
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
 
             string result = await userService.ValidateCredentials(loginData);
@@ -168,8 +170,9 @@ namespace RestaurantAPI.Tests
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenValidatingCredentialsAndWrongPassword_ReturnEmptyString()
         {
-            _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
-            _mockAuthorizationService.Setup(c => c.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => false);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
+            _mockAuthorizationService.Setup(authService => authService.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => false);
+
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
 
             string result = await userService.ValidateCredentials(loginData);
@@ -185,9 +188,9 @@ namespace RestaurantAPI.Tests
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenValidatingCredentialsAndPasswordIsOk_ReturnJwtToken()
         {
-            _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
-            _mockAuthorizationService.Setup(c => c.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => true);
-            _mockAuthorizationService.Setup(c => c.GetToken(It.IsAny<User>(), It.IsAny<string>())).Returns(() => "token");
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
+            _mockAuthorizationService.Setup(authService => authService.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => true);
+            _mockAuthorizationService.Setup(authService => authService.GetToken(It.IsAny<User>(), It.IsAny<string>())).Returns(() => "token");
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
 
             string result = await userService.ValidateCredentials(loginData);
@@ -203,7 +206,7 @@ namespace RestaurantAPI.Tests
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenUpdatingUserAndEmailAlreadyIsRegistered_ReturnFalse()
         {
-            _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User() { Id = 512 });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User() { Id = 512 });
 
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
 
@@ -221,7 +224,8 @@ namespace RestaurantAPI.Tests
         public async Task HavingUserServiceInstance_WhenUpdatingUserWithSuccess_ReturnTrue()
         {
             int userId = 1;
-            _mockUnitOfWork.Setup(c => c.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User() { Id = userId });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User() { Id = userId });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(() => true);
 
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
 

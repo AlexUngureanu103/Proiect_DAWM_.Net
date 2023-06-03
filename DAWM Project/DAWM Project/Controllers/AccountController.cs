@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.UserDtos;
-using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using System.Security.Claims;
 

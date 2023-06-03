@@ -41,8 +41,8 @@ namespace RestaurantAPI.Tests
             var user = UserMapping.MapToUser(userData);
 
             Assert.IsNotNull(user, "User shouldn't be null when dto is null");
-            
-            Assert.AreEqual(user.Email, userData.Email,"Resulted user is not the same ");
+
+            Assert.AreEqual(user.Email, userData.Email, "Resulted user is not the same ");
             Assert.AreEqual(user.PasswordHash, userData.Password, "Resulted user is not the same ");
             Assert.AreEqual(user.Role, userData.Role, "Resulted user is not the same ");
             Assert.AreEqual(user.FirstName, userData.FirstName, "Resulted user is not the same ");
