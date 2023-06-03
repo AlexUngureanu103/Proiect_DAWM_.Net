@@ -27,8 +27,8 @@ namespace DataLayer.Repositories
             if (entityFromDb == null)
                 throw new EntityNotFoundException($"{nameof(User)} with id {entity.Id} does not exist.");
 
-            entityFromDb.PersonalData = entity.PersonalData;
-            entityFromDb.PersonalDataId = entity.PersonalDataId;
+            entityFromDb.FirstName = entity.FirstName;
+            entityFromDb.LastName = entity.LastName;
             entityFromDb.Role = entity.Role;
             entityFromDb.Email = entity.Email;
             entityFromDb.PasswordHash = entity.PasswordHash;

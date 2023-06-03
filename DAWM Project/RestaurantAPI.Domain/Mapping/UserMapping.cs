@@ -1,4 +1,4 @@
-﻿using RestaurantAPI.Domain.Dtos;
+﻿using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Models.Users;
 
 namespace RestaurantAPI.Domain.Mapping
@@ -7,16 +7,16 @@ namespace RestaurantAPI.Domain.Mapping
     {
         public static User MapToUser(CreateOrUpdateUser user)
         {
+            if (user == null)
+                return null;
             return new User
             {
                 Email = user.Email,
                 PasswordHash = user.Password,
                 Role = user.Role,
-                PersonalData = new PersonalData
-                {
-                    FirstName = user.FirstName,
-                    LastName = user.LastName
-                }
+                FirstName = user.FirstName,
+                LastName = user.LastName
+
             };
         }
     }

@@ -1,9 +1,9 @@
-﻿using Core.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos;
+using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.ServicesAbstractions;
+using System.Security.Claims;
 
 namespace DAWM_Project.Controllers
 {
@@ -21,7 +21,7 @@ namespace DAWM_Project.Controllers
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [HttpPost("/register")]
+        [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register(CreateOrUpdateUser payload)
         {
@@ -37,19 +37,41 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
-        [HttpPost("/login")]
+        [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login(LoginDto payload)
         {
-            logger.LogInfo("Loged In");
+            string jwtToken = await _userService.ValidateCredentials(payload);
+
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new { token = jwtToken });
+        }
+
+        [HttpPut("update")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> EditUserDetails(CreateOrUpdateUser paylod)
+        {
+            ClaimsPrincipal user = User;
+
+            int userId = int.Parse(user.FindFirst("userId").Value);
+
+            bool result =await _userService.UpdateUserDetails(userId, paylod);
+            if (!result)
+                return BadRequest();
+            
             return Ok();
         }
 
-        [HttpDelete("/delete")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("delete")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteAccount(int id)
         {
             bool response = await _userService.DeleteAccount(id);
+
             if (response)
             {
                 return Ok();

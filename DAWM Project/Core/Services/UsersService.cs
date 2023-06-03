@@ -1,9 +1,10 @@
 ﻿using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos;
+using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;
+using RestaurantAPI.Exceptions;
 
 namespace Core.Services
 {
@@ -48,7 +49,7 @@ namespace Core.Services
             registerData.Password = _authService.HashPassword(registerData.Password);
 
             User user = UserMapping.MapToUser(registerData);
-            logger.LogInfo($"User: {user.PersonalData.FirstName}  {user.PersonalData.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");
+            logger.LogInfo($"User: {user.FirstName}  {user.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");
             await unitOfWork.UsersRepository.AddAsync(user);
 
             bool response = await unitOfWork.SaveChangesAsync();
@@ -56,15 +57,59 @@ namespace Core.Services
             return response;
         }
 
+        public async Task<string> ValidateCredentials(LoginDto payload)
+        {
+            User userFromDb = await unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
+            if (userFromDb == null)
+            {
+                logger.LogWarn($"Account with E-mail: {payload.Email} not found");
+                return string.Empty;
+            }
+
+            bool passwordFine = _authService.VerifyHashedPassword(userFromDb.PasswordHash, payload.Password);
+            if (!passwordFine)
+            {
+                logger.LogWarn("The inserted password is invalid");
+                return string.Empty;
+            }
+            string role = userFromDb.Role.ToString();
+            logger.LogInfo($"User with E-mail: {userFromDb.Email} logged in");
+            return _authService.GetToken(userFromDb, role);
+        }
+
         public async Task<bool> DeleteAccount(int id)
         {
-            await unitOfWork.UsersRepository.DeleteAsync(id);
-
-            bool response;
-            if (true)
+            try
             {
-                response = await unitOfWork.SaveChangesAsync();
+                await unitOfWork.UsersRepository.DeleteAsync(id);
             }
+            catch(EntityNotFoundException exception)
+            {
+                logger.LogError(exception.Message);
+
+                return false;
+            }
+           
+            bool response = await unitOfWork.SaveChangesAsync();
+
+            return response;
+        }
+
+        public async Task<bool> UpdateUserDetails(int userId, CreateOrUpdateUser payload)
+        {
+            User userFromDb = await unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
+            if (userFromDb != null && userFromDb.Id != userId)
+            {
+                logger.LogWarn($"E-mail: {payload.Email} is already registered");
+                return false;
+            }
+
+            payload.Password = _authService.HashPassword(payload.Password);
+
+            User user = UserMapping.MapToUser(payload);
+            await unitOfWork.UsersRepository.UpdateAsync(userId, user);
+
+            bool response = await unitOfWork.SaveChangesAsync();
 
             return response;
         }
