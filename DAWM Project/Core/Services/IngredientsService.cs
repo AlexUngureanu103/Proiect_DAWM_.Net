@@ -1,4 +1,6 @@
 ﻿using RestaurantAPI.Domain;
+using RestaurantAPI.Domain.Dtos.IngredientDtos;
+using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
@@ -17,9 +19,11 @@ namespace Core.Services
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<bool> AddIngredient(Ingredient ingredient)
+        public async Task<bool> AddIngredient(CreateOrUpdateIngredient ingredient)
         {
-            await _unitOfWork.IngredientRepository.AddAsync(ingredient);
+            Ingredient ingredientData = IngredientMapping.MapToIngredient(ingredient);
+
+            await _unitOfWork.IngredientRepository.AddAsync(ingredientData);
 
             bool result = await _unitOfWork.SaveChangesAsync();
 
@@ -58,12 +62,13 @@ namespace Core.Services
             return ingredientFromDb;
         }
 
-        public async Task<bool> UpdateIngredient(int ingredientId, Ingredient ingredient)
+        public async Task<bool> UpdateIngredient(int ingredientId, CreateOrUpdateIngredient ingredient)
         {
             if (ingredient == null)
                 throw new ArgumentNullException(nameof(ingredient));
 
-            await _unitOfWork.IngredientRepository.UpdateAsync(ingredientId, ingredient);
+            Ingredient ingredientData = IngredientMapping.MapToIngredient(ingredient);
+            await _unitOfWork.IngredientRepository.UpdateAsync(ingredientId, ingredientData);
 
             bool response = await _unitOfWork.SaveChangesAsync();
 
