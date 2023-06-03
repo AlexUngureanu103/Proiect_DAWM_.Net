@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Moq;
 
-namespace RestaurantAPI.Tests
+namespace RestaurantAPI.Tests.ServicesTests
 {
     [TestClass]
     public class AuthorizationServiceTests
@@ -61,14 +61,14 @@ namespace RestaurantAPI.Tests
         {
             AuthorizationService authorizationService = new(_mockConfiguration.Object);
 
-            Assert.ThrowsException<ArgumentNullException>(() => authorizationService.VerifyHashedPassword("test",string.Empty));
+            Assert.ThrowsException<ArgumentNullException>(() => authorizationService.VerifyHashedPassword("test", string.Empty));
         }
 
         [TestMethod]
         public void HavingAuthorizationServiceInstance_WhenPasswordMatch_ReturnTrue()
         {
             string password = "test";
-            
+
             AuthorizationService authorizationService = new(_mockConfiguration.Object);
 
             string passwordHash = authorizationService.HashPassword(password);

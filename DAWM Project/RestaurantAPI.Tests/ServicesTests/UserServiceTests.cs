@@ -5,7 +5,7 @@ using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Models.Users;
 
-namespace RestaurantAPI.Tests
+namespace RestaurantAPI.Tests.ServicesTests
 {
     [TestClass]
     public class UserServiceTests
@@ -115,6 +115,7 @@ namespace RestaurantAPI.Tests
             Assert.IsTrue(!result, "Register procress should fail  when email already exists");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Once);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
@@ -133,6 +134,7 @@ namespace RestaurantAPI.Tests
             Assert.IsTrue(result, "Register procress shouldn't fail  when registration is successful");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Once);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
@@ -162,6 +164,7 @@ namespace RestaurantAPI.Tests
             Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
@@ -180,6 +183,7 @@ namespace RestaurantAPI.Tests
             Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
@@ -198,6 +202,7 @@ namespace RestaurantAPI.Tests
             Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Once);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
@@ -215,6 +220,7 @@ namespace RestaurantAPI.Tests
             Assert.IsTrue(!result, "Register procress shouldn't fail  when registration is successful");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
@@ -234,6 +240,7 @@ namespace RestaurantAPI.Tests
             Assert.IsTrue(result, "Register procress shouldn't fail  when registration is successful");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);

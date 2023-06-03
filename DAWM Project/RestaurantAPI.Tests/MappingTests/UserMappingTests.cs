@@ -1,7 +1,7 @@
 ﻿using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Mapping;
 
-namespace RestaurantAPI.Tests
+namespace RestaurantAPI.Tests.MappingTests
 {
     [TestClass]
     public class UserMappingTests
