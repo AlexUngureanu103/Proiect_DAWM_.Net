@@ -23,6 +23,7 @@ namespace DAWM_Project.Settings
         private static void AddServices(IServiceCollection services)
         {
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IIngredientsService, IngredientsService>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
         }
 
