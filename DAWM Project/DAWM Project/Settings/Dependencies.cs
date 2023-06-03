@@ -29,6 +29,7 @@ namespace DAWM_Project.Settings
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UsersRepository>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
