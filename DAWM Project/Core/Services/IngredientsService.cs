@@ -21,6 +21,9 @@ namespace Core.Services
 
         public async Task<bool> AddIngredient(CreateOrUpdateIngredient ingredient)
         {
+            if (ingredient == null)
+                throw new ArgumentNullException(nameof(ingredient));
+            
             Ingredient ingredientData = IngredientMapping.MapToIngredient(ingredient);
 
             await _unitOfWork.IngredientRepository.AddAsync(ingredientData);

@@ -145,7 +145,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var result = await ingredientsService.GetIngredient(id);
 
-            Assert.IsNull(result, "Ingredient should be found");
+            Assert.IsNull(result, "Ingredient shouldn't be found");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -235,6 +235,20 @@ namespace RestaurantAPI.Tests.ServicesTests
             bool result = await ingredientsService.AddIngredient(ingredientData);
 
             Assert.IsTrue(result, "Ingredient creation shouldn't fail");
+
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+        }
+
+        [TestMethod]
+        public async Task AddIngredient_WhenIngredientIsNull_ThrowArgumentNullException()
+        {
+            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.AddIngredient(null));
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
