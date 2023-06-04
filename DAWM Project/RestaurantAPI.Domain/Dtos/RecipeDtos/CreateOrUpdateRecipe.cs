@@ -1,6 +1,8 @@
-﻿namespace RestaurantAPI.Domain.Models.MenuRelated
+﻿using RestaurantAPI.Domain.Models.MenuRelated;
+
+namespace RestaurantAPI.Domain.Dtos.RecipeDtos
 {
-    public class Recipe : BaseEntity
+    public class CreateOrUpdateRecipe
     {
         public string Name { get; set; }
 
@@ -8,7 +10,5 @@
 
         public int DishesTypeId { get; set; }
         public DishesType DishesType { get; set; }
-
-        public List<RecipeIngredient> Ingredients { get; set; }
     }
 }
