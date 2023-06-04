@@ -5,14 +5,14 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 {
     public interface IIngredientsService
     {
-        Task<bool> AddIngredient(CreateOrUpdateIngredient ingredient);
+        Task<bool> Create(CreateOrUpdateIngredient ingredient);
 
-        Task<bool> DeleteIngredient(int ingredientId);
+        Task<bool> Delete(int ingredientId);
 
-        Task<bool> UpdateIngredient(int ingredientId, CreateOrUpdateIngredient ingredient);
+        Task<bool> Update(int ingredientId, CreateOrUpdateIngredient ingredient);
 
-        Task<Ingredient> GetIngredient(int ingredientId);
+        Task<Ingredient> GetById(int ingredientId);
 
-        Task<IEnumerable<Ingredient>> GetAllIngredients();
+        Task<IEnumerable<Ingredient>> GetAll();
     }
 }

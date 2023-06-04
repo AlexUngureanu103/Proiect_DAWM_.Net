@@ -5,14 +5,14 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 {
     public interface IRecipeService
     {
-        Task<bool> AddRecipe(CreateOrUpdateRecipe recipe);
+        Task<bool> Create(CreateOrUpdateRecipe recipe);
 
-        Task<bool> DeleteRecipe(int recipeId);
+        Task<bool> Delete(int recipeId);
 
-        Task<bool> UpdateRecipe(int recipeId, CreateOrUpdateRecipe recipe);
+        Task<bool> Update(int recipeId, CreateOrUpdateRecipe recipe);
 
-        Task<Recipe> GetRecipe(int recipeId);
+        Task<Recipe> GetById(int recipeId);
 
-        Task<IEnumerable<Recipe>> GetAllRecipes();
+        Task<IEnumerable<Recipe>> GetAll();
     }
 }

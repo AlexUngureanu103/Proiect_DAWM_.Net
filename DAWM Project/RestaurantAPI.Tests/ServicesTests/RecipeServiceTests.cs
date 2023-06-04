@@ -72,7 +72,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            var result = await RecipeService.GetAllRecipes();
+            var result = await RecipeService.GetAll();
 
             Assert.IsNotNull(result, "Recipe list shouldn't be null");
             Assert.AreEqual(2, result.Count(), "Recipe list should only contain 2 elements");
@@ -110,7 +110,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            var result = await RecipeService.GetRecipe(id);
+            var result = await RecipeService.GetById(id);
 
             Assert.IsNotNull(result, "Recipe should be found");
 
@@ -150,7 +150,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            var result = await RecipeService.GetRecipe(id);
+            var result = await RecipeService.GetById(id);
 
             Assert.IsNull(result, "Recipe shouldn't be found");
 
@@ -166,7 +166,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.UpdateRecipe(1, null));
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.Update(1, null));
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -183,7 +183,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await RecipeService.UpdateRecipe(1, recipeData);
+            bool result = await RecipeService.Update(1, recipeData);
 
             Assert.IsTrue(result, "Recipe should be updates");
 
@@ -201,7 +201,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await RecipeService.DeleteRecipe(1);
+            bool result = await RecipeService.Delete(1);
 
             Assert.IsTrue(!result, "Recipe deletion should fail");
 
@@ -220,7 +220,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await RecipeService.DeleteRecipe(1);
+            bool result = await RecipeService.Delete(1);
 
             Assert.IsTrue(result, "Recipe deletion should fail");
 
@@ -239,7 +239,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await RecipeService.AddRecipe(recipeData);
+            bool result = await RecipeService.Create(recipeData);
 
             Assert.IsTrue(result, "Recipe creation shouldn't fail");
 
@@ -255,7 +255,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.AddRecipe(null));
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.Create(null));
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);

@@ -19,7 +19,7 @@ namespace Core.Services
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<bool> AddIngredient(CreateOrUpdateIngredient ingredient)
+        public async Task<bool> Create(CreateOrUpdateIngredient ingredient)
         {
             if (ingredient == null)
                 throw new ArgumentNullException(nameof(ingredient));
@@ -33,7 +33,7 @@ namespace Core.Services
             return result;
         }
 
-        public async Task<bool> DeleteIngredient(int ingredientId)
+        public async Task<bool> Delete(int ingredientId)
         {
             try
             {
@@ -51,21 +51,21 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<IEnumerable<Ingredient>> GetAllIngredients()
+        public async Task<IEnumerable<Ingredient>> GetAll()
         {
             var ingredientsFromDb = await _unitOfWork.IngredientRepository.GetAllAsync();
 
             return ingredientsFromDb;
         }
 
-        public async Task<Ingredient> GetIngredient(int ingredientId)
+        public async Task<Ingredient> GetById(int ingredientId)
         {
             var ingredientFromDb = await _unitOfWork.IngredientRepository.GetByIdAsync(ingredientId);
 
             return ingredientFromDb;
         }
 
-        public async Task<bool> UpdateIngredient(int ingredientId, CreateOrUpdateIngredient ingredient)
+        public async Task<bool> Update(int ingredientId, CreateOrUpdateIngredient ingredient)
         {
             if (ingredient == null)
                 throw new ArgumentNullException(nameof(ingredient));

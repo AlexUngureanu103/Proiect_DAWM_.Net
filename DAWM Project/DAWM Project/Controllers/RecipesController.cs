@@ -25,7 +25,7 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllIngredients()
         {
-            var ingredients = await _recipeService.GetAllRecipes();
+            var ingredients = await _recipeService.GetAll();
 
             return Ok(ingredients);
         }
@@ -35,7 +35,7 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetIngredientById(int ingredientId)
         {
-            var ingredient = await _recipeService.GetRecipe(ingredientId);
+            var ingredient = await _recipeService.GetById(ingredientId);
 
             return Ok(ingredient);
         }
@@ -44,7 +44,7 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddIngredient(CreateOrUpdateRecipe payload)
         {
-            bool result = await _recipeService.AddRecipe(payload);
+            bool result = await _recipeService.Create(payload);
 
             if (result)
             {
@@ -59,7 +59,7 @@ namespace DAWM_Project.Controllers
         [Route("{ingredientId}")]
         public async Task<IActionResult> UpdateIngredient(int ingredientId, CreateOrUpdateRecipe payload)
         {
-            bool result = await _recipeService.UpdateRecipe(ingredientId, payload);
+            bool result = await _recipeService.Update(ingredientId, payload);
 
             if (result)
             {
@@ -74,7 +74,7 @@ namespace DAWM_Project.Controllers
         [Route("{ingredientId}")]
         public async Task<IActionResult> DeleteIngredient(int ingredientId)
         {
-            bool result = await _recipeService.DeleteRecipe(ingredientId);
+            bool result = await _recipeService.Delete(ingredientId);
 
             if (result)
             {

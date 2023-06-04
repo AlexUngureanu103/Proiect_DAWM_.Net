@@ -20,7 +20,7 @@ namespace Core.Services
         }
 
 
-        public async Task<bool> AddRecipe(CreateOrUpdateRecipe recipe)
+        public async Task<bool> Create(CreateOrUpdateRecipe recipe)
         {
             if (recipe == null)
                 throw new ArgumentNullException(nameof(recipe));
@@ -34,7 +34,7 @@ namespace Core.Services
             return result;
         }
 
-        public async Task<bool> DeleteRecipe(int recipeId)
+        public async Task<bool> Delete(int recipeId)
         {
             try
             {
@@ -52,21 +52,21 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<IEnumerable<Recipe>> GetAllRecipes()
+        public async Task<IEnumerable<Recipe>> GetAll()
         {
             var recipesFrombDb = await _unitOfWork.RecipeRepository.GetAllAsync();
 
             return recipesFrombDb;
         }
 
-        public async Task<Recipe> GetRecipe(int recipeId)
+        public async Task<Recipe> GetById(int recipeId)
         {
             var recipeFromDb = await _unitOfWork.RecipeRepository.GetByIdAsync(recipeId);
 
             return recipeFromDb;
         }
 
-        public async Task<bool> UpdateRecipe(int recipeId, CreateOrUpdateRecipe recipe)
+        public async Task<bool> Update(int recipeId, CreateOrUpdateRecipe recipe)
         {
             if (recipe == null)
                 throw new ArgumentNullException(nameof(recipe));
