@@ -217,6 +217,104 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Recipe",
+			"item": [
+				{
+					"name": "GetAllRecipes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "AddRecipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"price\": 0,\r\n  \"dishesTypeId\": 0,\r\n  \"dishesType\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "GetRecipeById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/recipes/1"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRecipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Salata\",\r\n  \"price\": 0,\r\n  \"dishesTypeId\": 2,\r\n  \"dishesType\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/recipes/1"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRecipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseURL}}api/recipes/1"
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

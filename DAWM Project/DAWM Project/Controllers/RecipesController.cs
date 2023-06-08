@@ -1,30 +1,31 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos.IngredientDtos;
+using RestaurantAPI.Domain.Dtos.RecipeDtos;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class IngredientsController : ControllerBase
+    [Route("api/recipes")]
+    public class RecipesController : ControllerBase
     {
-        private readonly IIngredientsService _ingredientsService;
+        private readonly IRecipeService _recipeService;
 
         private readonly IDataLogger logger;
 
-        public IngredientsController(IIngredientsService ingredientsService, IDataLogger logger)
+        public RecipesController(IRecipeService recipeService, IDataLogger logger)
         {
-            _ingredientsService = ingredientsService ?? throw new ArgumentNullException(nameof(ingredientsService));
+            _recipeService = recipeService ?? throw new ArgumentNullException(nameof(recipeService));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
+
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllIngredients()
         {
-            var ingredients = await _ingredientsService.GetAll();
+            var ingredients = await _recipeService.GetAll();
 
             return Ok(ingredients);
         }
@@ -34,16 +35,16 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetIngredientById(int ingredientId)
         {
-            var ingredient = await _ingredientsService.GetById(ingredientId);
+            var ingredient = await _recipeService.GetById(ingredientId);
 
             return Ok(ingredient);
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddIngredient(CreateOrUpdateIngredient payload)
+        public async Task<IActionResult> AddIngredient(CreateOrUpdateRecipe payload)
         {
-            bool result = await _ingredientsService.Create(payload);
+            bool result = await _recipeService.Create(payload);
 
             if (result)
             {
@@ -56,9 +57,9 @@ namespace DAWM_Project.Controllers
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("{ingredientId}")]
-        public async Task<IActionResult> UpdateIngredient(int ingredientId, CreateOrUpdateIngredient payload)
+        public async Task<IActionResult> UpdateIngredient(int ingredientId, CreateOrUpdateRecipe payload)
         {
-            bool result = await _ingredientsService.Update(ingredientId, payload);
+            bool result = await _recipeService.Update(ingredientId, payload);
 
             if (result)
             {
@@ -73,7 +74,7 @@ namespace DAWM_Project.Controllers
         [Route("{ingredientId}")]
         public async Task<IActionResult> DeleteIngredient(int ingredientId)
         {
-            bool result = await _ingredientsService.Delete(ingredientId);
+            bool result = await _recipeService.Delete(ingredientId);
 
             if (result)
             {

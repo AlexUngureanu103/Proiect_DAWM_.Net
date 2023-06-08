@@ -9,6 +9,8 @@ namespace DataLayer
 
         public IIngredientRepository IngredientRepository { get; }
 
+        public IRecipeRepository RecipeRepository { get; }
+
         private readonly AppDbContext _dbContext;
 
         private readonly IDataLogger logger;
@@ -18,12 +20,14 @@ namespace DataLayer
             AppDbContext dbContext,
             IUserRepository usersRepository,
             IIngredientRepository ingredientRepository,
+            IRecipeRepository recipeRepository,
             IDataLogger logger
         )
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             UsersRepository = usersRepository ?? throw new ArgumentNullException(nameof(usersRepository));
             IngredientRepository = ingredientRepository ?? throw new ArgumentNullException(nameof(ingredientRepository));
+            RecipeRepository = recipeRepository ?? throw new ArgumentNullException(nameof(recipeRepository));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
