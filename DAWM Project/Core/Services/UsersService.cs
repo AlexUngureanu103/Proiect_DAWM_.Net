@@ -10,7 +10,7 @@ namespace Core.Services
 {
     public class UsersService : IUsersService
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         private readonly IAuthorizationService _authService;
 
@@ -18,7 +18,7 @@ namespace Core.Services
 
         public UsersService(IUnitOfWork unitOfWork, IAuthorizationService authService, IDataLogger logger)
         {
-            this.unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            this._unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             this._authService = authService ?? throw new ArgumentNullException(nameof(authService));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
@@ -39,7 +39,7 @@ namespace Core.Services
                 return false;
             }
 
-            var userByEmail = await unitOfWork.UsersRepository.GetUserByEmail(registerData.Email);
+            var userByEmail = await _unitOfWork.UsersRepository.GetUserByEmail(registerData.Email);
             if (userByEmail != null)
             {
                 logger.LogError($"E-mail: {registerData.Email} already exists in the database.");
@@ -50,16 +50,16 @@ namespace Core.Services
 
             User user = UserMapping.MapToUser(registerData);
             logger.LogInfo($"User: {user.FirstName}  {user.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");
-            await unitOfWork.UsersRepository.AddAsync(user);
+            await _unitOfWork.UsersRepository.AddAsync(user);
 
-            bool response = await unitOfWork.SaveChangesAsync();
+            bool response = await _unitOfWork.SaveChangesAsync();
 
             return response;
         }
 
         public async Task<string> ValidateCredentials(LoginDto payload)
         {
-            User userFromDb = await unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
+            User userFromDb = await _unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
             if (userFromDb == null)
             {
                 logger.LogWarn($"Account with E-mail: {payload.Email} not found");
@@ -81,23 +81,23 @@ namespace Core.Services
         {
             try
             {
-                await unitOfWork.UsersRepository.DeleteAsync(id);
+                await _unitOfWork.UsersRepository.DeleteAsync(id);
             }
             catch(EntityNotFoundException exception)
             {
-                logger.LogError(exception.Message);
+                logger.LogError(exception.Message,exception);
 
                 return false;
             }
            
-            bool response = await unitOfWork.SaveChangesAsync();
+            bool response = await _unitOfWork.SaveChangesAsync();
 
             return response;
         }
 
         public async Task<bool> UpdateUserDetails(int userId, CreateOrUpdateUser payload)
         {
-            User userFromDb = await unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
+            User userFromDb = await _unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
             if (userFromDb != null && userFromDb.Id != userId)
             {
                 logger.LogWarn($"E-mail: {payload.Email} is already registered");
@@ -107,9 +107,9 @@ namespace Core.Services
             payload.Password = _authService.HashPassword(payload.Password);
 
             User user = UserMapping.MapToUser(payload);
-            await unitOfWork.UsersRepository.UpdateAsync(userId, user);
+            await _unitOfWork.UsersRepository.UpdateAsync(userId, user);
 
-            bool response = await unitOfWork.SaveChangesAsync();
+            bool response = await _unitOfWork.SaveChangesAsync();
 
             return response;
         }

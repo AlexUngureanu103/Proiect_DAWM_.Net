@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantAPI.Logger", "Res
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantAPI.Exceptions", "RestaurantAPI.Exceptions\RestaurantAPI.Exceptions.csproj", "{3303050D-A19D-4851-90DF-93C964B22F28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantAPI.Tests", "RestaurantAPI.Tests\RestaurantAPI.Tests.csproj", "{9D329FCC-3BD3-428D-BE87-4DFF4D063627}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantAPI.Tests", "RestaurantAPI.Tests\RestaurantAPI.Tests.csproj", "{9D329FCC-3BD3-428D-BE87-4DFF4D063627}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

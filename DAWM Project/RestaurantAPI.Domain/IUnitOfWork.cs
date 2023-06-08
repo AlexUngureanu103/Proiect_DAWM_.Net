@@ -6,6 +6,8 @@ namespace RestaurantAPI.Domain
     {
         public IUserRepository UsersRepository { get; }
 
+        public IIngredientRepository IngredientRepository { get; }
+
         Task<bool> SaveChangesAsync();
     }
 }

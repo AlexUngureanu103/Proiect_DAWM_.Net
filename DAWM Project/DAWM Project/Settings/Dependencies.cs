@@ -23,12 +23,14 @@ namespace DAWM_Project.Settings
         private static void AddServices(IServiceCollection services)
         {
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IIngredientsService, IngredientsService>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
         }
 
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UsersRepository>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

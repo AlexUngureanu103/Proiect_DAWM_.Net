@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.Models.Users;
-using System.Security.Claims;
 
 namespace DataLayer
 {
@@ -23,5 +23,17 @@ namespace DataLayer
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<DishesType> DishesTypes { get; set; }
+
+        public DbSet<Ingredient> Ingredients { get; set; }
+
+        public DbSet<Menu> Menus { get; set; }
+
+        public DbSet<MenuItem> MenuItems { get; set; }
+
+        public DbSet<Recipe> Recipes { get; set; }
+
+        public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
     }
 }
