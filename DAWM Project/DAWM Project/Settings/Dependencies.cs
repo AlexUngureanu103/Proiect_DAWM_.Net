@@ -24,6 +24,7 @@ namespace DAWM_Project.Settings
         {
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IIngredientsService, IngredientsService>();
+            services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
         }
 
@@ -31,6 +32,7 @@ namespace DAWM_Project.Settings
         {
             services.AddScoped<IUserRepository, UsersRepository>();
             services.AddScoped<IIngredientRepository, IngredientRepository>();
+            services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

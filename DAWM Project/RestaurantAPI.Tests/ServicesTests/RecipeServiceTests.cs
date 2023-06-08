@@ -1,28 +1,29 @@
 ﻿using Core.Services;
 using Moq;
 using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos.IngredientDtos;
+using RestaurantAPI.Domain.Dtos.RecipeDtos;
 using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Exceptions;
 
 namespace RestaurantAPI.Tests.ServicesTests
 {
     [TestClass]
-    public class IngredientsServiceTests
+    public class RecipeServiceTests
     {
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private Mock<IDataLogger> _mockLogger;
-        private CreateOrUpdateIngredient ingredientData;
+        private CreateOrUpdateRecipe recipeData;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _mockUnitOfWork = new();
             _mockLogger = new();
-            ingredientData = new()
+            recipeData = new()
             {
                 Name = "test",
-                TotalWeight = 10
+                DishesTypeId = 1,
+                Price = 12
             };
         }
 
@@ -31,48 +32,50 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             _mockUnitOfWork = null;
             _mockLogger = null;
-            ingredientData = null;
+            recipeData = null;
         }
 
         [TestMethod]
-        public void InstantiatingIngredientsService_WhenUnitOfWorkIsNull_ThrowArgumentNullException()
+        public void InstantiatingRecipeService_WhenUnitOfWorkIsNull_ThrowArgumentNullException()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new IngredientsService(null, _mockLogger.Object));
+            Assert.ThrowsException<ArgumentNullException>(() => new RecipeService(null, _mockLogger.Object));
         }
 
         [TestMethod]
-        public void InstantiatingIngredientsService_WhenIDataLoggerIsNull_ThrowArgumentNullException()
+        public void InstantiatingRecipeService_WhenIDataLoggerIsNull_ThrowArgumentNullException()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new IngredientsService(_mockUnitOfWork.Object, null));
+            Assert.ThrowsException<ArgumentNullException>(() => new RecipeService(_mockUnitOfWork.Object, null));
         }
 
         [TestMethod]
-        public async Task GetAllIngredients_WhenCalled_ReturnsAllIngredients()
+        public async Task GetAllRecipes_WhenCalled_ReturnsAllRecipes()
         {
-            List<Ingredient> ingredients = new()
+            List<Recipe> recipes = new()
             {
-                new Ingredient
+                new Recipe
                 {
                     Id = 1,
-                    Name = "Ingredient 1",
-                    TotalWeight=214
+                    Name = "Recipe 1",
+                    Price= 12,
+                    DishesTypeId=1,
                 },
-                new Ingredient
+                new Recipe
                 {
                     Id = 2,
-                    Name = "Ingredient 2",
-                    TotalWeight=12
+                    Name = "Recipe 2",
+                    Price= 12,
+                    DishesTypeId=2,
                 }
             };
 
-            _mockUnitOfWork.Setup(x => x.IngredientRepository.GetAllAsync()).ReturnsAsync(ingredients);
+            _mockUnitOfWork.Setup(x => x.RecipeRepository.GetAllAsync()).ReturnsAsync(recipes);
 
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            var result = await ingredientsService.GetAll();
+            var result = await RecipeService.GetAll();
 
-            Assert.IsNotNull(result, "Ingredient list shouldn't be null");
-            Assert.AreEqual(2, result.Count(), "Ingredient list should only contain 2 elements");
+            Assert.IsNotNull(result, "Recipe list shouldn't be null");
+            Assert.AreEqual(2, result.Count(), "Recipe list should only contain 2 elements");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -82,32 +85,34 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task GetIngredientById_WhenIngredientIsFound_ReturnIngredient()
+        public async Task GetRecipeById_WhenRecipeIsFound_ReturnRecipe()
         {
-            List<Ingredient> ingredients = new()
+            List<Recipe> recipes = new()
             {
-                new Ingredient
+                new Recipe
                 {
                     Id = 1,
-                    Name = "Ingredient 1",
-                    TotalWeight=214
+                    Name = "Recipe 1",
+                    Price= 12,
+                    DishesTypeId=1,
                 },
-                new Ingredient
+                new Recipe
                 {
                     Id = 2,
-                    Name = "Ingredient 2",
-                    TotalWeight=12
+                    Name = "Recipe 2",
+                    Price= 12,
+                    DishesTypeId=2,
                 }
             };
             int id = 1;
 
-            _mockUnitOfWork.Setup(x => x.IngredientRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(ingredients[1]);
+            _mockUnitOfWork.Setup(x => x.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(recipes[1]);
 
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            var result = await ingredientsService.GetById(id);
+            var result = await RecipeService.GetById(id);
 
-            Assert.IsNotNull(result, "Ingredient should be found");
+            Assert.IsNotNull(result, "Recipe should be found");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -117,35 +122,37 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task GetIngredientById_WhenIngredientIsNotFound_ReturnNull()
+        public async Task GetRecipeById_WhenRecipeIsNotFound_ReturnNull()
         {
-            List<Ingredient> ingredients = new()
+            List<Recipe> recipes = new()
             {
-                new Ingredient
+                new Recipe
                 {
                     Id = 1,
-                    Name = "Ingredient 1",
-                    TotalWeight=214
+                    Name = "Recipe 1",
+                    Price= 12,
+                    DishesTypeId=1,
                 },
-                new Ingredient
+                new Recipe
                 {
                     Id = 2,
-                    Name = "Ingredient 2",
-                    TotalWeight=12
+                    Name = "Recipe 2",
+                    Price= 12,
+                    DishesTypeId=2,
                 }
             };
             int id = 351;
 
-            _mockUnitOfWork.Setup(x => x.IngredientRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            _mockUnitOfWork.Setup(x => x.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
             {
                 return null;
             });
 
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            var result = await ingredientsService.GetById(id);
+            var result = await RecipeService.GetById(id);
 
-            Assert.IsNull(result, "Ingredient shouldn't be found");
+            Assert.IsNull(result, "Recipe shouldn't be found");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -155,11 +162,11 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task UpdateIngredient_WhenIngredientIsNull_ThrowArguemntNullException()
+        public async Task UpdateRecipe_WhenRecipeIsNull_ThrowArguemntNullException()
         {
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Update(1, null));
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.Update(1, null));
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -169,16 +176,16 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task UpdateIngredient_WhenIngredientIsOk_ReturnTrue()
+        public async Task UpdateRecipe_WhenRecipeIsOk_ReturnTrue()
         {
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
-            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.IngredientRepository.UpdateAsync(It.IsAny<int>(), It.IsAny<Ingredient>()));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.UpdateAsync(It.IsAny<int>(), It.IsAny<Recipe>()));
 
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await ingredientsService.Update(1, ingredientData);
+            bool result = await RecipeService.Update(1, recipeData);
 
-            Assert.IsTrue(result, "Ingredient should be updates");
+            Assert.IsTrue(result, "Recipe should be updates");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -188,15 +195,15 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task DeleteIngredient_WhenIngredientIsNotOk_ReturnFalse()
+        public async Task DeleteRecipe_WhenRecipeIsNotOk_ReturnFalse()
         {
-            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.IngredientRepository.DeleteAsync(It.IsAny<int>())).ThrowsAsync(new EntityNotFoundException());
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.DeleteAsync(It.IsAny<int>())).ThrowsAsync(new EntityNotFoundException());
 
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await ingredientsService.Delete(1);
+            bool result = await RecipeService.Delete(1);
 
-            Assert.IsTrue(!result, "Ingredient deletion should fail");
+            Assert.IsTrue(!result, "Recipe deletion should fail");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Once);
@@ -206,16 +213,16 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task DeleteIngredient_WhenIngredientIsOk_ReturnTrue()
+        public async Task DeleteRecipe_WhenRecipeIsOk_ReturnTrue()
         {
-            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.IngredientRepository.DeleteAsync(It.IsAny<int>()));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.DeleteAsync(It.IsAny<int>()));
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
 
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await ingredientsService.Delete(1);
+            bool result = await RecipeService.Delete(1);
 
-            Assert.IsTrue(result, "Ingredient deletion should fail");
+            Assert.IsTrue(result, "Recipe deletion should fail");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -225,16 +232,16 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task AddIngredient_WhenIngredientIsOk_ReturnTrue()
+        public async Task AddRecipe_WhenRecipeIsOk_ReturnTrue()
         {
-            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.IngredientRepository.AddAsync(It.IsAny<Ingredient>()));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.AddAsync(It.IsAny<Recipe>()));
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
 
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await ingredientsService.Create(ingredientData);
+            bool result = await RecipeService.Create(recipeData);
 
-            Assert.IsTrue(result, "Ingredient creation shouldn't fail");
+            Assert.IsTrue(result, "Recipe creation shouldn't fail");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -244,11 +251,11 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task AddIngredient_WhenIngredientIsNull_ThrowArgumentNullException()
+        public async Task AddRecipe_WhenRecipeIsNull_ThrowArgumentNullException()
         {
-            var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Create(null));
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.Create(null));
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
