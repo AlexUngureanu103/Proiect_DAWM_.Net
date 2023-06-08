@@ -2,6 +2,7 @@
 using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
+using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
@@ -107,7 +108,23 @@ namespace Core.Services
             payload.Password = _authService.HashPassword(payload.Password);
 
             User user = UserMapping.MapToUser(payload);
-            await _unitOfWork.UsersRepository.UpdateAsync(userId, user);
+
+            try
+            {
+                await _unitOfWork.UsersRepository.UpdateAsync(userId, user);
+            }
+            catch (EntityNotFoundException exception)
+            {
+                logger.LogError(exception.Message, exception);
+
+                return false;
+            }
+            catch (ArgumentNullException exception)
+            {
+                logger.LogError(exception.Message, exception);
+                return false;
+
+            }
 
             bool response = await _unitOfWork.SaveChangesAsync();
 
