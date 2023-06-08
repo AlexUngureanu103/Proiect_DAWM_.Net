@@ -1,5 +1,4 @@
 ﻿using RestaurantAPI.Domain.Dtos.DishesTypeDtos;
-using RestaurantAPI.Domain.Dtos.IngredientDtos;
 using RestaurantAPI.Domain.Models.MenuRelated;
 
 namespace RestaurantAPI.Domain.ServicesAbstractions
