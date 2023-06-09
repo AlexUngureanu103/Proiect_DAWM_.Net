@@ -1,4 +1,5 @@
-﻿using RestaurantAPI.Domain.Models.MenuRelated;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.RepositoriesAbstractions;
 using RestaurantAPI.Exceptions;
 

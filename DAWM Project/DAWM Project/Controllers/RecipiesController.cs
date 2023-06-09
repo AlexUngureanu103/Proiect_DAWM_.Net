@@ -23,26 +23,26 @@ namespace DAWM_Project.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllIngredients()
+        public async Task<IActionResult> GetAllRecipes()
         {
-            var ingredients = await _recipeService.GetAll();
+            var recipes = await _recipeService.GetAll();
 
-            return Ok(ingredients);
+            return Ok(recipes);
         }
 
         [HttpGet]
-        [Route("{ingredientId}")]
+        [Route("{recipeId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetIngredientById(int ingredientId)
+        public async Task<IActionResult> GetRecipeById(int recipeId)
         {
-            var ingredient = await _recipeService.GetById(ingredientId);
+            var recipe = await _recipeService.GetById(recipeId);
 
-            return Ok(ingredient);
+            return Ok(recipe);
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddIngredient(CreateOrUpdateRecipe payload)
+        public async Task<IActionResult> AddRecipe(CreateOrUpdateRecipe payload)
         {
             bool result = await _recipeService.Create(payload);
 
@@ -56,10 +56,10 @@ namespace DAWM_Project.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        [Route("{ingredientId}")]
-        public async Task<IActionResult> UpdateIngredient(int ingredientId, CreateOrUpdateRecipe payload)
+        [Route("{recipeId}")]
+        public async Task<IActionResult> UpdateRecipe(int recipeId, CreateOrUpdateRecipe payload)
         {
-            bool result = await _recipeService.Update(ingredientId, payload);
+            bool result = await _recipeService.Update(recipeId, payload);
 
             if (result)
             {
@@ -71,10 +71,10 @@ namespace DAWM_Project.Controllers
 
         [HttpDelete]
         [Authorize(Roles = "Admin")]
-        [Route("{ingredientId}")]
-        public async Task<IActionResult> DeleteIngredient(int ingredientId)
+        [Route("{recipeId}")]
+        public async Task<IActionResult> DeleteRecipe(int recipeId)
         {
-            bool result = await _recipeService.Delete(ingredientId);
+            bool result = await _recipeService.Delete(recipeId);
 
             if (result)
             {

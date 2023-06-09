@@ -41,7 +41,7 @@ namespace DAWM_Project.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetDishesTypeById(CreateOrUpdateDishesType payload)
+        public async Task<IActionResult> AddDishesType(CreateOrUpdateDishesType payload)
         {
             bool result = await _dishesTypeService.AddDishesType(payload);
 

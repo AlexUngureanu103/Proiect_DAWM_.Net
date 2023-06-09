@@ -10,6 +10,8 @@ namespace RestaurantAPI.Domain
 
         public IDishesTypeRepository DishesTypeRepository { get; }
 
+        public IMenusRepository MenusRepository { get; }
+
         public IRecipeRepository RecipeRepository { get; }
 
         Task<bool> SaveChangesAsync();
