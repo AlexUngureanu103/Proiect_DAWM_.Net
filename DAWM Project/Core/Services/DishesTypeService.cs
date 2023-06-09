@@ -1,44 +1,44 @@
 ﻿using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos.RecipeDtos;
+using RestaurantAPI.Domain.Dtos.DishesTypeDtos;
 using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
+using System;
 
 namespace Core.Services
 {
-    public class RecipeService : IRecipeService
+    public class DishesTypeService : IDishesTypeService
     {
         private readonly IUnitOfWork _unitOfWork;
 
         private readonly IDataLogger logger;
 
-        public RecipeService(IUnitOfWork unitOfWork, IDataLogger logger)
+        public DishesTypeService(IUnitOfWork unitOfWork, IDataLogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-
-        public async Task<bool> Create(CreateOrUpdateRecipe recipe)
+        public async Task<bool> AddDishesType(CreateOrUpdateDishesType dishesType)
         {
-            if (recipe == null)
-                throw new ArgumentNullException(nameof(recipe));
+            if (dishesType == null)
+                throw new ArgumentNullException(nameof(dishesType));
 
-            Recipe recipeData = RecipeMapping.MapToRecipe(recipe);
+            DishesType dishesTypeData = DishesTypeMapping.MapToDishesType(dishesType);
 
-            await _unitOfWork.RecipeRepository.AddAsync(recipeData);
+            await _unitOfWork.DishesTypeRepository.AddAsync(dishesTypeData);
 
             bool result = await _unitOfWork.SaveChangesAsync();
 
             return result;
         }
 
-        public async Task<bool> Delete(int recipeId)
+        public async Task<bool> DeleteDishesType(int dishesTypeId)
         {
             try
             {
-                await _unitOfWork.RecipeRepository.DeleteAsync(recipeId);
+                await _unitOfWork.DishesTypeRepository.DeleteAsync(dishesTypeId);
             }
             catch (EntityNotFoundException exception)
             {
@@ -52,34 +52,33 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<IEnumerable<Recipe>> GetAll()
+        public async Task<IEnumerable<DishesType>> GetAllDishesTypes()
         {
-            var recipesFrombDb = await _unitOfWork.RecipeRepository.GetAllAsync();
+            var dishesTypesFromDb = await _unitOfWork.DishesTypeRepository.GetAllAsync();
 
-            return recipesFrombDb;
+            return dishesTypesFromDb;
         }
 
-        public async Task<Recipe> GetById(int recipeId)
+        public async Task<DishesType> GetDishesType(int dishesTypeId)
         {
-            var recipeFromDb = await _unitOfWork.RecipeRepository.GetByIdAsync(recipeId);
+            var dishesTypeFromDb = await _unitOfWork.DishesTypeRepository.GetByIdAsync(dishesTypeId);
 
-            return recipeFromDb;
+            return dishesTypeFromDb;
         }
 
-        public async Task<bool> Update(int recipeId, CreateOrUpdateRecipe recipe)
+        public async Task<bool> UpdateDishesType(int dishesTypeId, CreateOrUpdateDishesType dishesType)
         {
-            if (recipe == null)
+            if (dishesType == null)
             {
-                logger.LogError($"Null argument from controller: {nameof(recipe)}");
+                logger.LogError($"Null argument from controller: {nameof(dishesType)}");
 
                 return false;
             }
 
-            Recipe recipeData = RecipeMapping.MapToRecipe(recipe);
-
+            DishesType dishesTypeData = DishesTypeMapping.MapToDishesType(dishesType);
             try
             {
-                await _unitOfWork.RecipeRepository.UpdateAsync(recipeId, recipeData);
+                await _unitOfWork.DishesTypeRepository.UpdateAsync(dishesTypeId, dishesTypeData);
             }
             catch (EntityNotFoundException exception)
             {

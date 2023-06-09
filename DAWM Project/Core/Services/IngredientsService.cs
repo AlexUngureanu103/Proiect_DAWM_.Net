@@ -68,10 +68,30 @@ namespace Core.Services
         public async Task<bool> Update(int ingredientId, CreateOrUpdateIngredient ingredient)
         {
             if (ingredient == null)
-                throw new ArgumentNullException(nameof(ingredient));
+            {
+                logger.LogError($"Null argument from controller: {nameof(ingredient)}");
+
+                return false;
+            }
 
             Ingredient ingredientData = IngredientMapping.MapToIngredient(ingredient);
-            await _unitOfWork.IngredientRepository.UpdateAsync(ingredientId, ingredientData);
+
+            try
+            {
+                await _unitOfWork.IngredientRepository.UpdateAsync(ingredientId, ingredientData);
+            }
+            catch (EntityNotFoundException exception)
+            {
+                logger.LogError(exception.Message, exception);
+
+                return false;
+            }
+            catch (ArgumentNullException exception)
+            {
+                logger.LogError(exception.Message, exception);
+                return false;
+
+            }
 
             bool response = await _unitOfWork.SaveChangesAsync();
 

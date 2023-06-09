@@ -7,14 +7,14 @@ using RestaurantAPI.Domain.ServicesAbstractions;
 namespace DAWM_Project.Controllers
 {
     [ApiController]
-    [Route("api/recipes")]
-    public class RecipesController : ControllerBase
+    [Route("api/[controller]")]
+    public class RecipiesController : ControllerBase
     {
         private readonly IRecipeService _recipeService;
 
         private readonly IDataLogger logger;
 
-        public RecipesController(IRecipeService recipeService, IDataLogger logger)
+        public RecipiesController(IRecipeService recipeService, IDataLogger logger)
         {
             _recipeService = recipeService ?? throw new ArgumentNullException(nameof(recipeService));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));

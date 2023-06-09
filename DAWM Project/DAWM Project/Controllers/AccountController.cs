@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace DAWM_Project.Controllers
 {
     [ApiController]
-    [Route("api/account")]
+    [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly IUsersService _userService;
