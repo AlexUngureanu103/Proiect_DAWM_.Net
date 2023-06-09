@@ -8,11 +8,20 @@ namespace DataLayer.Repositories
 {
     public class MenusRepository : RepositoryBase<Menu>, IMenusRepository
     {
-        private readonly DbSet<Menu> _dbSet;
         public MenusRepository(AppDbContext dbContext) : base(dbContext)
         {
-            dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-            _dbSet = dbContext.Set<Menu>();
+        }
+
+        public new async Task<IEnumerable<Menu>> GetAllAsync()
+        {
+            return await GetRecords().Include(r => r.MenuItems).ToListAsync();
+        }
+
+        public new async Task<Menu> GetByIdAsync(int entityId)
+        {
+            var resultFromDb = await GetRecords().Include(r => r.MenuItems).Where(r => r.Id == entityId).FirstOrDefaultAsync();
+
+            return resultFromDb;
         }
 
         public new async Task UpdateAsync(int entityId, Menu entity)

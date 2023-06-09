@@ -1,5 +1,5 @@
 ﻿using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos;
+using RestaurantAPI.Domain.Dtos.MenuDtos;
 using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
@@ -36,6 +36,22 @@ namespace Core.Services
             return result;
         }
 
+        public async Task<bool> AddMenuItem(int menuId, int recipieId)
+        {
+           Menu menu = await _unitOfWork.MenusRepository.GetByIdAsync(menuId);
+            if (menu == null)
+                return false;
+
+            if (await _unitOfWork.RecipeRepository.GetByIdAsync(recipieId) == null)
+                return false;
+
+            menu.MenuItems.Add(new MenuItem { RecipeId = recipieId });
+
+            bool response = await _unitOfWork.SaveChangesAsync();
+
+            return response;
+        }
+
         public async Task<bool> DeleteMenu(int menuId)
         {
             try
@@ -54,18 +70,35 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<IEnumerable<Menu>> GetAllMenus()
+        public async Task<bool> DeleteMenuItem(int menuId, int recipieId)
+        {
+            Menu menu = await _unitOfWork.MenusRepository.GetByIdAsync(menuId);
+            if (menu == null)
+                return false;
+
+            var record = menu.MenuItems.Where(item => item.RecipeId == recipieId).FirstOrDefault();
+            if (record == null)
+                return false;
+
+            menu.MenuItems.Remove(record);
+
+            bool response = await _unitOfWork.SaveChangesAsync();
+
+            return response;
+        }
+
+        public async Task<IEnumerable<MenuInfos>> GetAllMenus()
         {
             var menusFromDb = await _unitOfWork.MenusRepository.GetAllAsync();
 
-            return menusFromDb;
+            return menusFromDb.Select(m => MenuMapping.MapToMenuInfos(m)).ToList();
         }
 
-        public async Task<Menu> GetMenuById(int menuId)
+        public async Task<MenuInfos> GetMenuById(int menuId)
         {
             var menuFromDb = await _unitOfWork.MenusRepository.GetByIdAsync(menuId);
 
-            return menuFromDb;
+            return MenuMapping.MapToMenuInfos(menuFromDb);
         }
 
         public async Task<bool> UpateMenu(int menuId, CreateOrUpdateMenu menu)

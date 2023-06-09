@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
-using RestaurantAPI.Domain.Dtos;
 using RestaurantAPI.Domain.Dtos.DishesTypeDtos;
+using RestaurantAPI.Domain.Dtos.MenuDtos;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
@@ -75,6 +75,36 @@ namespace DAWM_Project.Controllers
         public async Task<IActionResult> DeleteMenu(int menuId)
         {
             bool result = await _menusService.DeleteMenu(menuId);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("addItem/{menuId}/{recipieId}")]
+        public async Task<IActionResult> AddMenuItem(int menuId, int recipieId)
+        {
+            bool result = await _menusService.AddMenuItem(menuId, recipieId);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("deleteItem/{menuId}/{recipieId}")]
+        public async Task<IActionResult> DeleteMenuItem(int menuId, int recipieId)
+        {
+            bool result = await _menusService.DeleteMenuItem(menuId, recipieId);
 
             if (result)
             {

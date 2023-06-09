@@ -1,5 +1,5 @@
-﻿using RestaurantAPI.Domain.Dtos;
-using RestaurantAPI.Domain.Dtos.DishesTypeDtos;
+﻿using RestaurantAPI.Domain.Dtos.DishesTypeDtos;
+using RestaurantAPI.Domain.Dtos.MenuDtos;
 using RestaurantAPI.Domain.Models.MenuRelated;
 
 namespace RestaurantAPI.Domain.ServicesAbstractions
@@ -12,8 +12,12 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 
         Task<bool> UpateMenu(int menuId, CreateOrUpdateMenu menu);
 
-        Task<Menu> GetMenuById(int menu);
+        Task<MenuInfos> GetMenuById(int menu);
 
-        Task<IEnumerable<Menu>> GetAllMenus();
+        Task<IEnumerable<MenuInfos>> GetAllMenus();
+
+        Task<bool> AddMenuItem(int menuId, int recipieId);
+
+        Task<bool> DeleteMenuItem(int menuId, int recipieId);
     }
 }
