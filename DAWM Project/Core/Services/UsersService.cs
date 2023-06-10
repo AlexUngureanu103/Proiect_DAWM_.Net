@@ -59,6 +59,16 @@ namespace Core.Services
 
         public async Task<string> ValidateCredentials(LoginDto payload)
         {
+            return await CredentialsValidator(payload, Role.Guest);
+        }
+
+        public async Task<string> ValidateAdminCredentials(LoginDto payload)
+        {
+            return await CredentialsValidator(payload, Role.Admin);
+        }
+
+        private async Task<string> CredentialsValidator(LoginDto payload, Role MinRole)
+        {
             User userFromDb = await _unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
             if (userFromDb == null)
             {
@@ -72,6 +82,13 @@ namespace Core.Services
                 logger.LogWarn("The inserted password is invalid");
                 return string.Empty;
             }
+
+            if (userFromDb.Role.CompareTo(MinRole) < 0)
+            {
+                logger.LogWarn($"User role: {userFromDb.Role} is unautorized. Min role required: {MinRole}");
+                return string.Empty;
+            }
+            
             string role = userFromDb.Role.ToString();
             logger.LogInfo($"User with E-mail: {userFromDb.Email} logged in");
             return _authService.GetToken(userFromDb, role);

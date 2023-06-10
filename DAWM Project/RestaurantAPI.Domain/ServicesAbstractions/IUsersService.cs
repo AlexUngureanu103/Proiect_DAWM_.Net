@@ -8,6 +8,8 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 
         Task<string> ValidateCredentials(LoginDto payload);
 
+        Task<string> ValidateAdminCredentials(LoginDto payload);
+
         Task<bool> UpdateUserDetails(int userId, CreateOrUpdateUser payload);
 
         Task<bool> DeleteAccount(int userId);

@@ -193,7 +193,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenValidatingCredentialsAndPasswordIsOk_ReturnJwtToken()
         {
-            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User { Role = Role.Guest });
             _mockAuthorizationService.Setup(authService => authService.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => true);
             _mockAuthorizationService.Setup(authService => authService.GetToken(It.IsAny<User>(), It.IsAny<string>())).Returns(() => "token");
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
@@ -201,6 +201,64 @@ namespace RestaurantAPI.Tests.ServicesTests
             string result = await userService.ValidateCredentials(loginData);
 
             Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
+
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Once);
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+        }
+
+        [TestMethod]
+        public async Task HavingUserServiceInstance_WhenValidatingCredentialsAndRolesIsUnautorized_ReturnEmptyString()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
+            _mockAuthorizationService.Setup(authService => authService.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => true);
+            _mockAuthorizationService.Setup(authService => authService.GetToken(It.IsAny<User>(), It.IsAny<string>())).Returns(() => "token");
+            UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
+
+            string result = await userService.ValidateCredentials(loginData);
+
+            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
+
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+        }
+
+
+        [TestMethod]
+        public async Task HavingUserServiceInstance_WhenValidatingAdminCredentialsAndRolesIsUnautorized_ReturnEmptyString()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User());
+            _mockAuthorizationService.Setup(authService => authService.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => true);
+            _mockAuthorizationService.Setup(authService => authService.GetToken(It.IsAny<User>(), It.IsAny<string>())).Returns(() => "token");
+            UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
+
+            string result = await userService.ValidateAdminCredentials(loginData);
+
+            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
+
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+        }
+
+        [TestMethod]
+        public async Task HavingUserServiceInstance_WhenValidatingAdminCredentialsAndRolesIsAutorized_ReturnJwtToken()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetUserByEmail(It.IsAny<string>())).ReturnsAsync(() => new User { Role = Role.Admin });
+            _mockAuthorizationService.Setup(authService => authService.VerifyHashedPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(() => true);
+            _mockAuthorizationService.Setup(authService => authService.GetToken(It.IsAny<User>(), It.IsAny<string>())).Returns(() => "token");
+            UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
+
+            string result = await userService.ValidateAdminCredentials(loginData);
+
+            Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -282,9 +340,9 @@ namespace RestaurantAPI.Tests.ServicesTests
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() => new User
             {
                 Id = userId,
-                Email=email,
-                FirstName=firstName,
-                LastName=lastName
+                Email = email,
+                FirstName = firstName,
+                LastName = lastName
             });
 
             UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
