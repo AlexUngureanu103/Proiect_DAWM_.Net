@@ -74,11 +74,13 @@ namespace RestaurantAPI.Tests.ServicesTests
             Assert.IsNotNull(result, "Ingredient list shouldn't be null");
             Assert.AreEqual(2, result.Count(), "Ingredient list should only contain 2 elements");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -109,11 +111,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsNotNull(result, "Ingredient should be found");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -147,11 +151,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsNull(result, "Ingredient shouldn't be found");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -161,11 +167,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Update(1, null));
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 1,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -180,11 +188,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(result, "Ingredient should be updates");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -198,11 +208,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(!result, "Ingredient deletion should fail");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Once);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 1,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -217,11 +229,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(result, "Ingredient deletion should fail");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -236,11 +250,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(result, "Ingredient creation shouldn't fail");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -250,11 +266,30 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Create(null));
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        /// <summary>
+        /// Tests the how many times the logger methods have been used
+        /// </summary>
+        /// <param name="logErrorCount">LogError counter</param>
+        /// <param name="logErrorExCount">LogError with Exception counter</param>
+        /// <param name="logWarnCount">LogWarn counter</param>
+        /// <param name="logInfoCount">LogInfo counter</param>
+        /// <param name="logDebugCount">LogDebug counter</param>
+        private void TestLoggerMethods(int logErrorCount, int logErrorExCount, int logWarnCount, int logInfoCount, int logDebugCount)
+        {
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Exactly(logErrorCount));
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Exactly(logErrorExCount));
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Exactly(logWarnCount));
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Exactly(logInfoCount));
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Exactly(logDebugCount));
         }
     }
 }

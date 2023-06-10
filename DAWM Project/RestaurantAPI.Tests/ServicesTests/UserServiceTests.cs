@@ -1,5 +1,4 @@
 using Core.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.UserDtos;
@@ -115,11 +114,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(!result, "Register procress should fail  when email already exists");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 1,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -134,11 +135,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(result, "Register procress shouldn't fail  when registration is successful");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 1,
+                logDebugCount: 0
+                );
         }
 
         private async Task TestRegisterFails(CreateOrUpdateUser userData)
@@ -164,11 +167,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -182,12 +187,13 @@ namespace RestaurantAPI.Tests.ServicesTests
             string result = await userService.ValidateCredentials(loginData);
 
             Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
-
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -202,11 +208,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 1,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -221,13 +229,14 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
-
 
         [TestMethod]
         public async Task HavingUserServiceInstance_WhenValidatingAdminCredentialsAndRolesIsUnautorized_ReturnEmptyString()
@@ -241,11 +250,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -265,6 +276,14 @@ namespace RestaurantAPI.Tests.ServicesTests
             _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Once);
             _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 1,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -278,11 +297,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(!result, "Register procress shouldn't fail  when registration is successful");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -298,11 +319,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             Assert.IsTrue(result, "Register procress shouldn't fail  when registration is successful");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -322,11 +345,13 @@ namespace RestaurantAPI.Tests.ServicesTests
             Assert.AreEqual(result.FirstName, guestDetails, "User should be a guest");
             Assert.AreEqual(result.LastName, guestDetails, "User should be a guest");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
         }
 
         [TestMethod]
@@ -354,11 +379,31 @@ namespace RestaurantAPI.Tests.ServicesTests
             Assert.AreEqual(result.FirstName, firstName, "User shouldn't be a guest");
             Assert.AreEqual(result.LastName, lastName, "User shouldn't be a guest");
 
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+
+        /// <summary>
+        /// Tests the how many times the logger methods have been used
+        /// </summary>
+        /// <param name="logErrorCount">LogError counter</param>
+        /// <param name="logErrorExCount">LogError with Exception counter</param>
+        /// <param name="logWarnCount">LogWarn counter</param>
+        /// <param name="logInfoCount">LogInfo counter</param>
+        /// <param name="logDebugCount">LogDebug counter</param>
+        private void TestLoggerMethods(int logErrorCount, int logErrorExCount, int logWarnCount, int logInfoCount, int logDebugCount)
+        {
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Exactly(logErrorCount));
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Exactly(logErrorExCount));
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Exactly(logWarnCount));
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Exactly(logInfoCount));
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Exactly(logDebugCount));
         }
     }
 }
