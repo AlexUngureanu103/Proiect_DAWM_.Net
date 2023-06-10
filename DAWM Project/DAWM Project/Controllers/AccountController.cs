@@ -79,5 +79,23 @@ namespace DAWM_Project.Controllers
 
             return BadRequest();
         }
+
+        [HttpGet("user/data")]
+        [Authorize(Roles = "User,Admin,Guest")]
+        public async Task <IActionResult> GetUserPublicData(int id)
+        {
+            ClaimsPrincipal user = User;
+
+            int userId = int.Parse(user.FindFirst("userId").Value);
+
+            var response = await _userService.GetUserPublicData(userId);
+
+            if (response == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(response);
+        }
     }
 }

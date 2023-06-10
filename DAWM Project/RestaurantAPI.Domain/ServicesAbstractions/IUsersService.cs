@@ -10,6 +10,8 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 
         Task<bool> UpdateUserDetails(int userId, CreateOrUpdateUser payload);
 
-        Task<bool> DeleteAccount(int id);
+        Task<bool> DeleteAccount(int userId);
+
+        Task<UserPublicData> GetUserPublicData(int userId);
     }
 }

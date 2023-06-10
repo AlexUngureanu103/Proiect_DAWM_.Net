@@ -2,7 +2,6 @@
 using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
-using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
@@ -84,13 +83,13 @@ namespace Core.Services
             {
                 await _unitOfWork.UsersRepository.DeleteAsync(id);
             }
-            catch(EntityNotFoundException exception)
+            catch (EntityNotFoundException exception)
             {
-                logger.LogError(exception.Message,exception);
+                logger.LogError(exception.Message, exception);
 
                 return false;
             }
-           
+
             bool response = await _unitOfWork.SaveChangesAsync();
 
             return response;
@@ -129,6 +128,21 @@ namespace Core.Services
             bool response = await _unitOfWork.SaveChangesAsync();
 
             return response;
+        }
+
+        public async Task<UserPublicData> GetUserPublicData(int userId)
+        {
+            User userFromDb = await _unitOfWork.UsersRepository.GetByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                string guest = "Guest";
+                logger.LogWarn($"User with id: {userId} not found");
+
+                return new UserPublicData { Email = guest, FirstName = guest, LastName = guest };
+            }
+
+            return UserMapping.MapToUserPublicData(userFromDb);
         }
     }
 }

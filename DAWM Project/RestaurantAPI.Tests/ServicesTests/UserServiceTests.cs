@@ -1,4 +1,5 @@
 using Core.Services;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.UserDtos;
@@ -238,6 +239,62 @@ namespace RestaurantAPI.Tests.ServicesTests
             bool result = await userService.UpdateUserDetails(userId, userData);
 
             Assert.IsTrue(result, "Register procress shouldn't fail  when registration is successful");
+
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+        }
+
+        [TestMethod]
+        public async Task HavingUserServiceInstance_WhenGetUserPublicDataAndUserIsNotFound_ReturnGuestDetails()
+        {
+            int userId = 1;
+            string guestDetails = "Guest";
+
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() => null);
+
+            UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
+
+            UserPublicData result = await userService.GetUserPublicData(userId);
+
+            Assert.IsNotNull(result, "Resulted data shouldn't be null");
+            Assert.AreEqual(result.Email, guestDetails, "User should be a guest");
+            Assert.AreEqual(result.FirstName, guestDetails, "User should be a guest");
+            Assert.AreEqual(result.LastName, guestDetails, "User should be a guest");
+
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
+            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Once);
+            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Never);
+            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Never);
+        }
+
+        [TestMethod]
+        public async Task HavingUserServiceInstance_WhenGetUserPublicDataAndUserIsFound_ReturnUserDetails()
+        {
+            int userId = 1;
+            string email = "test@test.test";
+            string firstName = "test";
+            string lastName = "test";
+
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.UsersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() => new User
+            {
+                Id = userId,
+                Email=email,
+                FirstName=firstName,
+                LastName=lastName
+            });
+
+            UsersService userService = new UsersService(_mockUnitOfWork.Object, _mockAuthorizationService.Object, _mockLogger.Object);
+
+            UserPublicData result = await userService.GetUserPublicData(userId);
+
+            Assert.IsNotNull(result, "Resulted data shouldn't be null");
+            Assert.AreEqual(result.Email, email, "User shouldn't be a guest");
+            Assert.AreEqual(result.FirstName, firstName, "User shouldn't be a guest");
+            Assert.AreEqual(result.LastName, lastName, "User shouldn't be a guest");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
