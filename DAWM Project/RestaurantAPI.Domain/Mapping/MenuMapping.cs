@@ -1,11 +1,5 @@
-﻿using RestaurantAPI.Domain.Dtos.DishesTypeDtos;
-using RestaurantAPI.Domain.Dtos.MenuDtos;
+﻿using RestaurantAPI.Domain.Dtos.MenuDtos;
 using RestaurantAPI.Domain.Models.MenuRelated;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantAPI.Domain.Mapping
 {
@@ -27,6 +21,7 @@ namespace RestaurantAPI.Domain.Mapping
         {
             if (menu == null)
                 return null;
+
             return new MenuInfos
             {
                 MenuId = menu.Id,
