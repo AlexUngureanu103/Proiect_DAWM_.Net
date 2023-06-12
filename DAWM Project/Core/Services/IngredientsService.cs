@@ -22,13 +22,17 @@ namespace Core.Services
         public async Task<bool> Create(CreateOrUpdateIngredient ingredient)
         {
             if (ingredient == null)
+            {
+                logger.LogError($"Null argument from controller: {nameof(ingredient)}");
                 throw new ArgumentNullException(nameof(ingredient));
-            
+            }
+
             Ingredient ingredientData = IngredientMapping.MapToIngredient(ingredient);
 
             await _unitOfWork.IngredientRepository.AddAsync(ingredientData);
 
             bool result = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Ingredient with id {ingredientData.Id} added");
 
             return result;
         }
@@ -47,6 +51,7 @@ namespace Core.Services
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Ingredient with id {ingredientId} deleted");
 
             return response;
         }
@@ -71,7 +76,7 @@ namespace Core.Services
             {
                 logger.LogError($"Null argument from controller: {nameof(ingredient)}");
 
-                return false;
+                throw new ArgumentNullException(nameof(ingredient));
             }
 
             Ingredient ingredientData = IngredientMapping.MapToIngredient(ingredient);
@@ -90,10 +95,10 @@ namespace Core.Services
             {
                 logger.LogError(exception.Message, exception);
                 return false;
-
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Ingredient with id {ingredientId} updated");
 
             return response;
         }

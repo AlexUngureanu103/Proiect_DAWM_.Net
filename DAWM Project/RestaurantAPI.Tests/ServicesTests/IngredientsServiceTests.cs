@@ -8,10 +8,9 @@ using RestaurantAPI.Exceptions;
 namespace RestaurantAPI.Tests.ServicesTests
 {
     [TestClass]
-    public class IngredientsServiceTests
+    public class IngredientsServiceTests : LoggerTests
     {
         private Mock<IUnitOfWork> _mockUnitOfWork;
-        private Mock<IDataLogger> _mockLogger;
         private CreateOrUpdateIngredient ingredientData;
 
         [TestInitialize]
@@ -165,7 +164,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Update(1, null));
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Update(1, null));
 
             TestLoggerMethods(
                 logErrorCount: 1,
@@ -186,13 +185,13 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             bool result = await ingredientsService.Update(1, ingredientData);
 
-            Assert.IsTrue(result, "Ingredient should be updates");
+            Assert.IsTrue(result, "Ingredient should update successfully");
 
             TestLoggerMethods(
                 logErrorCount: 0,
                 logErrorExCount: 0,
                 logWarnCount: 0,
-                logInfoCount: 0,
+                logInfoCount: 1,
                 logDebugCount: 0
                 );
         }
@@ -233,7 +232,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                 logErrorCount: 0,
                 logErrorExCount: 0,
                 logWarnCount: 0,
-                logInfoCount: 0,
+                logInfoCount: 1,
                 logDebugCount: 0
                 );
         }
@@ -254,7 +253,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                 logErrorCount: 0,
                 logErrorExCount: 0,
                 logWarnCount: 0,
-                logInfoCount: 0,
+                logInfoCount: 1,
                 logDebugCount: 0
                 );
         }
@@ -264,32 +263,15 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Create(null));
+           await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Create(null));
 
             TestLoggerMethods(
-                logErrorCount: 0,
+                logErrorCount: 1,
                 logErrorExCount: 0,
                 logWarnCount: 0,
                 logInfoCount: 0,
                 logDebugCount: 0
                 );
-        }
-
-        /// <summary>
-        /// Tests the how many times the logger methods have been used
-        /// </summary>
-        /// <param name="logErrorCount">LogError counter</param>
-        /// <param name="logErrorExCount">LogError with Exception counter</param>
-        /// <param name="logWarnCount">LogWarn counter</param>
-        /// <param name="logInfoCount">LogInfo counter</param>
-        /// <param name="logDebugCount">LogDebug counter</param>
-        private void TestLoggerMethods(int logErrorCount, int logErrorExCount, int logWarnCount, int logInfoCount, int logDebugCount)
-        {
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Exactly(logErrorCount));
-            _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Exactly(logErrorExCount));
-            _mockLogger.Verify(log => log.LogWarn(It.IsAny<string>()), Times.Exactly(logWarnCount));
-            _mockLogger.Verify(log => log.LogInfo(It.IsAny<string>()), Times.Exactly(logInfoCount));
-            _mockLogger.Verify(log => log.LogDebug(It.IsAny<string>()), Times.Exactly(logDebugCount));
         }
     }
 }

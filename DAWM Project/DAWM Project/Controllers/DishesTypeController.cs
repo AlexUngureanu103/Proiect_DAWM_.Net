@@ -25,7 +25,7 @@ namespace DAWM_Project.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllDishesTypes()
         {
-            var dishesTypes = await _dishesTypeService.GetAllDishesTypes();
+            var dishesTypes = await _dishesTypeService.GetAll();
 
             return Ok(dishesTypes);
         }
@@ -34,7 +34,7 @@ namespace DAWM_Project.Controllers
         [Route("{dishesTypeId}")]
         public async Task<IActionResult> GetDishesTypeById(int dishesTypeId)
         {
-            var dishesType = await _dishesTypeService.GetDishesType(dishesTypeId);
+            var dishesType = await _dishesTypeService.GetById(dishesTypeId);
 
             return Ok(dishesType);
         }
@@ -43,7 +43,7 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddDishesType(CreateOrUpdateDishesType payload)
         {
-            bool result = await _dishesTypeService.AddDishesType(payload);
+            bool result = await _dishesTypeService.Create(payload);
 
             if (result)
             {
@@ -58,7 +58,7 @@ namespace DAWM_Project.Controllers
         [Route("{dishesTypeId}")]
         public async Task<IActionResult> UpdateDishesType(int dishesTypeId, CreateOrUpdateDishesType payload)
         {
-            bool result = await _dishesTypeService.UpdateDishesType(dishesTypeId, payload);
+            bool result = await _dishesTypeService.Update(dishesTypeId, payload);
 
             if (result)
             {
@@ -73,7 +73,7 @@ namespace DAWM_Project.Controllers
         [Route("{dishesTypeId}")]
         public async Task<IActionResult> DeleteIngredient(int dishesTypeId)
         {
-            bool result = await _dishesTypeService.DeleteDishesType(dishesTypeId);
+            bool result = await _dishesTypeService.Delete(dishesTypeId);
 
             if (result)
             {
