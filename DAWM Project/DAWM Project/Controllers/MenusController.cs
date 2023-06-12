@@ -59,7 +59,7 @@ namespace DAWM_Project.Controllers
         [Route("{menuId}")]
         public async Task<IActionResult> UpdateMenu(int menuId, CreateOrUpdateMenu payload)
         {
-            bool result = await _menusService.UpateMenu(menuId, payload);
+            bool result = await _menusService.UpdateMenu(menuId, payload);
 
             if (result)
             {

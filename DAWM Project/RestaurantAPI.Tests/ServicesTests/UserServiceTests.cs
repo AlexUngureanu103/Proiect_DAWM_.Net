@@ -164,7 +164,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             string result = await userService.ValidateCredentials(loginData);
 
-            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
+            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail when account is not found");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -185,7 +185,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             string result = await userService.ValidateCredentials(loginData);
 
-            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
+            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail when password is wrong");
             TestLoggerMethods(
                 logErrorCount: 0,
                 logErrorExCount: 0,
@@ -205,7 +205,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             string result = await userService.ValidateCredentials(loginData);
 
-            Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress shouldn't fail  when registration is successful");
+            Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress shouldn't fail when registration is successful");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -226,7 +226,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             string result = await userService.ValidateCredentials(loginData);
 
-            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
+            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail when user is unautorized");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -247,7 +247,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             string result = await userService.ValidateAdminCredentials(loginData);
 
-            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
+            Assert.IsTrue(string.IsNullOrEmpty(result), "Register procress should fail when user is unautorized");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -268,7 +268,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             string result = await userService.ValidateAdminCredentials(loginData);
 
-            Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress should fail  when user is unautorized");
+            Assert.IsTrue(!string.IsNullOrEmpty(result), "Register procress shouldn't fail when user is an admin");
 
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>()), Times.Never);
             _mockLogger.Verify(log => log.LogError(It.IsAny<string>(), It.IsAny<Exception>()), Times.Never);
@@ -294,7 +294,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             bool result = await userService.UpdateUserDetails(1, userData);
 
-            Assert.IsTrue(!result, "Register procress shouldn't fail  when registration is successful");
+            Assert.IsTrue(!result, "Update procress should fail when Email is already registered");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -316,7 +316,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             bool result = await userService.UpdateUserDetails(userId, userData);
 
-            Assert.IsTrue(result, "Register procress shouldn't fail  when registration is successful");
+            Assert.IsTrue(result, "Update procress shouldn't fail when  it's successful");
 
             TestLoggerMethods(
                 logErrorCount: 0,

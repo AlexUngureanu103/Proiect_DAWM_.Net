@@ -101,7 +101,7 @@ namespace Core.Services
             return MenuMapping.MapToMenuInfos(menuFromDb);
         }
 
-        public async Task<bool> UpateMenu(int menuId, CreateOrUpdateMenu menu)
+        public async Task<bool> UpdateMenu(int menuId, CreateOrUpdateMenu menu)
         {
             if (menu == null)
             {

@@ -165,11 +165,11 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task UpateMenu_WhenMenuIsNull_ThrowArguemntNullException()
+        public async Task UpdateMenu_WhenMenuIsNull_ThrowArguemntNullException()
         {
             var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => MenusService.UpateMenu(1, null));
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => MenusService.UpdateMenu(1, null));
 
             TestLoggerMethods(
                 logErrorCount: 1,
@@ -181,16 +181,16 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
-        public async Task UpateMenuMenu_WhenMenuIsOk_ReturnTrue()
+        public async Task UpdateMenuMenu_WhenMenuIsOk_ReturnTrue()
         {
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.MenusRepository.UpdateAsync(It.IsAny<int>(), It.IsAny<Menu>()));
 
             var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await MenusService.UpateMenu(1, menuData);
+            bool result = await MenusService.UpdateMenu(1, menuData);
 
-            Assert.IsTrue(result, "Menu should be UpateMenus");
+            Assert.IsTrue(result, "Menu should  Update successfully");
 
             TestLoggerMethods(
                 logErrorCount: 0,

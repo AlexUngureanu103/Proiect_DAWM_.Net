@@ -71,7 +71,7 @@ namespace Core.Services
             {
                 logger.LogError($"Null argument from controller: {nameof(ingredient)}");
 
-                return false;
+                throw new ArgumentNullException(nameof(ingredient));
             }
 
             Ingredient ingredientData = IngredientMapping.MapToIngredient(ingredient);

@@ -72,7 +72,7 @@ namespace Core.Services
             {
                 logger.LogError($"Null argument from controller: {nameof(recipe)}");
 
-                return false;
+                throw new ArgumentNullException(nameof(recipe));
             }
 
             Recipe recipeData = RecipeMapping.MapToRecipe(recipe);

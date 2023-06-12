@@ -164,7 +164,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Update(1, null));
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Update(1, null));
 
             TestLoggerMethods(
                 logErrorCount: 1,
@@ -185,7 +185,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             bool result = await ingredientsService.Update(1, ingredientData);
 
-            Assert.IsTrue(result, "Ingredient should be updates");
+            Assert.IsTrue(result, "Ingredient should update successfully");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -263,7 +263,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var ingredientsService = new IngredientsService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Create(null));
+           await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Create(null));
 
             TestLoggerMethods(
                 logErrorCount: 0,

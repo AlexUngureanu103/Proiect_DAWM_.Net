@@ -178,7 +178,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             bool result = await DishesTypeService.Update(1, dishTypeData);
 
-            Assert.IsTrue(result, "DishType should be updates");
+            Assert.IsTrue(result, "DishType should update successfully");
 
             TestLoggerMethods(
                 logErrorCount: 0,

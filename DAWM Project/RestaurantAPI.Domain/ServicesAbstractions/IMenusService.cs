@@ -8,7 +8,7 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 
         Task<bool> DeleteMenu(int menuId);
 
-        Task<bool> UpateMenu(int menuId, CreateOrUpdateMenu menu);
+        Task<bool> UpdateMenu(int menuId, CreateOrUpdateMenu menu);
 
         Task<MenuInfos> GetMenuById(int menu);
 
