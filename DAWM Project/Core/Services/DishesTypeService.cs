@@ -20,7 +20,7 @@ namespace Core.Services
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<bool> AddDishesType(CreateOrUpdateDishesType dishesType)
+        public async Task<bool> Create(CreateOrUpdateDishesType dishesType)
         {
             if (dishesType == null)
                 throw new ArgumentNullException(nameof(dishesType));
@@ -34,7 +34,7 @@ namespace Core.Services
             return result;
         }
 
-        public async Task<bool> DeleteDishesType(int dishesTypeId)
+        public async Task<bool> Delete(int dishesTypeId)
         {
             try
             {
@@ -52,21 +52,21 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<IEnumerable<DishesType>> GetAllDishesTypes()
+        public async Task<IEnumerable<DishesType>> GetAll()
         {
             var dishesTypesFromDb = await _unitOfWork.DishesTypeRepository.GetAllAsync();
 
             return dishesTypesFromDb;
         }
 
-        public async Task<DishesType> GetDishesType(int dishesTypeId)
+        public async Task<DishesType> GetById(int dishesTypeId)
         {
             var dishesTypeFromDb = await _unitOfWork.DishesTypeRepository.GetByIdAsync(dishesTypeId);
 
             return dishesTypeFromDb;
         }
 
-        public async Task<bool> UpdateDishesType(int dishesTypeId, CreateOrUpdateDishesType dishesType)
+        public async Task<bool> Update(int dishesTypeId, CreateOrUpdateDishesType dishesType)
         {
             if (dishesType == null)
             {

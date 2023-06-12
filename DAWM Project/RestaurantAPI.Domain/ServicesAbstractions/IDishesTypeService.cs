@@ -5,14 +5,14 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 {
     public interface IDishesTypeService
     {
-        Task<bool> AddDishesType(CreateOrUpdateDishesType dishesType);
+        Task<bool> Create(CreateOrUpdateDishesType dishesType);
 
-        Task<bool> DeleteDishesType(int dishesTypeId);
+        Task<bool> Delete(int dishesTypeId);
 
-        Task<bool> UpdateDishesType(int dishesTypeId, CreateOrUpdateDishesType dishesType);
+        Task<bool> Update(int dishesTypeId, CreateOrUpdateDishesType dishesType);
 
-        Task<DishesType> GetDishesType(int dishesTypeId);
+        Task<DishesType> GetById(int dishesTypeId);
 
-        Task<IEnumerable<DishesType>> GetAllDishesTypes();
+        Task<IEnumerable<DishesType>> GetAll();
     }
 }
