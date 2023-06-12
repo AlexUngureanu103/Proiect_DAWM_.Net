@@ -191,7 +191,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                 logErrorCount: 0,
                 logErrorExCount: 0,
                 logWarnCount: 0,
-                logInfoCount: 0,
+                logInfoCount: 1,
                 logDebugCount: 0
                 );
         }
@@ -232,7 +232,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                 logErrorCount: 0,
                 logErrorExCount: 0,
                 logWarnCount: 0,
-                logInfoCount: 0,
+                logInfoCount: 1,
                 logDebugCount: 0
                 );
         }
@@ -253,7 +253,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                 logErrorCount: 0,
                 logErrorExCount: 0,
                 logWarnCount: 0,
-                logInfoCount: 0,
+                logInfoCount: 1,
                 logDebugCount: 0
                 );
         }
@@ -266,7 +266,7 @@ namespace RestaurantAPI.Tests.ServicesTests
            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => ingredientsService.Create(null));
 
             TestLoggerMethods(
-                logErrorCount: 0,
+                logErrorCount: 1,
                 logErrorExCount: 0,
                 logWarnCount: 0,
                 logInfoCount: 0,

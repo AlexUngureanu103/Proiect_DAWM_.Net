@@ -22,7 +22,10 @@ namespace Core.Services
         public async Task<bool> AddMenu(CreateOrUpdateMenu menu)
         {
             if (menu == null)
+            {
+                logger.LogError($"Null argument from controller: {nameof(menu)}");
                 throw new ArgumentNullException(nameof(menu));
+            }
 
             Menu menuData = MenuMapping.MapToMenu(menu);
 
@@ -32,6 +35,7 @@ namespace Core.Services
             await _unitOfWork.MenusRepository.AddAsync(menuData);
 
             bool result = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Menu with id {menuData.Id} added");
 
             return result;
         }
@@ -73,6 +77,7 @@ namespace Core.Services
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Menu with id {menuId} deleted");
 
             return response;
         }
@@ -140,10 +145,10 @@ namespace Core.Services
             {
                 logger.LogError(exception.Message, exception);
                 return false;
-
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Menu with id {menuId} updated");
 
             return response;
         }

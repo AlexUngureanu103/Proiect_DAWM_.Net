@@ -22,13 +22,17 @@ namespace Core.Services
         public async Task<bool> Create(CreateOrUpdateDishesType dishesType)
         {
             if (dishesType == null)
+            {
+                logger.LogError($"Null argument from controller: {nameof(dishesType)}");
                 throw new ArgumentNullException(nameof(dishesType));
+            }
 
             DishesType dishesTypeData = DishesTypeMapping.MapToDishesType(dishesType);
 
             await _unitOfWork.DishesTypeRepository.AddAsync(dishesTypeData);
 
             bool result = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"DishesType with id {dishesTypeData.Id} added");
 
             return result;
         }
@@ -47,6 +51,7 @@ namespace Core.Services
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"DishesType with id {dishesTypeId} deleted");
 
             return response;
         }
@@ -89,10 +94,10 @@ namespace Core.Services
             {
                 logger.LogError(exception.Message, exception);
                 return false;
-
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"DishesType with id {dishesTypeId} updated");
 
             return response;
         }

@@ -23,13 +23,17 @@ namespace Core.Services
         public async Task<bool> Create(CreateOrUpdateRecipe recipe)
         {
             if (recipe == null)
+            {
+                logger.LogError($"Null argument from controller: {nameof(recipe)}");
                 throw new ArgumentNullException(nameof(recipe));
+            }
 
             Recipe recipeData = RecipeMapping.MapToRecipe(recipe);
 
             await _unitOfWork.RecipeRepository.AddAsync(recipeData);
 
             bool result = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Recipe with id {recipeData.Id} added");
 
             return result;
         }
@@ -48,6 +52,7 @@ namespace Core.Services
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Recipe with id {recipeId} deleted");
 
             return response;
         }
@@ -91,10 +96,10 @@ namespace Core.Services
             {
                 logger.LogError(exception.Message, exception);
                 return false;
-
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Recipe with id {recipeId} updated");
 
             return response;
         }
