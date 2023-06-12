@@ -2,7 +2,6 @@
 using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Enums;
 using RestaurantAPI.Domain.Mapping;
-using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.Models.Users;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
@@ -60,6 +59,16 @@ namespace Core.Services
 
         public async Task<string> ValidateCredentials(LoginDto payload)
         {
+            return await CredentialsValidator(payload, Role.Guest);
+        }
+
+        public async Task<string> ValidateAdminCredentials(LoginDto payload)
+        {
+            return await CredentialsValidator(payload, Role.Admin);
+        }
+
+        private async Task<string> CredentialsValidator(LoginDto payload, Role MinRole)
+        {
             User userFromDb = await _unitOfWork.UsersRepository.GetUserByEmail(payload.Email);
             if (userFromDb == null)
             {
@@ -73,6 +82,13 @@ namespace Core.Services
                 logger.LogWarn("The inserted password is invalid");
                 return string.Empty;
             }
+
+            if (userFromDb.Role.CompareTo(MinRole) < 0)
+            {
+                logger.LogWarn($"User role: {userFromDb.Role} is unautorized. Min role required: {MinRole}");
+                return string.Empty;
+            }
+            
             string role = userFromDb.Role.ToString();
             logger.LogInfo($"User with E-mail: {userFromDb.Email} logged in");
             return _authService.GetToken(userFromDb, role);
@@ -84,13 +100,13 @@ namespace Core.Services
             {
                 await _unitOfWork.UsersRepository.DeleteAsync(id);
             }
-            catch(EntityNotFoundException exception)
+            catch (EntityNotFoundException exception)
             {
-                logger.LogError(exception.Message,exception);
+                logger.LogError(exception.Message, exception);
 
                 return false;
             }
-           
+
             bool response = await _unitOfWork.SaveChangesAsync();
 
             return response;
@@ -129,6 +145,21 @@ namespace Core.Services
             bool response = await _unitOfWork.SaveChangesAsync();
 
             return response;
+        }
+
+        public async Task<UserPublicData> GetUserPublicData(int userId)
+        {
+            User userFromDb = await _unitOfWork.UsersRepository.GetByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                string guest = "Guest";
+                logger.LogWarn($"User with id: {userId} not found");
+
+                return new UserPublicData { Email = guest, FirstName = guest, LastName = guest };
+            }
+
+            return UserMapping.MapToUserPublicData(userFromDb);
         }
     }
 }

@@ -51,6 +51,20 @@ namespace DAWM_Project.Controllers
             return Ok(new { token = jwtToken });
         }
 
+        [HttpPost("login/adm")]
+        [AllowAnonymous]
+        public async Task<IActionResult> LoginAsAdmin(LoginDto payload)
+        {
+            string jwtToken = await _userService.ValidateAdminCredentials(payload);
+
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new { token = jwtToken });
+        }
+
         [HttpPut("update")]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> EditUserDetails(CreateOrUpdateUser paylod)
@@ -59,10 +73,10 @@ namespace DAWM_Project.Controllers
 
             int userId = int.Parse(user.FindFirst("userId").Value);
 
-            bool result =await _userService.UpdateUserDetails(userId, paylod);
+            bool result = await _userService.UpdateUserDetails(userId, paylod);
             if (!result)
                 return BadRequest();
-            
+
             return Ok();
         }
 
@@ -78,6 +92,24 @@ namespace DAWM_Project.Controllers
             }
 
             return BadRequest();
+        }
+
+        [HttpGet("user/data")]
+        [Authorize(Roles = "User,Admin,Guest")]
+        public async Task<IActionResult> GetUserPublicData(int id)
+        {
+            ClaimsPrincipal user = User;
+
+            int userId = int.Parse(user.FindFirst("userId").Value);
+
+            var response = await _userService.GetUserPublicData(userId);
+
+            if (response == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(response);
         }
     }
 }

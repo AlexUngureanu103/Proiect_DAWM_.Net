@@ -5,5 +5,7 @@
         public string Name { get; set; }
 
         public float Price { get; set; }
+
+        public List<MenuItem> MenuItems { get; set; }
     }
 }

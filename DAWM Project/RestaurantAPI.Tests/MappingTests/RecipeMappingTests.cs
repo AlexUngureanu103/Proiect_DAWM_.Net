@@ -27,24 +27,24 @@ namespace RestaurantAPI.Tests.MappingTests
         }
 
         [TestMethod]
-        public void MapToUser_WhenUserIsNull_ReturnNull()
+        public void MapToRecipe_WhenRecipeIsNull_ReturnNull()
         {
-            var ingredient = RecipeMapping.MapToRecipe(null);
+            var recipe = RecipeMapping.MapToRecipe(null);
 
-            Assert.IsNull(ingredient, "Ingredient should be null when dto is null");
+            Assert.IsNull(recipe, "Recipe should be null when dto is null");
         }
 
         [TestMethod]
-        public void MapToUser_WhenUserIsNull_ReturnUser()
+        public void MapToRecipe_WhenRecipeIsNull_ReturnRecipe()
         {
-            var ingredient = RecipeMapping.MapToRecipe(recipeData);
+            var recipe = RecipeMapping.MapToRecipe(recipeData);
 
-            Assert.IsNotNull(ingredient, "User shouldn't be null when dto is null");
+            Assert.IsNotNull(recipe, "Recipe shouldn't be null when dto is null");
 
-            Assert.AreEqual(ingredient.Name, recipeData.Name, "Resulted ingredient is not the same ");
-            Assert.AreEqual(ingredient.Price, recipeData.Price, "Resulted ingredient is not the same ");
-            Assert.AreEqual(ingredient.DishesType, recipeData.DishesType, "Resulted ingredient is not the same ");
-            Assert.AreEqual(ingredient.DishesTypeId, recipeData.DishesTypeId, "Resulted ingredient is not the same ");
+            Assert.AreEqual(recipe.Name, recipeData.Name, "Resulted recipe is not the same ");
+            Assert.AreEqual(recipe.Price, recipeData.Price, "Resulted recipe is not the same ");
+            Assert.AreEqual(recipe.DishesType, recipeData.DishesType, "Resulted recipe is not the same ");
+            Assert.AreEqual(recipe.DishesTypeId, recipeData.DishesTypeId, "Resulted recipe is not the same ");
         }
     }
 }

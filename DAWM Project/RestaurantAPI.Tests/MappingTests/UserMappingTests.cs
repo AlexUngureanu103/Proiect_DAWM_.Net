@@ -1,5 +1,6 @@
 ﻿using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Mapping;
+using RestaurantAPI.Domain.Models.Users;
 
 namespace RestaurantAPI.Tests.MappingTests
 {
@@ -36,17 +37,46 @@ namespace RestaurantAPI.Tests.MappingTests
         }
 
         [TestMethod]
-        public void MapToUser_WhenUserIsNull_ReturnUser()
+        public void MapToUser_WhenUserIsNotNull_ReturnUser()
         {
             var user = UserMapping.MapToUser(userData);
 
-            Assert.IsNotNull(user, "User shouldn't be null when dto is null");
+            Assert.IsNotNull(user, "User shouldn't be null when dto is not null");
 
             Assert.AreEqual(user.Email, userData.Email, "Resulted user is not the same ");
             Assert.AreEqual(user.PasswordHash, userData.Password, "Resulted user is not the same ");
             Assert.AreEqual(user.Role, userData.Role, "Resulted user is not the same ");
             Assert.AreEqual(user.FirstName, userData.FirstName, "Resulted user is not the same ");
             Assert.AreEqual(user.LastName, userData.LastName, "Resulted user is not the same ");
+        }
+
+        [TestMethod]
+        public void MapToUserPublicData_WhenUserIsNull_ReturnNull()
+        {
+            var userPublicData = UserMapping.MapToUserPublicData(null);
+
+            Assert.IsNull(userPublicData, "User should be null when dto is null");
+        }
+
+        [TestMethod]
+        public void MapToUserPublicData_WhenUserIsNotNull_ReturnUserPublicData()
+        {
+            User user = new User
+            {
+                Email = "test",
+                FirstName = "test",
+                LastName = "test",
+                PasswordHash = "test",
+                Role = Domain.Enums.Role.Admin
+            };
+            
+            var userPublicData = UserMapping.MapToUserPublicData(user);
+
+            Assert.IsNotNull(userPublicData, "User shouldn't be null when dto is not null");
+
+            Assert.AreEqual(userPublicData.Email, user.Email, "Resulted user is not the same ");
+            Assert.AreEqual(userPublicData.FirstName, user.FirstName, "Resulted user is not the same ");
+            Assert.AreEqual(userPublicData.LastName, user.LastName, "Resulted user is not the same ");
         }
     }
 }

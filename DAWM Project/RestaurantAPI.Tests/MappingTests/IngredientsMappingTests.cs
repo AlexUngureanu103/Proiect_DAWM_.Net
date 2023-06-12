@@ -25,7 +25,7 @@ namespace RestaurantAPI.Tests.MappingTests
         }
 
         [TestMethod]
-        public void MapToUser_WhenUserIsNull_ReturnNull()
+        public void MapToIngredient_WhenIngredientIsNull_ReturnNull()
         {
             var ingredient = IngredientMapping.MapToIngredient(null);
 
@@ -33,11 +33,11 @@ namespace RestaurantAPI.Tests.MappingTests
         }
 
         [TestMethod]
-        public void MapToUser_WhenUserIsNull_ReturnUser()
+        public void MapToIngredient_WhenIngredientIsNull_ReturnIngredient()
         {
             var ingredient = IngredientMapping.MapToIngredient(ingredientData);
 
-            Assert.IsNotNull(ingredient, "User shouldn't be null when dto is null");
+            Assert.IsNotNull(ingredient, "Ingredient shouldn't be null when dto is null");
 
             Assert.AreEqual(ingredient.Name, ingredientData.Name, "Resulted ingredient is not the same ");
             Assert.AreEqual(ingredient.TotalWeight, ingredientData.TotalWeight, "Resulted ingredient is not the same ");
