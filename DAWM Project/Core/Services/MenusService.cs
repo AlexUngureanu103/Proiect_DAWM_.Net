@@ -38,16 +38,23 @@ namespace Core.Services
 
         public async Task<bool> AddMenuItem(int menuId, int recipieId)
         {
-           Menu menu = await _unitOfWork.MenusRepository.GetByIdAsync(menuId);
+            Menu menu = await _unitOfWork.MenusRepository.GetByIdAsync(menuId);
             if (menu == null)
+            {
+                logger.LogWarn($"Menu with id {menuId} not found");
                 return false;
+            }
 
             if (await _unitOfWork.RecipeRepository.GetByIdAsync(recipieId) == null)
+            {
+                logger.LogWarn($"Recipe with id {recipieId} not found");
                 return false;
+            }
 
             menu.MenuItems.Add(new MenuItem { RecipeId = recipieId });
 
             bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Menu with id {menuId} updated. Added Recipe with id {recipieId}");
 
             return response;
         }
@@ -74,16 +81,23 @@ namespace Core.Services
         {
             Menu menu = await _unitOfWork.MenusRepository.GetByIdAsync(menuId);
             if (menu == null)
-                return false;
+                if (menu == null)
+                {
+                    logger.LogWarn($"Menu with id {menuId} not found");
+                    return false;
+                }
 
             var record = menu.MenuItems.Where(item => item.RecipeId == recipieId).FirstOrDefault();
             if (record == null)
+            {
+                logger.LogWarn($"Menu with Id:{menuId} doesn't contains Recipe with id {recipieId}");
                 return false;
+            }
 
             menu.MenuItems.Remove(record);
 
             bool response = await _unitOfWork.SaveChangesAsync();
-
+            logger.LogInfo($"Menu with id {menuId} updated. Removed Recipe with id {recipieId}");
             return response;
         }
 

@@ -268,13 +268,162 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-           await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => MenusService.AddMenu(null));
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => MenusService.AddMenu(null));
 
             TestLoggerMethods(
                 logErrorCount: 0,
                 logErrorExCount: 0,
                 logWarnCount: 0,
                 logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddMenuItem_WhenMenuIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(x => x.MenusRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return null;
+            });
+
+            var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await MenusService.AddMenuItem(0, 1);
+
+            Assert.IsFalse(result, "Menu shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddMenuItem_WhenRecipeIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.MenusRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Menu();
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return null;
+            });
+
+            var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await MenusService.AddMenuItem(0, 1);
+
+            Assert.IsFalse(result, "Recipe shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddMenuItem_WhenEverythinIsOk_ReturnTrue()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.MenusRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Menu { MenuItems = new() };
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Recipe { Id = 1 };
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(() => { return true; });
+
+            var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await MenusService.AddMenuItem(0, 1);
+
+            Assert.IsTrue(result, "Menu should update successfully");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 1,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteMenuItem_WhenMenuIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(x => x.MenusRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return null;
+            });
+
+            var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await MenusService.DeleteMenuItem(0, 1);
+
+            Assert.IsFalse(result, "Menu shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteMenuItem_WhenRecipeIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.MenusRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Menu { MenuItems = new() };
+            });
+
+            var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await MenusService.DeleteMenuItem(0, 1);
+
+            Assert.IsFalse(result, "Recipe shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteMenuItem_WhenEverythingIsOk_ReturnTrue()
+        {
+            int menuItemId = 1;
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.MenusRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Menu { MenuItems = new() { new MenuItem { RecipeId = menuItemId } } };
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(() => { return true; });
+
+            var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await MenusService.DeleteMenuItem(0, menuItemId);
+
+            Assert.IsTrue(result, "Recipe shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 1,
                 logDebugCount: 0
                 );
         }
