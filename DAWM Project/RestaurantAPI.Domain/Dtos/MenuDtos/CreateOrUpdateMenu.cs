@@ -1,6 +1,4 @@
-﻿using RestaurantAPI.Domain.Models.MenuRelated;
-
-namespace RestaurantAPI.Domain.Dtos.MenuDtos
+﻿namespace RestaurantAPI.Domain.Dtos.MenuDtos
 {
     public class CreateOrUpdateMenu
     {

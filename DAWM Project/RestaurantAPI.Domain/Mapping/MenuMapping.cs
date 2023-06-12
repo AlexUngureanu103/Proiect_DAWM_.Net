@@ -14,6 +14,7 @@ namespace RestaurantAPI.Domain.Mapping
             {
                 Name = menu.Name,
                 Price = menu.Price,
+                MenuItems = new() 
             };
         }
 
@@ -27,7 +28,7 @@ namespace RestaurantAPI.Domain.Mapping
                 MenuId = menu.Id,
                 Name = menu.Name,
                 Price = menu.Price,
-                RecipiesIds = menu.MenuItems?.Select(i => i.RecipeId).ToList()
+                RecipiesIds = menu.MenuItems.Select(i => i.RecipeId).ToList()
             };
         }
     }
