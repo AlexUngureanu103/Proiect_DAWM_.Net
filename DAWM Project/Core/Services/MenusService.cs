@@ -107,7 +107,7 @@ namespace Core.Services
             {
                 logger.LogError($"Null argument from controller: {nameof(menu)}");
 
-                return false;
+                throw new ArgumentNullException(nameof(menu));
             }
 
             Menu menuData = MenuMapping.MapToMenu(menu);

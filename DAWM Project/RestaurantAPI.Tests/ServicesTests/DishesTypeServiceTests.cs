@@ -157,7 +157,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var DishesTypeService = new DishesTypeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => DishesTypeService.Update(1, null));
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => DishesTypeService.Update(1, null));
 
             TestLoggerMethods(
                 logErrorCount: 1,
@@ -219,7 +219,7 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             bool result = await DishesTypeService.Delete(1);
 
-            Assert.IsTrue(result, "DishType deletion should fail");
+            Assert.IsTrue(result, "DishType deletion should not fail");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -256,7 +256,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var DishesTypeService = new DishesTypeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(() => DishesTypeService.Create(null));
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => DishesTypeService.Create(null));
 
             TestLoggerMethods(
                 logErrorCount: 0,

@@ -4,7 +4,6 @@ using RestaurantAPI.Domain.Mapping;
 using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
-using System;
 
 namespace Core.Services
 {
@@ -72,7 +71,7 @@ namespace Core.Services
             {
                 logger.LogError($"Null argument from controller: {nameof(dishesType)}");
 
-                return false;
+                throw new ArgumentNullException(nameof(dishesType));
             }
 
             DishesType dishesTypeData = DishesTypeMapping.MapToDishesType(dishesType);
