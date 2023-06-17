@@ -8,7 +8,7 @@ using RestaurantAPI.Exceptions;
 
 namespace Core.Services
 {
-    internal class OrdersService : IOrdersService
+    public class OrdersService : IOrdersService
     {
         private readonly IUnitOfWork _unitOfWork;
 

@@ -5,7 +5,7 @@ using RestaurantAPI.Exceptions;
 
 namespace DataLayer.Repositories
 {
-    internal class OrdersRepository : RepositoryBase<Order>, IOrdersRepository
+    public class OrdersRepository : RepositoryBase<Order>, IOrdersRepository
     {
         public OrdersRepository(AppDbContext dbContext) : base(dbContext)
         {
