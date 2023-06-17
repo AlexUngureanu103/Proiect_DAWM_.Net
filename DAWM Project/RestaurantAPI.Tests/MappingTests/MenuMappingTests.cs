@@ -23,7 +23,7 @@ namespace RestaurantAPI.Tests.MappingTests
                 Id = 1,
                 Name = "test",
                 Price = 15,
-                MenuItems = null
+                MenuItems = new()
             };
         }
 
@@ -70,7 +70,7 @@ namespace RestaurantAPI.Tests.MappingTests
 
             Assert.AreEqual(menuInfo.Name, menu.Name, "Resulted Menu Info is not the same ");
             Assert.AreEqual(menuInfo.Price, menu.Price, "Resulted Menu Info is not the same ");
-            Assert.IsNull(menuInfo.RecipiesIds, "Resulted Menu Info  recipes Id's is not null");
+            Assert.IsNotNull(menuInfo.RecipiesIds, "Resulted Menu Info  recipes Id's is not null");
         }
 
         [TestMethod]

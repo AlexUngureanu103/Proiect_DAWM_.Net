@@ -14,6 +14,8 @@ namespace RestaurantAPI.Domain
 
         public IRecipeRepository RecipeRepository { get; }
 
+        public IOrdersRepository OrdersRepository { get; }
+
         Task<bool> SaveChangesAsync();
     }
 }

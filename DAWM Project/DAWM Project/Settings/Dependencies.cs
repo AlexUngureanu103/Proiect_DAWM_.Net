@@ -28,8 +28,8 @@ namespace DAWM_Project.Settings
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
             services.AddScoped<IDishesTypeService, DishesTypeService>();
-
-        }     
+            services.AddScoped<IOrdersService, OrdersService>();
+        }
 
         private static void AddRepositories(IServiceCollection services)
         {
@@ -38,6 +38,7 @@ namespace DAWM_Project.Settings
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IDishesTypeRepository, DishesTypeRepository>();
             services.AddScoped<IMenusRepository, MenusRepository>();
+            services.AddScoped<IOrdersRepository, OrdersRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

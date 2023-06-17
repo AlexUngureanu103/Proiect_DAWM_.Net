@@ -54,14 +54,14 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     Name = "Menu 1",
                     Price =15,
-                    MenuItems = null
+                    MenuItems = new()
                 },
                 new Menu
                 {
                     Id = 2,
                     Name = "Menu 2",
                     Price =125,
-                    MenuItems = null
+                    MenuItems = new()
                 }
             };
 
@@ -93,14 +93,14 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     Name = "Menu 1",
                     Price =15,
-                    MenuItems = null
+                    MenuItems = new()
                 },
                 new Menu
                 {
                     Id = 2,
                     Name = "Menu 2",
                     Price =125,
-                    MenuItems = null
+                    MenuItems = new()
                 }
             };
             int id = 1;
@@ -132,14 +132,14 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     Name = "Menu 1",
                     Price =15,
-                    MenuItems = null
+                    MenuItems = new()
                 },
                 new Menu
                 {
                     Id = 2,
                     Name = "Menu 2",
                     Price =125,
-                    MenuItems = null
+                    MenuItems = new()
                 }
             };
             int id = 351;
