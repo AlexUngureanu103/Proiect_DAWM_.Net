@@ -113,5 +113,21 @@ namespace DAWM_Project.Controllers
 
             return BadRequest();
         }
+
+        [HttpPut]
+        [Authorize(Roles = "User,Admin")]
+        [Route("addSingleItem/{orderId}/{recipieId}")]
+        public async Task<IActionResult> AddOrderSingleItem(int orderId, int recipieId)
+        {
+            return Ok();
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "User,Admin")]
+        [Route("deleteSingleItem/{orderId}/{recipieId}")]
+        public async Task<IActionResult> DeleteOrderSingleItem(int orderId, int recipieId)
+        {
+            return Ok();
+        }
     }
 }

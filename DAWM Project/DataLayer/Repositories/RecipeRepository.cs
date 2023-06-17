@@ -11,6 +11,18 @@ namespace DataLayer.Repositories
         {
         }
 
+        public async Task<IEnumerable<Recipe>> GetAllWithIngredients()
+        {
+            return await GetRecords().Include(r => r.Ingredients).ToListAsync();
+        }
+
+        public new async Task<Recipe> GetByIdAsync(int entityId)
+        {
+            var resultFromDb = await GetRecords().Include(r => r.Ingredients).Where(r => r.Id == entityId).FirstOrDefaultAsync();
+
+            return resultFromDb;
+        }
+
         public new async Task UpdateAsync(int entityId, Recipe entity)
         {
             if (entity == null)

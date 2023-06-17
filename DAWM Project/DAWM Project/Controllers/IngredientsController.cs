@@ -21,7 +21,6 @@ namespace DAWM_Project.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllIngredients()
         {
             var ingredients = await _ingredientsService.GetAll();
@@ -31,7 +30,6 @@ namespace DAWM_Project.Controllers
 
         [HttpGet]
         [Route("{ingredientId}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetIngredientById(int ingredientId)
         {
             var ingredient = await _ingredientsService.GetById(ingredientId);

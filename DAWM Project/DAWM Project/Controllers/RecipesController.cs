@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.RecipeDtos;
@@ -8,13 +9,13 @@ namespace DAWM_Project.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RecipiesController : ControllerBase
+    public class RecipesController : ControllerBase
     {
         private readonly IRecipeService _recipeService;
 
         private readonly IDataLogger logger;
 
-        public RecipiesController(IRecipeService recipeService, IDataLogger logger)
+        public RecipesController(IRecipeService recipeService, IDataLogger logger)
         {
             _recipeService = recipeService ?? throw new ArgumentNullException(nameof(recipeService));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -22,7 +23,6 @@ namespace DAWM_Project.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllRecipes()
         {
             var recipes = await _recipeService.GetAll();
@@ -32,7 +32,6 @@ namespace DAWM_Project.Controllers
 
         [HttpGet]
         [Route("{recipeId}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetRecipeById(int recipeId)
         {
             var recipe = await _recipeService.GetById(recipeId);
@@ -83,5 +82,36 @@ namespace DAWM_Project.Controllers
 
             return BadRequest();
         }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("addIngredient/{recipeId}/{ingredientId}/{weight}")]
+        public async Task<IActionResult> AddRecipeIngredient(int recipeId, int ingredientId, double weight)
+        {
+            bool result = await _recipeService.AddIngredient(recipeId, ingredientId, weight);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("deleteIngredient/{recipeId}/{ingredientId}")]
+        public async Task<IActionResult> DeleteRecipeIngredient(int recipeId, int ingredientId)
+        {
+            bool result = await _recipeService.DeleteIngredient(recipeId, ingredientId);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
     }
 }
