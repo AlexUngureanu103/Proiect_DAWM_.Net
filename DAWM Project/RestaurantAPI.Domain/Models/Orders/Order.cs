@@ -8,5 +8,7 @@ namespace RestaurantAPI.Domain.Models.Orders
         public User User { get; set; }
 
         public List<OrderItems> OrderItems { get; set; }
+
+        public DateTime OrderDate { get; set; }
     }
 }
