@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.OrderDtos;
+using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
@@ -119,7 +120,14 @@ namespace DAWM_Project.Controllers
         [Route("addSingleItem/{orderId}/{recipieId}")]
         public async Task<IActionResult> AddOrderSingleItem(int orderId, int recipieId)
         {
-            return Ok();
+            bool result = await _ordersService.AddOrderSingleItem(orderId, recipieId);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
 
         [HttpPut]
@@ -127,7 +135,14 @@ namespace DAWM_Project.Controllers
         [Route("deleteSingleItem/{orderId}/{recipieId}")]
         public async Task<IActionResult> DeleteOrderSingleItem(int orderId, int recipieId)
         {
-            return Ok();
+            bool result = await _ordersService.DeleteOrderSingleItem(orderId, recipieId);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
     }
 }
