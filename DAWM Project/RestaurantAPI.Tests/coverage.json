@@ -6275,49 +6275,74 @@
   "RestaurantAPI.Logger.dll": {
     "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Logger\\Logger.cs": {
       "RestaurantAPI.Logger.Logger": {
+        "System.Void RestaurantAPI.Logger.Logger::SetLogger(log4net.ILog)": {
+          "Lines": {
+            "10": 7,
+            "11": 7,
+            "12": 6
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 4,
+              "EndOffset": 6,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 11,
+              "Offset": 4,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        },
         "System.Void RestaurantAPI.Logger.Logger::LogDebug(System.String)": {
           "Lines": {
-            "10": 0,
-            "11": 0,
-            "12": 0
+            "15": 1,
+            "16": 1,
+            "17": 1
           },
           "Branches": []
         },
         "System.Void RestaurantAPI.Logger.Logger::LogError(System.String)": {
           "Lines": {
-            "15": 0,
-            "16": 0,
-            "17": 0
+            "20": 1,
+            "21": 1,
+            "22": 1
           },
           "Branches": []
         },
         "System.Void RestaurantAPI.Logger.Logger::LogError(System.String,System.Exception)": {
           "Lines": {
-            "20": 0,
-            "21": 0,
-            "22": 0
+            "25": 1,
+            "26": 1,
+            "27": 1
           },
           "Branches": []
         },
         "System.Void RestaurantAPI.Logger.Logger::LogInfo(System.String)": {
           "Lines": {
-            "25": 0,
-            "26": 0,
-            "27": 0
+            "30": 1,
+            "31": 1,
+            "32": 1
           },
           "Branches": []
         },
         "System.Void RestaurantAPI.Logger.Logger::LogWarn(System.String)": {
           "Lines": {
-            "30": 0,
-            "31": 0,
-            "32": 0
+            "35": 1,
+            "36": 1,
+            "37": 1
           },
           "Branches": []
         },
-        "System.Void RestaurantAPI.Logger.Logger::.cctor()": {
+        "System.Void RestaurantAPI.Logger.Logger::.ctor()": {
           "Lines": {
-            "7": 0
+            "7": 6
           },
           "Branches": []
         }
