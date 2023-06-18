@@ -49,7 +49,7 @@ namespace Core.Services
             }
             if (await _unitOfWork.DishesTypeRepository.GetByIdAsync(recipe.DishesTypeId) == null)
             {
-                logger.LogInfo($"DishesType with id {recipe.DishesTypeId} not found");
+                logger.LogWarn($"DishesType with id {recipe.DishesTypeId} not found");
                 return false;
             }
 
@@ -102,7 +102,7 @@ namespace Core.Services
         {
             var recipesFrombDb = await _unitOfWork.RecipeRepository.GetAllWithIngredients();
 
-            return recipesFrombDb.Select(r => RecipeMapping.MapToRecipeInfo(r)).ToList();
+            return recipesFrombDb.Select(recipe => RecipeMapping.MapToRecipeInfo(recipe)).ToList();
         }
 
         public async Task<RecipeInfo> GetById(int recipeId)
@@ -122,7 +122,7 @@ namespace Core.Services
             }
             if (await _unitOfWork.DishesTypeRepository.GetByIdAsync(recipe.DishesTypeId) == null)
             {
-                logger.LogInfo($"DishesType with id {recipe.DishesTypeId} not found");
+                logger.LogWarn($"DishesType with id {recipe.DishesTypeId} not found");
                 return false;
             }
 
