@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.IngredientDtos;
+using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
@@ -36,6 +37,9 @@ namespace DAWM_Project.Controllers
         {
             var ingredient = await _ingredientsService.GetById(ingredientId);
 
+            if (ingredient == null)
+                return BadRequest("Invalid ingredient id");
+            
             return Ok(ingredient);
         }
 
