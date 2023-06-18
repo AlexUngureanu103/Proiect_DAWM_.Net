@@ -8,13 +8,13 @@ namespace DAWM_Project.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RecipiesController : ControllerBase
+    public class RecipesController : ControllerBase
     {
         private readonly IRecipeService _recipeService;
 
         private readonly IDataLogger logger;
 
-        public RecipiesController(IRecipeService recipeService, IDataLogger logger)
+        public RecipesController(IRecipeService recipeService, IDataLogger logger)
         {
             _recipeService = recipeService ?? throw new ArgumentNullException(nameof(recipeService));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -36,6 +36,9 @@ namespace DAWM_Project.Controllers
         public async Task<IActionResult> GetRecipeById(int recipeId)
         {
             var recipe = await _recipeService.GetById(recipeId);
+
+            if (recipe == null)
+                return BadRequest("Invalid ingredient id");
 
             return Ok(recipe);
         }
