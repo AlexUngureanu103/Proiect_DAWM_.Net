@@ -4577,7 +4577,7 @@
             {
               "Line": 37,
               "Offset": 164,
-              "EndOffset": 185,
+              "EndOffset": 180,
               "Path": 1,
               "Ordinal": 1,
               "Hits": 1
@@ -4621,11 +4621,11 @@
       "DAWM_Project.Controllers.IngredientsController": {
         "System.Void DAWM_Project.Controllers.IngredientsController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IIngredientsService,RestaurantAPI.Domain.IDataLogger)": {
           "Lines": {
-            "17": 0,
-            "18": 0,
-            "19": 0,
-            "20": 0,
-            "21": 0
+            "17": 13,
+            "18": 13,
+            "19": 13,
+            "20": 12,
+            "21": 11
           },
           "Branches": [
             {
@@ -4634,7 +4634,7 @@
               "EndOffset": 13,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 19,
@@ -4642,7 +4642,7 @@
               "EndOffset": 25,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 12
             },
             {
               "Line": 20,
@@ -4650,7 +4650,7 @@
               "EndOffset": 35,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 20,
@@ -4658,7 +4658,7 @@
               "EndOffset": 47,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 11
             }
           ]
         }
@@ -4666,30 +4666,30 @@
       "DAWM_Project.Controllers.IngredientsController/<AddIngredient>d__5": {
         "System.Void DAWM_Project.Controllers.IngredientsController/<AddIngredient>d__5::MoveNext()": {
           "Lines": {
-            "45": 0,
-            "46": 0,
-            "48": 0,
-            "49": 0,
-            "50": 0,
-            "53": 0,
-            "54": 0
+            "48": 2,
+            "49": 2,
+            "51": 2,
+            "52": 1,
+            "53": 1,
+            "56": 1,
+            "57": 2
           },
           "Branches": [
             {
-              "Line": 48,
+              "Line": 51,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 48,
+              "Line": 51,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -4697,30 +4697,30 @@
       "DAWM_Project.Controllers.IngredientsController/<DeleteIngredient>d__7": {
         "System.Void DAWM_Project.Controllers.IngredientsController/<DeleteIngredient>d__7::MoveNext()": {
           "Lines": {
-            "75": 0,
-            "76": 0,
-            "78": 0,
-            "79": 0,
-            "80": 0,
-            "83": 0,
-            "84": 0
+            "78": 2,
+            "79": 2,
+            "81": 2,
+            "82": 1,
+            "83": 1,
+            "86": 1,
+            "87": 2
           },
           "Branches": [
             {
-              "Line": 78,
+              "Line": 81,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 78,
+              "Line": 81,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -4728,10 +4728,10 @@
       "DAWM_Project.Controllers.IngredientsController/<GetAllIngredients>d__3": {
         "System.Void DAWM_Project.Controllers.IngredientsController/<GetAllIngredients>d__3::MoveNext()": {
           "Lines": {
-            "26": 0,
-            "27": 0,
-            "29": 0,
-            "30": 0
+            "26": 1,
+            "27": 1,
+            "29": 1,
+            "30": 1
           },
           "Branches": []
         }
@@ -4739,41 +4739,60 @@
       "DAWM_Project.Controllers.IngredientsController/<GetIngredientById>d__4": {
         "System.Void DAWM_Project.Controllers.IngredientsController/<GetIngredientById>d__4::MoveNext()": {
           "Lines": {
-            "36": 0,
-            "37": 0,
-            "39": 0,
-            "40": 0
+            "36": 2,
+            "37": 2,
+            "39": 2,
+            "40": 1,
+            "42": 1,
+            "43": 2
           },
-          "Branches": []
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
         }
       },
       "DAWM_Project.Controllers.IngredientsController/<UpdateIngredient>d__6": {
         "System.Void DAWM_Project.Controllers.IngredientsController/<UpdateIngredient>d__6::MoveNext()": {
           "Lines": {
-            "60": 0,
-            "61": 0,
-            "63": 0,
-            "64": 0,
-            "65": 0,
-            "68": 0,
-            "69": 0
+            "63": 2,
+            "64": 2,
+            "66": 2,
+            "67": 1,
+            "68": 1,
+            "71": 1,
+            "72": 2
           },
           "Branches": [
             {
-              "Line": 63,
+              "Line": 66,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 63,
+              "Line": 66,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -4783,11 +4802,11 @@
       "DAWM_Project.Controllers.MenusController": {
         "System.Void DAWM_Project.Controllers.MenusController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IMenusService,RestaurantAPI.Domain.IDataLogger)": {
           "Lines": {
-            "17": 0,
-            "18": 0,
-            "19": 0,
-            "20": 0,
-            "21": 0
+            "17": 17,
+            "18": 17,
+            "19": 17,
+            "20": 16,
+            "21": 15
           },
           "Branches": [
             {
@@ -4796,7 +4815,7 @@
               "EndOffset": 13,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 19,
@@ -4804,7 +4823,7 @@
               "EndOffset": 25,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 16
             },
             {
               "Line": 20,
@@ -4812,7 +4831,7 @@
               "EndOffset": 35,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 20,
@@ -4820,7 +4839,7 @@
               "EndOffset": 47,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 15
             }
           ]
         }
@@ -4828,30 +4847,30 @@
       "DAWM_Project.Controllers.MenusController/<AddMenu>d__5": {
         "System.Void DAWM_Project.Controllers.MenusController/<AddMenu>d__5::MoveNext()": {
           "Lines": {
-            "43": 0,
-            "44": 0,
-            "46": 0,
-            "47": 0,
-            "48": 0,
-            "51": 0,
-            "52": 0
+            "46": 2,
+            "47": 2,
+            "49": 2,
+            "50": 1,
+            "51": 1,
+            "54": 1,
+            "55": 2
           },
           "Branches": [
             {
-              "Line": 46,
+              "Line": 49,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 46,
+              "Line": 49,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -4859,30 +4878,30 @@
       "DAWM_Project.Controllers.MenusController/<AddMenuItem>d__8": {
         "System.Void DAWM_Project.Controllers.MenusController/<AddMenuItem>d__8::MoveNext()": {
           "Lines": {
-            "89": 0,
-            "90": 0,
-            "92": 0,
-            "93": 0,
-            "94": 0,
-            "97": 0,
-            "98": 0
+            "92": 2,
+            "93": 2,
+            "95": 2,
+            "96": 1,
+            "97": 1,
+            "100": 1,
+            "101": 2
           },
           "Branches": [
             {
-              "Line": 92,
+              "Line": 95,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 92,
+              "Line": 95,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -4890,30 +4909,30 @@
       "DAWM_Project.Controllers.MenusController/<DeleteMenu>d__7": {
         "System.Void DAWM_Project.Controllers.MenusController/<DeleteMenu>d__7::MoveNext()": {
           "Lines": {
-            "74": 0,
-            "75": 0,
-            "77": 0,
-            "78": 0,
-            "79": 0,
-            "82": 0,
-            "83": 0
+            "77": 2,
+            "78": 2,
+            "80": 2,
+            "81": 1,
+            "82": 1,
+            "85": 1,
+            "86": 2
           },
           "Branches": [
             {
-              "Line": 77,
+              "Line": 80,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 77,
+              "Line": 80,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -4921,30 +4940,30 @@
       "DAWM_Project.Controllers.MenusController/<DeleteMenuItem>d__9": {
         "System.Void DAWM_Project.Controllers.MenusController/<DeleteMenuItem>d__9::MoveNext()": {
           "Lines": {
-            "104": 0,
-            "105": 0,
-            "107": 0,
-            "108": 0,
-            "109": 0,
-            "112": 0,
-            "113": 0
+            "107": 2,
+            "108": 2,
+            "110": 2,
+            "111": 1,
+            "112": 1,
+            "115": 1,
+            "116": 2
           },
           "Branches": [
             {
-              "Line": 107,
+              "Line": 110,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 107,
+              "Line": 110,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -4952,10 +4971,10 @@
       "DAWM_Project.Controllers.MenusController/<GetAllMenus>d__3": {
         "System.Void DAWM_Project.Controllers.MenusController/<GetAllMenus>d__3::MoveNext()": {
           "Lines": {
-            "25": 0,
-            "26": 0,
-            "28": 0,
-            "29": 0
+            "25": 1,
+            "26": 1,
+            "28": 1,
+            "29": 1
           },
           "Branches": []
         }
@@ -4963,41 +4982,60 @@
       "DAWM_Project.Controllers.MenusController/<GetMenuById>d__4": {
         "System.Void DAWM_Project.Controllers.MenusController/<GetMenuById>d__4::MoveNext()": {
           "Lines": {
-            "34": 0,
-            "35": 0,
-            "37": 0,
-            "38": 0
+            "34": 2,
+            "35": 2,
+            "37": 2,
+            "38": 1,
+            "40": 1,
+            "41": 2
           },
-          "Branches": []
+          "Branches": [
+            {
+              "Line": 37,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 37,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
         }
       },
       "DAWM_Project.Controllers.MenusController/<UpdateMenu>d__6": {
         "System.Void DAWM_Project.Controllers.MenusController/<UpdateMenu>d__6::MoveNext()": {
           "Lines": {
-            "59": 0,
-            "60": 0,
-            "62": 0,
-            "63": 0,
-            "64": 0,
-            "67": 0,
-            "68": 0
+            "62": 2,
+            "63": 2,
+            "65": 2,
+            "66": 1,
+            "67": 1,
+            "70": 1,
+            "71": 2
           },
           "Branches": [
             {
-              "Line": 62,
+              "Line": 65,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 62,
+              "Line": 65,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -5007,11 +5045,11 @@
       "DAWM_Project.Controllers.OrdersController": {
         "System.Void DAWM_Project.Controllers.OrdersController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IOrdersService,RestaurantAPI.Domain.IDataLogger)": {
           "Lines": {
-            "17": 0,
-            "18": 0,
-            "19": 0,
-            "20": 0,
-            "21": 0
+            "17": 17,
+            "18": 17,
+            "19": 17,
+            "20": 16,
+            "21": 15
           },
           "Branches": [
             {
@@ -5020,7 +5058,7 @@
               "EndOffset": 13,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 19,
@@ -5028,7 +5066,7 @@
               "EndOffset": 25,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 16
             },
             {
               "Line": 20,
@@ -5036,7 +5074,7 @@
               "EndOffset": 35,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 20,
@@ -5044,7 +5082,7 @@
               "EndOffset": 47,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 15
             }
           ]
         }
@@ -5052,30 +5090,30 @@
       "DAWM_Project.Controllers.OrdersController/<AddOrder>d__5": {
         "System.Void DAWM_Project.Controllers.OrdersController/<AddOrder>d__5::MoveNext()": {
           "Lines": {
-            "45": 0,
-            "46": 0,
-            "48": 0,
-            "49": 0,
-            "50": 0,
-            "53": 0,
-            "54": 0
+            "48": 2,
+            "49": 2,
+            "51": 2,
+            "52": 1,
+            "53": 1,
+            "56": 1,
+            "57": 2
           },
           "Branches": [
             {
-              "Line": 48,
+              "Line": 51,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 48,
+              "Line": 51,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -5083,30 +5121,30 @@
       "DAWM_Project.Controllers.OrdersController/<AddOrderItem>d__8": {
         "System.Void DAWM_Project.Controllers.OrdersController/<AddOrderItem>d__8::MoveNext()": {
           "Lines": {
-            "91": 0,
-            "92": 0,
-            "94": 0,
-            "95": 0,
-            "96": 0,
-            "99": 0,
-            "100": 0
+            "94": 2,
+            "95": 2,
+            "97": 2,
+            "98": 1,
+            "99": 1,
+            "102": 1,
+            "103": 2
           },
           "Branches": [
             {
-              "Line": 94,
+              "Line": 97,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 94,
+              "Line": 97,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -5114,30 +5152,30 @@
       "DAWM_Project.Controllers.OrdersController/<DeleteOrder>d__7": {
         "System.Void DAWM_Project.Controllers.OrdersController/<DeleteOrder>d__7::MoveNext()": {
           "Lines": {
-            "76": 0,
-            "77": 0,
-            "79": 0,
-            "80": 0,
-            "81": 0,
-            "84": 0,
-            "85": 0
+            "79": 2,
+            "80": 2,
+            "82": 2,
+            "83": 1,
+            "84": 1,
+            "87": 1,
+            "88": 2
           },
           "Branches": [
             {
-              "Line": 79,
+              "Line": 82,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 79,
+              "Line": 82,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -5145,30 +5183,30 @@
       "DAWM_Project.Controllers.OrdersController/<DeleteOrderItem>d__9": {
         "System.Void DAWM_Project.Controllers.OrdersController/<DeleteOrderItem>d__9::MoveNext()": {
           "Lines": {
-            "106": 0,
-            "107": 0,
-            "109": 0,
-            "110": 0,
-            "111": 0,
-            "114": 0,
-            "115": 0
+            "109": 2,
+            "110": 2,
+            "112": 2,
+            "113": 1,
+            "114": 1,
+            "117": 1,
+            "118": 2
           },
           "Branches": [
             {
-              "Line": 109,
+              "Line": 112,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 109,
+              "Line": 112,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -5176,10 +5214,10 @@
       "DAWM_Project.Controllers.OrdersController/<GetAllOrders>d__3": {
         "System.Void DAWM_Project.Controllers.OrdersController/<GetAllOrders>d__3::MoveNext()": {
           "Lines": {
-            "26": 0,
-            "27": 0,
-            "29": 0,
-            "30": 0
+            "26": 1,
+            "27": 1,
+            "29": 1,
+            "30": 1
           },
           "Branches": []
         }
@@ -5187,55 +5225,74 @@
       "DAWM_Project.Controllers.OrdersController/<GetOrderById>d__4": {
         "System.Void DAWM_Project.Controllers.OrdersController/<GetOrderById>d__4::MoveNext()": {
           "Lines": {
-            "36": 0,
-            "37": 0,
-            "39": 0,
-            "40": 0
+            "36": 2,
+            "37": 2,
+            "39": 2,
+            "40": 1,
+            "42": 1,
+            "43": 2
           },
-          "Branches": []
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
         }
       },
       "DAWM_Project.Controllers.OrdersController/<UpdateOrder>d__6": {
         "System.Void DAWM_Project.Controllers.OrdersController/<UpdateOrder>d__6::MoveNext()": {
           "Lines": {
-            "61": 0,
-            "62": 0,
-            "64": 0,
-            "65": 0,
-            "66": 0,
-            "69": 0,
-            "70": 0
+            "64": 2,
+            "65": 2,
+            "67": 2,
+            "68": 1,
+            "69": 1,
+            "72": 1,
+            "73": 2
           },
           "Branches": [
             {
-              "Line": 64,
+              "Line": 67,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 64,
+              "Line": 67,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
       }
     },
-    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\RecipiesController.cs": {
-      "DAWM_Project.Controllers.RecipiesController": {
-        "System.Void DAWM_Project.Controllers.RecipiesController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IRecipeService,RestaurantAPI.Domain.IDataLogger)": {
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\RecipesController.cs": {
+      "DAWM_Project.Controllers.RecipesController": {
+        "System.Void DAWM_Project.Controllers.RecipesController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IRecipeService,RestaurantAPI.Domain.IDataLogger)": {
           "Lines": {
-            "17": 0,
-            "18": 0,
-            "19": 0,
-            "20": 0,
-            "21": 0
+            "17": 13,
+            "18": 13,
+            "19": 13,
+            "20": 12,
+            "21": 11
           },
           "Branches": [
             {
@@ -5244,7 +5301,7 @@
               "EndOffset": 13,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 19,
@@ -5252,7 +5309,7 @@
               "EndOffset": 25,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 12
             },
             {
               "Line": 20,
@@ -5260,7 +5317,7 @@
               "EndOffset": 35,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 20,
@@ -5268,122 +5325,141 @@
               "EndOffset": 47,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 11
             }
           ]
         }
       },
-      "DAWM_Project.Controllers.RecipiesController/<AddRecipe>d__5": {
-        "System.Void DAWM_Project.Controllers.RecipiesController/<AddRecipe>d__5::MoveNext()": {
+      "DAWM_Project.Controllers.RecipesController/<AddRecipe>d__5": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<AddRecipe>d__5::MoveNext()": {
           "Lines": {
-            "46": 0,
-            "47": 0,
-            "49": 0,
-            "50": 0,
-            "51": 0,
-            "54": 0,
-            "55": 0
+            "49": 2,
+            "50": 2,
+            "52": 2,
+            "53": 1,
+            "54": 1,
+            "57": 1,
+            "58": 2
           },
           "Branches": [
             {
-              "Line": 49,
+              "Line": 52,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 49,
+              "Line": 52,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
       },
-      "DAWM_Project.Controllers.RecipiesController/<DeleteRecipe>d__7": {
-        "System.Void DAWM_Project.Controllers.RecipiesController/<DeleteRecipe>d__7::MoveNext()": {
+      "DAWM_Project.Controllers.RecipesController/<DeleteRecipe>d__7": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<DeleteRecipe>d__7::MoveNext()": {
           "Lines": {
-            "76": 0,
-            "77": 0,
-            "79": 0,
-            "80": 0,
-            "81": 0,
-            "84": 0,
-            "85": 0
+            "79": 2,
+            "80": 2,
+            "82": 2,
+            "83": 1,
+            "84": 1,
+            "87": 1,
+            "88": 2
           },
           "Branches": [
             {
-              "Line": 79,
+              "Line": 82,
               "Offset": 154,
               "EndOffset": 156,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 79,
+              "Line": 82,
               "Offset": 154,
               "EndOffset": 171,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
       },
-      "DAWM_Project.Controllers.RecipiesController/<GetAllRecipes>d__3": {
-        "System.Void DAWM_Project.Controllers.RecipiesController/<GetAllRecipes>d__3::MoveNext()": {
+      "DAWM_Project.Controllers.RecipesController/<GetAllRecipes>d__3": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<GetAllRecipes>d__3::MoveNext()": {
           "Lines": {
-            "27": 0,
-            "28": 0,
-            "30": 0,
-            "31": 0
+            "27": 1,
+            "28": 1,
+            "30": 1,
+            "31": 1
           },
           "Branches": []
         }
       },
-      "DAWM_Project.Controllers.RecipiesController/<GetRecipeById>d__4": {
-        "System.Void DAWM_Project.Controllers.RecipiesController/<GetRecipeById>d__4::MoveNext()": {
+      "DAWM_Project.Controllers.RecipesController/<GetRecipeById>d__4": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<GetRecipeById>d__4::MoveNext()": {
           "Lines": {
-            "37": 0,
-            "38": 0,
-            "40": 0,
-            "41": 0
-          },
-          "Branches": []
-        }
-      },
-      "DAWM_Project.Controllers.RecipiesController/<UpdateRecipe>d__6": {
-        "System.Void DAWM_Project.Controllers.RecipiesController/<UpdateRecipe>d__6::MoveNext()": {
-          "Lines": {
-            "61": 0,
-            "62": 0,
-            "64": 0,
-            "65": 0,
-            "66": 0,
-            "69": 0,
-            "70": 0
+            "37": 2,
+            "38": 2,
+            "40": 2,
+            "41": 1,
+            "43": 1,
+            "44": 2
           },
           "Branches": [
             {
-              "Line": 64,
+              "Line": 40,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 40,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.RecipesController/<UpdateRecipe>d__6": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<UpdateRecipe>d__6::MoveNext()": {
+          "Lines": {
+            "64": 2,
+            "65": 2,
+            "67": 2,
+            "68": 1,
+            "69": 1,
+            "72": 1,
+            "73": 2
+          },
+          "Branches": [
+            {
+              "Line": 67,
               "Offset": 160,
               "EndOffset": 162,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 64,
+              "Line": 67,
               "Offset": 160,
               "EndOffset": 177,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }

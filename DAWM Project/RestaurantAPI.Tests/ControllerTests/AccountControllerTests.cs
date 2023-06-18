@@ -43,10 +43,10 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task Register_InputIsValid_ReturnsOK()
+        public async Task Register_InputIsValid_ReturnOkResult()
         {
             var input = new CreateOrUpdateUser { /* create valid user object */ };
-            _mockUserService.Setup(service => service.Register(It.IsAny<CreateOrUpdateUser>())).Returns(Task.FromResult(true));
+            _mockUserService.Setup(usersService => usersService.Register(It.IsAny<CreateOrUpdateUser>())).Returns(Task.FromResult(true));
 
             var result = await accountController.Register(input);
 
@@ -62,10 +62,10 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task Register_InputIsInvalid_ReturnsBadRequest()
+        public async Task Register_InputIsInvalid_ReturnBadRequestResult()
         {
             var input = new CreateOrUpdateUser { /* create invalid user object */ };
-            _mockUserService.Setup(service => service.Register(It.IsAny<CreateOrUpdateUser>())).Returns(Task.FromResult(false));
+            _mockUserService.Setup(usersService => usersService.Register(It.IsAny<CreateOrUpdateUser>())).Returns(Task.FromResult(false));
 
             var result = await accountController.Register(input);
 
@@ -83,7 +83,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         [TestMethod]
         public async Task Test_Login_ReturnUnauthorizedResult()
         {
-            _mockUserService.Setup(service => service.ValidateCredentials(It.IsAny<LoginDto>())).ReturnsAsync(() => null);
+            _mockUserService.Setup(usersService => usersService.ValidateCredentials(It.IsAny<LoginDto>())).ReturnsAsync(() => null);
 
             var result = await accountController.Login(new LoginDto());
 
@@ -99,9 +99,9 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task Test_Login_ReturnOkResult()
+        public async Task Test_Login_ReturnOkObjectResult()
         {
-            _mockUserService.Setup(service => service.ValidateCredentials(It.IsAny<LoginDto>())).ReturnsAsync("jwtToken");
+            _mockUserService.Setup(usersService => usersService.ValidateCredentials(It.IsAny<LoginDto>())).ReturnsAsync("jwtToken");
 
             var result = await accountController.Login(new LoginDto());
 
@@ -119,7 +119,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         [TestMethod]
         public async Task Test_LoginAsAdmin_ReturnUnauthorizedResult()
         {
-            _mockUserService.Setup(service => service.ValidateAdminCredentials(It.IsAny<LoginDto>())).ReturnsAsync(() => null);
+            _mockUserService.Setup(usersService => usersService.ValidateAdminCredentials(It.IsAny<LoginDto>())).ReturnsAsync(() => null);
 
             var result = await accountController.LoginAsAdmin(new LoginDto());
 
@@ -135,9 +135,9 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task Test_LoginAsAdmin_ReturnOkResult()
+        public async Task Test_LoginAsAdmin_ReturnOkObjectResult()
         {
-            _mockUserService.Setup(service => service.ValidateAdminCredentials(It.IsAny<LoginDto>())).ReturnsAsync("jwtToken");
+            _mockUserService.Setup(usersService => usersService.ValidateAdminCredentials(It.IsAny<LoginDto>())).ReturnsAsync("jwtToken");
 
             var result = await accountController.LoginAsAdmin(new LoginDto());
 
@@ -153,7 +153,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task EditUserDetails_ValidInput_ReturnsOkResult()
+        public async Task EditUserDetails_ValidInput_ReturnOkResult()
         {
             int testId = 1;
             CreateOrUpdateUser testUserPayload = new CreateOrUpdateUser()
@@ -171,7 +171,7 @@ namespace RestaurantAPI.Tests.ControllerTests
                 new Claim("userId", testId.ToString())
             }));
 
-            _mockUserService.Setup(x => x.UpdateUserDetails(It.IsAny<int>(), It.IsAny<CreateOrUpdateUser>())).ReturnsAsync(true);
+            _mockUserService.Setup(usersService => usersService.UpdateUserDetails(It.IsAny<int>(), It.IsAny<CreateOrUpdateUser>())).ReturnsAsync(true);
 
             var result = await accountController.EditUserDetails(testUserPayload);
 
@@ -187,7 +187,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task EditUserDetails_InvalidInput_ReturnsBadRequestResult()
+        public async Task EditUserDetails_InvalidInput_ReturnBadRequestResult()
         {
             int testId = 1;
             CreateOrUpdateUser testUserPayload = new CreateOrUpdateUser()
@@ -205,7 +205,7 @@ namespace RestaurantAPI.Tests.ControllerTests
                 new Claim("userId", testId.ToString())
             }));
 
-            _mockUserService.Setup(x => x.UpdateUserDetails(It.IsAny<int>(), It.IsAny<CreateOrUpdateUser>())).ReturnsAsync(false);
+            _mockUserService.Setup(usersService => usersService.UpdateUserDetails(It.IsAny<int>(), It.IsAny<CreateOrUpdateUser>())).ReturnsAsync(false);
 
             var result = await accountController.EditUserDetails(testUserPayload);
 
@@ -221,14 +221,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteAccount_InvalidInput_ReturnsBadRequestResult()
+        public async Task DeleteAccount_InvalidInput_ReturnBadRequestResult()
         {
             int testId = 1;
 
             accountController.ControllerContext = new ControllerContext();
             accountController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockUserService.Setup(x => x.DeleteAccount(It.IsAny<int>())).ReturnsAsync(false);
+            _mockUserService.Setup(usersService => usersService.DeleteAccount(It.IsAny<int>())).ReturnsAsync(false);
 
             var result = await accountController.DeleteAccount(testId);
 
@@ -244,14 +244,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteAccount_InputIsOk_ReturnsOkResult()
+        public async Task DeleteAccount_InputIsOk_ReturnOkResult()
         {
             int testId = 1;
 
             accountController.ControllerContext = new ControllerContext();
             accountController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockUserService.Setup(x => x.DeleteAccount(It.IsAny<int>())).ReturnsAsync(true);
+            _mockUserService.Setup(usersService => usersService.DeleteAccount(It.IsAny<int>())).ReturnsAsync(true);
 
             var result = await accountController.DeleteAccount(testId);
 
@@ -267,7 +267,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetUserPublicData_InvalidInput_ReturnsBadRequestResult()
+        public async Task GetUserPublicData_InvalidInput_ReturnBadRequestResult()
         {
             int testId = 1;
             CreateOrUpdateUser testUserPayload = new CreateOrUpdateUser()
@@ -285,7 +285,7 @@ namespace RestaurantAPI.Tests.ControllerTests
                 new Claim("userId", testId.ToString())
             }));
 
-            _mockUserService.Setup(x => x.GetUserPublicData(It.IsAny<int>())).ReturnsAsync(() => null);
+            _mockUserService.Setup(usersService => usersService.GetUserPublicData(It.IsAny<int>())).ReturnsAsync(() => null);
 
             var result = await accountController.GetUserPublicData(testId);
 
@@ -301,7 +301,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetUserPublicData_InputIsOk_ReturnsOkResult()
+        public async Task GetUserPublicData_InputIsOk_ReturnOkObjectResult()
         {
             int testId = 1;
             CreateOrUpdateUser testUserPayload = new CreateOrUpdateUser()
@@ -319,7 +319,7 @@ namespace RestaurantAPI.Tests.ControllerTests
                 new Claim("userId", testId.ToString())
             }));
 
-            _mockUserService.Setup(x => x.GetUserPublicData(It.IsAny<int>())).ReturnsAsync(new UserPublicData());
+            _mockUserService.Setup(usersService => usersService.GetUserPublicData(It.IsAny<int>())).ReturnsAsync(new UserPublicData());
 
             var result = await accountController.GetUserPublicData(testId);
 

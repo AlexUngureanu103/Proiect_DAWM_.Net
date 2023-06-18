@@ -43,7 +43,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetAll__ReturnOkResult()
+        public async Task GetAll__ReturnOkObjectResult()
         {
             _mockRecipeService.Setup(recipeService => recipeService.GetAll());
 
@@ -61,14 +61,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetById_WhenInputIsValid_ReturnBadRequestObjectResult()
+        public async Task GetById_WhenInputIsValid_ReturnNotFoundResult()
         {
             int recipeId = 1;
             _mockRecipeService.Setup(recipeService => recipeService.GetById(It.IsAny<int>())).ReturnsAsync(() => null);
 
             var result = await RecipeController.GetRecipeById(recipeId);
 
-            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -99,16 +99,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddRecipe_InputIsOk_ReturnsOkResult()
+        public async Task AddRecipe_InputIsOk_ReturnOkResult()
         {
-            CreateOrUpdateRecipe newrecipe = new();
+            CreateOrUpdateRecipe newRecipe = new();
 
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(x => x.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(true);
+            _mockRecipeService.Setup(recipeService => recipeService.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(true);
 
-            var result = await RecipeController.AddRecipe(newrecipe);
+            var result = await RecipeController.AddRecipe(newRecipe);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -122,16 +122,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddRecipe_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task AddRecipe_InputIsInvalid_ReturnBadRequestResult()
         {
-            CreateOrUpdateRecipe newrecipe = new();
+            CreateOrUpdateRecipe newRecipe = new();
 
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(x => x.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(false);
+            _mockRecipeService.Setup(recipeService => recipeService.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(false);
 
-            var result = await RecipeController.AddRecipe(newrecipe);
+            var result = await RecipeController.AddRecipe(newRecipe);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 
@@ -145,17 +145,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateRecipe_InputIsOk_ReturnsOkResult()
+        public async Task UpdateRecipe_InputIsOk_ReturnOkResult()
         {
-            CreateOrUpdateRecipe newrecipe = new();
-            int recipeid = 1;
+            CreateOrUpdateRecipe newRecipe = new();
+            int recipeId = 1;
 
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(true);
+            _mockRecipeService.Setup(recipeService => recipeService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(true);
 
-            var result = await RecipeController.UpdateRecipe(recipeid, newrecipe);
+            var result = await RecipeController.UpdateRecipe(recipeId, newRecipe);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -169,17 +169,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateRecipe_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task UpdateRecipe_InputIsInvalid_ReturnBadRequestResult()
         {
-            CreateOrUpdateRecipe newrecipe = new();
-            int recipeid = 1;
+            CreateOrUpdateRecipe newRecipe = new();
+            int recipeId = 1;
 
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(false);
+            _mockRecipeService.Setup(recipeService => recipeService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(false);
 
-            var result = await RecipeController.UpdateRecipe(recipeid, newrecipe);
+            var result = await RecipeController.UpdateRecipe(recipeId, newRecipe);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 
@@ -193,16 +193,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteRecipe_InputIsOk_ReturnsOkResult()
+        public async Task DeleteRecipe_InputIsOk_ReturnOkResult()
         {
-            int recipeid = 1;
+            int recipeId = 1;
 
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(true);
+            _mockRecipeService.Setup(recipeService => recipeService.Delete(It.IsAny<int>())).ReturnsAsync(true);
 
-            var result = await RecipeController.DeleteRecipe(recipeid);
+            var result = await RecipeController.DeleteRecipe(recipeId);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -216,16 +216,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteRecipe_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task DeleteRecipe_InputIsInvalid_ReturnBadRequestResult()
         {
-            int recipeid = 1;
+            int recipeId = 1;
 
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(false);
+            _mockRecipeService.Setup(recipeService => recipeService.Delete(It.IsAny<int>())).ReturnsAsync(false);
 
-            var result = await RecipeController.DeleteRecipe(recipeid);
+            var result = await RecipeController.DeleteRecipe(recipeId);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 

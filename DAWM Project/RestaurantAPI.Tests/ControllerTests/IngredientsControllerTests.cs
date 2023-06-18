@@ -43,7 +43,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetAll__ReturnOkResult()
+        public async Task GetAll__ReturnOkObjectResult()
         {
             _mockIngredientService.Setup(ingredientService => ingredientService.GetAll());
 
@@ -61,14 +61,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetById_WhenInputIsValid_ReturnBadRequestObjectResult()
+        public async Task GetById_WhenInputIsValid_ReturnNotFoundResult()
         {
             int ingredientId = 1;
             _mockIngredientService.Setup(ingredientService => ingredientService.GetById(It.IsAny<int>())).ReturnsAsync(() => null);
 
             var result = await IngredientController.GetIngredientById(ingredientId);
 
-            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -99,14 +99,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddIngredient_InputIsOk_ReturnsOkResult()
+        public async Task AddIngredient_InputIsOk_ReturnOkResult()
         {
             CreateOrUpdateIngredient newingredient = new();
 
             IngredientController.ControllerContext = new ControllerContext();
             IngredientController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockIngredientService.Setup(x => x.Create(It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(true);
+            _mockIngredientService.Setup(ingredientService => ingredientService.Create(It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(true);
 
             var result = await IngredientController.AddIngredient(newingredient);
 
@@ -122,14 +122,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddIngredient_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task AddIngredient_InputIsInvalid_ReturnBadRequestResult()
         {
             CreateOrUpdateIngredient newingredient = new();
 
             IngredientController.ControllerContext = new ControllerContext();
             IngredientController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockIngredientService.Setup(x => x.Create(It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(false);
+            _mockIngredientService.Setup(ingredientService => ingredientService.Create(It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(false);
 
             var result = await IngredientController.AddIngredient(newingredient);
 
@@ -145,7 +145,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateIngredient_InputIsOk_ReturnsOkResult()
+        public async Task UpdateIngredient_InputIsOk_ReturnOkResult()
         {
             CreateOrUpdateIngredient newingredient = new();
             int ingredientid = 1;
@@ -153,7 +153,7 @@ namespace RestaurantAPI.Tests.ControllerTests
             IngredientController.ControllerContext = new ControllerContext();
             IngredientController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockIngredientService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(true);
+            _mockIngredientService.Setup(ingredientService => ingredientService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(true);
 
             var result = await IngredientController.UpdateIngredient(ingredientid, newingredient);
 
@@ -169,7 +169,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateIngredient_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task UpdateIngredient_InputIsInvalid_ReturnBadRequestResult()
         {
             CreateOrUpdateIngredient newingredient = new();
             int ingredientid = 1;
@@ -177,7 +177,7 @@ namespace RestaurantAPI.Tests.ControllerTests
             IngredientController.ControllerContext = new ControllerContext();
             IngredientController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockIngredientService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(false);
+            _mockIngredientService.Setup(ingredientService => ingredientService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateIngredient>())).ReturnsAsync(false);
 
             var result = await IngredientController.UpdateIngredient(ingredientid, newingredient);
 
@@ -193,14 +193,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteIngredient_InputIsOk_ReturnsOkResult()
+        public async Task DeleteIngredient_InputIsOk_ReturnOkResult()
         {
             int ingredientid = 1;
 
             IngredientController.ControllerContext = new ControllerContext();
             IngredientController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockIngredientService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(true);
+            _mockIngredientService.Setup(ingredientService => ingredientService.Delete(It.IsAny<int>())).ReturnsAsync(true);
 
             var result = await IngredientController.DeleteIngredient(ingredientid);
 
@@ -216,14 +216,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteIngredient_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task DeleteIngredient_InputIsInvalid_ReturnBadRequestResult()
         {
             int ingredientid = 1;
 
             IngredientController.ControllerContext = new ControllerContext();
             IngredientController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockIngredientService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(false);
+            _mockIngredientService.Setup(ingredientService => ingredientService.Delete(It.IsAny<int>())).ReturnsAsync(false);
 
             var result = await IngredientController.DeleteIngredient(ingredientid);
 

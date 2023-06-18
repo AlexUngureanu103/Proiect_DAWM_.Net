@@ -43,7 +43,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetAll__ReturnOkResult()
+        public async Task GetAll__ReturnOkObjectResult()
         {
             _mockDishesTypeService.Setup(dishTypeService => dishTypeService.GetAll());
 
@@ -61,14 +61,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetById_WhenInputIsValid_ReturnBadRequestObjectResult()
+        public async Task GetById_WhenInputIsValid_ReturnNotFoundResult()
         {
             int dishTypeId = 1;
             _mockDishesTypeService.Setup(dishTypeService => dishTypeService.GetById(It.IsAny<int>())).ReturnsAsync(() => null);
 
             var result = await dishesTypeController.GetDishesTypeById(dishTypeId);
 
-            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -99,14 +99,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddDishesType_InputIsOk_ReturnsOkResult()
+        public async Task AddDishesType_InputIsOk_ReturnOkResult()
         {
             CreateOrUpdateDishesType newDishType = new();
 
             dishesTypeController.ControllerContext = new ControllerContext();
             dishesTypeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockDishesTypeService.Setup(x => x.Create(It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(true);
+            _mockDishesTypeService.Setup(dishesTypeService => dishesTypeService.Create(It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(true);
 
             var result = await dishesTypeController.AddDishesType(newDishType);
 
@@ -122,14 +122,14 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddDishesType_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task AddDishesType_InputIsInvalid_ReturnBadRequestResult()
         {
             CreateOrUpdateDishesType newDishType = new();
 
             dishesTypeController.ControllerContext = new ControllerContext();
             dishesTypeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockDishesTypeService.Setup(x => x.Create(It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(false);
+            _mockDishesTypeService.Setup(dishesTypeService => dishesTypeService.Create(It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(false);
 
             var result = await dishesTypeController.AddDishesType(newDishType);
 
@@ -145,17 +145,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateDishesType_InputIsOk_ReturnsOkResult()
+        public async Task UpdateDishesType_InputIsOk_ReturnOkResult()
         {
             CreateOrUpdateDishesType newDishType = new();
-            int DishTypeid = 1;
+            int dishTypeid = 1;
 
             dishesTypeController.ControllerContext = new ControllerContext();
             dishesTypeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockDishesTypeService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(true);
+            _mockDishesTypeService.Setup(dishesTypeService => dishesTypeService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(true);
 
-            var result = await dishesTypeController.UpdateDishesType(DishTypeid, newDishType);
+            var result = await dishesTypeController.UpdateDishesType(dishTypeid, newDishType);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -169,17 +169,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateDishesType_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task UpdateDishesType_InputIsInvalid_ReturnBadRequestResult()
         {
             CreateOrUpdateDishesType newDishType = new();
-            int DishTypeid = 1;
+            int dishTypeid = 1;
 
             dishesTypeController.ControllerContext = new ControllerContext();
             dishesTypeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockDishesTypeService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(false);
+            _mockDishesTypeService.Setup(dishesTypeService => dishesTypeService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateDishesType>())).ReturnsAsync(false);
 
-            var result = await dishesTypeController.UpdateDishesType(DishTypeid, newDishType);
+            var result = await dishesTypeController.UpdateDishesType(dishTypeid, newDishType);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 
@@ -193,16 +193,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteDishesType_InputIsOk_ReturnsOkResult()
+        public async Task DeleteDishesType_InputIsOk_ReturnOkResult()
         {
-            int DishTypeid = 1;
+            int dishTypeid = 1;
 
             dishesTypeController.ControllerContext = new ControllerContext();
             dishesTypeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockDishesTypeService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(true);
+            _mockDishesTypeService.Setup(dishesTypeService => dishesTypeService.Delete(It.IsAny<int>())).ReturnsAsync(true);
 
-            var result = await dishesTypeController.DeleteIngredient(DishTypeid);
+            var result = await dishesTypeController.DeleteIngredient(dishTypeid);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -216,16 +216,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteDishesType_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task DeleteDishesType_InputIsInvalid_ReturnBadRequestResult()
         {
-            int DishTypeid = 1;
+            int dishTypeid = 1;
 
             dishesTypeController.ControllerContext = new ControllerContext();
             dishesTypeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockDishesTypeService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(false);
+            _mockDishesTypeService.Setup(dishesTypeService => dishesTypeService.Delete(It.IsAny<int>())).ReturnsAsync(false);
 
-            var result = await dishesTypeController.DeleteIngredient(DishTypeid);
+            var result = await dishesTypeController.DeleteIngredient(dishTypeid);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 

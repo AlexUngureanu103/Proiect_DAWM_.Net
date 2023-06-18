@@ -38,7 +38,7 @@ namespace DAWM_Project.Controllers
             var recipe = await _recipeService.GetById(recipeId);
 
             if (recipe == null)
-                return BadRequest("Invalid ingredient id");
+                return NotFound();
 
             return Ok(recipe);
         }

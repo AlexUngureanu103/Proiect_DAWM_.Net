@@ -35,7 +35,7 @@ namespace DAWM_Project.Controllers
             var dishesType = await _dishesTypeService.GetById(dishesTypeId);
 
             if (dishesType == null)
-                return BadRequest("Invalid dishes type id");
+                return NotFound();
 
             return Ok(dishesType);
         }

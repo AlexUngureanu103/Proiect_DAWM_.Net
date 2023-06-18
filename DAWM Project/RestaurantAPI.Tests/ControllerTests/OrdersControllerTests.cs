@@ -43,7 +43,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetAll__ReturnOkResult()
+        public async Task GetAll__ReturnOkObjectResult()
         {
             _mockOrderService.Setup(orderService => orderService.GetAll());
 
@@ -61,7 +61,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetById_WhenInputIsValid_ReturnBadRequestObjectResult()
+        public async Task GetById_WhenInputIsValid_ReturnNotFoundResult()
         {
             int orderId = 1;
             _mockOrderService.Setup(orderService => orderService.GetById(It.IsAny<int>())).ReturnsAsync(() => null);
@@ -99,16 +99,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddOrder_InputIsOk_ReturnsOkResult()
+        public async Task AddOrder_InputIsOk_ReturnOkResult()
         {
-            CreateOrUpdateOrder neworder = new();
+            CreateOrUpdateOrder newOrder = new();
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.Create(It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(true);
+            _mockOrderService.Setup(orderService => orderService.Create(It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(true);
 
-            var result = await OrderController.AddOrder(neworder);
+            var result = await OrderController.AddOrder(newOrder);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -122,16 +122,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddOrder_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task AddOrder_InputIsInvalid_ReturnBadRequestResult()
         {
-            CreateOrUpdateOrder neworder = new();
+            CreateOrUpdateOrder newOrder = new();
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.Create(It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(false);
+            _mockOrderService.Setup(orderService => orderService.Create(It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(false);
 
-            var result = await OrderController.AddOrder(neworder);
+            var result = await OrderController.AddOrder(newOrder);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 
@@ -145,17 +145,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateOrder_InputIsOk_ReturnsOkResult()
+        public async Task UpdateOrder_InputIsOk_ReturnOkResult()
         {
-            CreateOrUpdateOrder neworder = new();
-            int orderid = 1;
+            CreateOrUpdateOrder newOrder = new();
+            int orderId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(true);
+            _mockOrderService.Setup(orderService => orderService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(true);
 
-            var result = await OrderController.UpdateOrder(orderid, neworder);
+            var result = await OrderController.UpdateOrder(orderId, newOrder);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -169,17 +169,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task UpdateOrder_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task UpdateOrder_InputIsInvalid_ReturnBadRequestResult()
         {
-            CreateOrUpdateOrder neworder = new();
-            int orderid = 1;
+            CreateOrUpdateOrder newOrder = new();
+            int orderId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(false);
+            _mockOrderService.Setup(orderService => orderService.Update(It.IsAny<int>(), It.IsAny<CreateOrUpdateOrder>())).ReturnsAsync(false);
 
-            var result = await OrderController.UpdateOrder(orderid, neworder);
+            var result = await OrderController.UpdateOrder(orderId, newOrder);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 
@@ -193,16 +193,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteOrder_InputIsOk_ReturnsOkResult()
+        public async Task DeleteOrder_InputIsOk_ReturnOkResult()
         {
-            int orderid = 1;
+            int orderId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(true);
+            _mockOrderService.Setup(orderService => orderService.Delete(It.IsAny<int>())).ReturnsAsync(true);
 
-            var result = await OrderController.DeleteOrder(orderid);
+            var result = await OrderController.DeleteOrder(orderId);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -216,16 +216,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteOrder_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task DeleteOrder_InputIsInvalid_ReturnBadRequestResult()
         {
-            int orderid = 1;
+            int orderId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.Delete(It.IsAny<int>())).ReturnsAsync(false);
+            _mockOrderService.Setup(orderService => orderService.Delete(It.IsAny<int>())).ReturnsAsync(false);
 
-            var result = await OrderController.DeleteOrder(orderid);
+            var result = await OrderController.DeleteOrder(orderId);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 
@@ -239,17 +239,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddOrderItem_InputIsOk_ReturnsOkResult()
+        public async Task AddOrderItem_InputIsOk_ReturnOkResult()
         {
-            int orderid = 1;
+            int orderId = 1;
             int recipeId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.AddOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(true);
+            _mockOrderService.Setup(orderService => orderService.AddOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(true);
 
-            var result = await OrderController.AddOrderItem(orderid, recipeId);
+            var result = await OrderController.AddOrderItem(orderId, recipeId);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -263,16 +263,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddOrderItem_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task AddOrderItem_InputIsInvalid_ReturnBadRequestResult()
         {
-            int orderid = 1;
+            int orderId = 1;
             int recipeId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
-            _mockOrderService.Setup(x => x.AddOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(false);
+            _mockOrderService.Setup(orderService => orderService.AddOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(false);
 
-            var result = await OrderController.AddOrderItem(orderid, recipeId);
+            var result = await OrderController.AddOrderItem(orderId, recipeId);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 
@@ -286,17 +286,17 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteOrderItem_InputIsOk_ReturnsOkResult()
+        public async Task DeleteOrderItem_InputIsOk_ReturnOkResult()
         {
-            int orderid = 1;
+            int orderId = 1;
             int recipeId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockOrderService.Setup(x => x.DeleteOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(true);
+            _mockOrderService.Setup(orderService => orderService.DeleteOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(true);
 
-            var result = await OrderController.DeleteOrderItem(orderid, recipeId);
+            var result = await OrderController.DeleteOrderItem(orderId, recipeId);
 
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
@@ -310,16 +310,16 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteOrderItem_InputIsInvalid_ReturnsBadRequestResult()
+        public async Task DeleteOrderItem_InputIsInvalid_ReturnBadRequestResult()
         {
-            int orderid = 1;
+            int orderId = 1;
             int recipeId = 1;
 
             OrderController.ControllerContext = new ControllerContext();
             OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
-            _mockOrderService.Setup(x => x.DeleteOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(false);
+            _mockOrderService.Setup(orderService => orderService.DeleteOrderItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(false);
 
-            var result = await OrderController.DeleteOrderItem(orderid, recipeId);
+            var result = await OrderController.DeleteOrderItem(orderId, recipeId);
 
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
 

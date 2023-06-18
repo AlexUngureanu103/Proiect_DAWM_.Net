@@ -35,7 +35,7 @@ namespace DAWM_Project.Controllers
             var menu = await _menusService.GetMenuById(menuId);
 
             if (menu == null)
-                return BadRequest("Invalid menu id");
+                return NotFound();
 
             return Ok(menu);
         }
