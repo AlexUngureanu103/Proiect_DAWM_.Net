@@ -18,5 +18,9 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
         Task<bool> AddOrderItem(int orderId, int menuId);
 
         Task<bool> DeleteOrderItem(int orderId, int menuId);
+
+        Task<bool> AddOrderSingleItem(int orderId, int recipeid);
+
+        Task<bool> DeleteOrderSingleItem(int orderId, int recipeId);
     }
 }

@@ -39,6 +39,7 @@ namespace DAWM_Project.Settings
             services.AddScoped<IDishesTypeRepository, DishesTypeRepository>();
             services.AddScoped<IMenusRepository, MenusRepository>();
             services.AddScoped<IOrdersRepository, OrdersRepository>();
+            services.AddScoped<IRecipeIngredientRepository, RecipeIngredientRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

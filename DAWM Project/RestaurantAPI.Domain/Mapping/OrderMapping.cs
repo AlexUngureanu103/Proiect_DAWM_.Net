@@ -15,8 +15,8 @@ namespace RestaurantAPI.Domain.Mapping
             return new Order
             {
                 UserId = order.UserId,
-                User = order.User,
                 OrderItems = new(),
+                OrderSingleItems = new(),
                 OrderDate = DateTime.Now
             };
         }
@@ -31,7 +31,8 @@ namespace RestaurantAPI.Domain.Mapping
                 OrderId = order.Id,
                 User = UserMapping.MapToUserPublicData(order.User),
                 Price = order.OrderItems.Sum((order) => order.Menu.Price),
-                OrderedMenus = order.OrderItems.Select(orderItems => orderItems.Menu).ToList()
+                OrderedMenus = order.OrderItems.Select(orderItems => orderItems.Menu).ToList(),
+                OrderSingleItem = order.OrderSingleItems.Select(orderSingleItems => orderSingleItems.RecipieId).ToList()
             };
         }
     }

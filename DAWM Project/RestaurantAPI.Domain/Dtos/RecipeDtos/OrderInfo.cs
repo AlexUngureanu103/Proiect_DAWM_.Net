@@ -12,5 +12,7 @@ namespace RestaurantAPI.Domain.Dtos.RecipeDtos
         public float Price { get; set; }
 
         public List<Menu> OrderedMenus { get; set; }
+
+        public List<int> OrderSingleItem { get; set; }
     }
 }

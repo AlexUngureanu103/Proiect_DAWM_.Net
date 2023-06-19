@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestaurantAPI.Domain.Models.MenuRelated;
+using RestaurantAPI.Domain.Models.Orders;
 using RestaurantAPI.Domain.Models.Users;
 
 namespace DataLayer
@@ -9,7 +10,7 @@ namespace DataLayer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                    .UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString1"))
+                    .UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString"))
                     .LogTo(Console.WriteLine);
         }
 
@@ -35,5 +36,11 @@ namespace DataLayer
         public DbSet<Recipe> Recipes { get; set; }
 
         public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderItems> OrderItems { get; set;}
+
+        public DbSet<OrderSingleItems> OrderSingleItems { get; set; }
     }
 }

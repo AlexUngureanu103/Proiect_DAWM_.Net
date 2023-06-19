@@ -12,6 +12,7 @@ namespace RestaurantAPI.Tests.ServicesTests
     {
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private CreateOrUpdateRecipe recipeData;
+        List<Recipe> recipes;
 
         [TestInitialize]
         public void TestInitialize()
@@ -24,6 +25,41 @@ namespace RestaurantAPI.Tests.ServicesTests
                 DishesTypeId = 1,
                 Price = 12
             };
+            recipes = new()
+            {
+                new Recipe
+                {
+                    Id = 1,
+                    Name = "Recipe 1",
+                    Price= 12,
+                    DishesTypeId=1,
+                    Ingredients = new List<RecipeIngredient>
+                    {
+                        new RecipeIngredient
+                        {
+                            IngredientId = 1,
+                            RecipeId = 1,
+                            Weight = 12
+                        }
+                    }
+                },
+                new Recipe
+                {
+                    Id = 2,
+                    Name = "Recipe 2",
+                    Price= 12,
+                    DishesTypeId=2,
+                    Ingredients = new List<RecipeIngredient>
+                    {
+                        new RecipeIngredient
+                        {
+                            IngredientId = 2,
+                            RecipeId = 2,
+                            Weight = 12
+                        }
+                    }
+                }
+            };
         }
 
         [TestCleanup]
@@ -32,6 +68,7 @@ namespace RestaurantAPI.Tests.ServicesTests
             _mockUnitOfWork = null;
             _mockLogger = null;
             recipeData = null;
+            recipes = null;
         }
 
         [TestMethod]
@@ -49,25 +86,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         [TestMethod]
         public async Task GetAllRecipes_WhenCalled_ReturnsAllRecipes()
         {
-            List<Recipe> recipes = new()
-            {
-                new Recipe
-                {
-                    Id = 1,
-                    Name = "Recipe 1",
-                    Price= 12,
-                    DishesTypeId=1,
-                },
-                new Recipe
-                {
-                    Id = 2,
-                    Name = "Recipe 2",
-                    Price= 12,
-                    DishesTypeId=2,
-                }
-            };
-
-            _mockUnitOfWork.Setup(x => x.RecipeRepository.GetAllAsync()).ReturnsAsync(recipes);
+            _mockUnitOfWork.Setup(x => x.RecipeRepository.GetAllWithIngredients()).ReturnsAsync(recipes);
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
@@ -88,23 +107,6 @@ namespace RestaurantAPI.Tests.ServicesTests
         [TestMethod]
         public async Task GetRecipeById_WhenRecipeIsFound_ReturnRecipe()
         {
-            List<Recipe> recipes = new()
-            {
-                new Recipe
-                {
-                    Id = 1,
-                    Name = "Recipe 1",
-                    Price= 12,
-                    DishesTypeId=1,
-                },
-                new Recipe
-                {
-                    Id = 2,
-                    Name = "Recipe 2",
-                    Price= 12,
-                    DishesTypeId=2,
-                }
-            };
             int id = 1;
 
             _mockUnitOfWork.Setup(x => x.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(recipes[1]);
@@ -127,23 +129,6 @@ namespace RestaurantAPI.Tests.ServicesTests
         [TestMethod]
         public async Task GetRecipeById_WhenRecipeIsNotFound_ReturnNull()
         {
-            List<Recipe> recipes = new()
-            {
-                new Recipe
-                {
-                    Id = 1,
-                    Name = "Recipe 1",
-                    Price= 12,
-                    DishesTypeId=1,
-                },
-                new Recipe
-                {
-                    Id = 2,
-                    Name = "Recipe 2",
-                    Price= 12,
-                    DishesTypeId=2,
-                }
-            };
             int id = 351;
 
             _mockUnitOfWork.Setup(x => x.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
@@ -183,10 +168,77 @@ namespace RestaurantAPI.Tests.ServicesTests
         }
 
         [TestMethod]
+        public async Task UpdateRecipe_WhenDishTypeIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.UpdateAsync(It.IsAny<int>(), It.IsAny<Recipe>()));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.DishesTypeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() => null);
+
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await RecipeService.Update(1, recipeData);
+
+            Assert.IsTrue(!result, "Recipe shouldn't update successfully");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task UpdateRecipe_WhenRecipeIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.UpdateAsync(It.IsAny<int>(), It.IsAny<Recipe>())).ThrowsAsync(new EntityNotFoundException("Recipe not found"));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.DishesTypeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(new DishesType());
+
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await RecipeService.Update(1, recipeData);
+
+            Assert.IsTrue(!result, "Recipe shouldn't update successfully");
+
+            TestLoggerMethods(
+               logErrorCount: 0,
+               logErrorExCount: 1,
+               logWarnCount: 0,
+               logInfoCount: 0,
+               logDebugCount: 0
+               );
+        }
+
+        [TestMethod]
+        public async Task UpdateRecipe_WhenUpdateAsyncReturnsArgumentNullException_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.UpdateAsync(It.IsAny<int>(), It.IsAny<Recipe>())).ThrowsAsync(new ArgumentNullException("Recipe not found"));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.DishesTypeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(new DishesType());
+
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await RecipeService.Update(1, recipeData);
+
+            Assert.IsTrue(!result, "Recipe shouldn't update successfully");
+
+            TestLoggerMethods(
+               logErrorCount: 0,
+               logErrorExCount: 1,
+               logWarnCount: 0,
+               logInfoCount: 0,
+               logDebugCount: 0
+               );
+        }
+
+        [TestMethod]
         public async Task UpdateRecipe_WhenRecipeIsOk_ReturnTrue()
         {
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.UpdateAsync(It.IsAny<int>(), It.IsAny<Recipe>()));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.DishesTypeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(new DishesType());
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
@@ -248,6 +300,7 @@ namespace RestaurantAPI.Tests.ServicesTests
         public async Task AddRecipe_WhenRecipeIsOk_ReturnTrue()
         {
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.AddAsync(It.IsAny<Recipe>()));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.DishesTypeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(new DishesType());
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
@@ -270,12 +323,34 @@ namespace RestaurantAPI.Tests.ServicesTests
         {
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-           await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.Create(null));
+            await Assert.ThrowsExceptionAsync<ArgumentNullException>(() => RecipeService.Create(null));
 
             TestLoggerMethods(
                 logErrorCount: 1,
                 logErrorExCount: 0,
                 logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddRecipe_WhenDishTypeIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.AddAsync(It.IsAny<Recipe>()));
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.DishesTypeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() => null);
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
+
+            var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await RecipeService.Create(recipeData);
+
+            Assert.IsTrue(!result, "Recipe creation shouldn fail");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
                 logInfoCount: 0,
                 logDebugCount: 0
                 );

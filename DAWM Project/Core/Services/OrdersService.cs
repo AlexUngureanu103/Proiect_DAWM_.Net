@@ -2,6 +2,7 @@
 using RestaurantAPI.Domain.Dtos.OrderDtos;
 using RestaurantAPI.Domain.Dtos.RecipeDtos;
 using RestaurantAPI.Domain.Mapping;
+using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.Models.Orders;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
@@ -155,6 +156,58 @@ namespace Core.Services
             bool response = await _unitOfWork.SaveChangesAsync();
             logger.LogInfo($"Order with id {orderId} updated");
 
+            return response;
+        }
+
+        public async Task<bool> AddOrderSingleItem(int orderId, int recipeId)
+        {
+            Order order = await _unitOfWork.OrdersRepository.GetByIdAsync(orderId);
+            if (order == null)
+            {
+                logger.LogWarn($"Order with id {orderId} not found");
+                return false;
+            }
+
+            if (await _unitOfWork.RecipeRepository.GetByIdAsync(recipeId) == null)
+            {
+                logger.LogWarn($"Recipe with id {recipeId} not found");
+                return false;
+            }
+            var orderSingleItm = order.OrderSingleItems.FirstOrDefault(x => x.RecipieId == recipeId);
+            if (orderSingleItm == null)
+                order.OrderSingleItems.Add(new OrderSingleItems { RecipieId = recipeId, Quantity = 1 });
+            else
+            {
+                orderSingleItm.Quantity++;
+            }
+
+            bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Order with id {orderId} updated. Added recipe with id {recipeId}");
+
+            return response;
+        }
+
+        public async Task<bool> DeleteOrderSingleItem(int orderId, int recipeId)
+        {
+            Order order = await _unitOfWork.OrdersRepository.GetByIdAsync(orderId);
+            if (order == null)
+                if (order == null)
+                {
+                    logger.LogWarn($"Order with id {orderId} not found");
+                    return false;
+                }
+
+            var record = order.OrderSingleItems.Where(item => item.RecipieId == recipeId).FirstOrDefault();
+            if (record == null)
+            {
+                logger.LogWarn($"Order with Id:{orderId} doesn't contains Recipe with id {recipeId}");
+                return false;
+            }
+
+            order.OrderSingleItems.Remove(record);
+
+            bool response = await _unitOfWork.SaveChangesAsync();
+            logger.LogInfo($"Order with id {orderId} updated. Removed Recipe with id {recipeId}");
             return response;
         }
     }

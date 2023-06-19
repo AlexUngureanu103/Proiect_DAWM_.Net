@@ -15,8 +15,7 @@ namespace RestaurantAPI.Tests.MappingTests
             {
                 Name = "test",
                 DishesTypeId = 1,
-                Price = 21,
-                DishesType = null
+                Price = 21
             };
         }
 
@@ -43,7 +42,6 @@ namespace RestaurantAPI.Tests.MappingTests
 
             Assert.AreEqual(recipe.Name, recipeData.Name, "Resulted recipe is not the same ");
             Assert.AreEqual(recipe.Price, recipeData.Price, "Resulted recipe is not the same ");
-            Assert.AreEqual(recipe.DishesType, recipeData.DishesType, "Resulted recipe is not the same ");
             Assert.AreEqual(recipe.DishesTypeId, recipeData.DishesTypeId, "Resulted recipe is not the same ");
         }
     }

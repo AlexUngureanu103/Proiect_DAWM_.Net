@@ -10,7 +10,7 @@ using RestaurantAPI.Exceptions;
 namespace RestaurantAPI.Tests.ServicesTests
 {
     [TestClass]
-    public class OrdersServiceTests:LoggerTests
+    public class OrdersServiceTests : LoggerTests
     {
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private CreateOrUpdateOrder orderData;
@@ -23,7 +23,6 @@ namespace RestaurantAPI.Tests.ServicesTests
             orderData = new()
             {
                 UserId = 1,
-                User = new User { Id = 1 }
             };
         }
 
@@ -57,6 +56,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -65,6 +65,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 2,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -73,6 +74,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 3,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 2,
                     User = new User { Id = 2 }
                 }
@@ -106,6 +108,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -114,6 +117,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 2,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -122,6 +126,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 3,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 2,
                     User = new User { Id = 2 }
                 }
@@ -155,6 +160,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -163,6 +169,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 2,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -171,6 +178,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 3,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 2,
                     User = new User { Id = 2 }
                 }
@@ -451,6 +459,155 @@ namespace RestaurantAPI.Tests.ServicesTests
             bool result = await OrdersService.DeleteOrderItem(0, orderItemId);
 
             Assert.IsTrue(result, "Menu shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 1,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteOrderSingleItemItem_WhenOrderIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(x => x.OrdersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return null;
+            });
+
+            var OrdersService = new OrdersService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await OrdersService.DeleteOrderSingleItem(0, 1);
+
+            Assert.IsFalse(result, "Order shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteOrderSingleItemItem_WhenRecipeIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.OrdersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Order { OrderSingleItems = new() };
+            });
+
+            var OrdersService = new OrdersService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await OrdersService.DeleteOrderSingleItem(0, 1);
+
+            Assert.IsFalse(result, "Recipe shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteOrderSingleItemItem_WhenEverythingIsOk_ReturnTrue()
+        {
+            int orderItemId = 1;
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.OrdersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Order { OrderSingleItems = new() { new OrderSingleItems { RecipieId = orderItemId } } };
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(() => { return true; });
+
+            var OrdersService = new OrdersService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await OrdersService.DeleteOrderSingleItem(0, orderItemId);
+
+            Assert.IsTrue(result, "Menu shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 1,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddOrderSingleItem_WhenOrderIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(x => x.OrdersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return null;
+            });
+
+            var OrdersService = new OrdersService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await OrdersService.AddOrderSingleItem(0, 1);
+
+            Assert.IsFalse(result, "Order shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddOrderSingleItem_WhenMenuIsNotFound_ReturnFalse()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.OrdersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Order();
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return null;
+            });
+
+            var OrdersService = new OrdersService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await OrdersService.AddOrderSingleItem(0, 1);
+
+            Assert.IsFalse(result, "Recipe shouldn't be found");
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 1,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddOrderSingleItem_WhenEverythinIsOk_ReturnTrue()
+        {
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.OrdersRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Order { OrderSingleItems = new() };
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.RecipeRepository.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(() =>
+            {
+                return new Recipe { Id = 1 };
+            });
+            _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(() => { return true; });
+
+            var OrdersService = new OrdersService(_mockUnitOfWork.Object, _mockLogger.Object);
+
+            bool result = await OrdersService.AddOrderSingleItem(0, 1);
+
+            Assert.IsTrue(result, "Order should update successfully");
 
             TestLoggerMethods(
                 logErrorCount: 0,

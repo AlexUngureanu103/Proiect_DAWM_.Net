@@ -12,10 +12,22 @@ namespace RestaurantAPI.Domain.Mapping
 
             return new Recipe
             {
-                DishesType = recipe.DishesType,
                 DishesTypeId = recipe.DishesTypeId,
                 Name = recipe.Name,
                 Price = recipe.Price
+            };
+        }
+
+        public static RecipeInfo MapToRecipeInfo(Recipe recipe)
+        {
+            if (recipe == null)
+                return null;
+            return new RecipeInfo
+            {
+                Name = recipe.Name,
+                Price = recipe.Price,
+                DishesTypeId = recipe.DishesTypeId,
+                IngredientIdAndWeight = recipe.Ingredients.Select(r => new IngredientAndWeight { IngredientId = r.IngredientId, Weight = r.Weight}).ToList()
             };
         }
     }

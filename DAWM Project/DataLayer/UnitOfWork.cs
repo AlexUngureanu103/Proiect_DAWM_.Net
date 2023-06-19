@@ -11,6 +11,8 @@ namespace DataLayer
 
         public IDishesTypeRepository DishesTypeRepository { get; }
 
+        public IRecipeIngredientRepository RecipeIngredientRepository { get; }
+
         public IRecipeRepository RecipeRepository { get; }
 
         public IMenusRepository MenusRepository { get; }
@@ -30,6 +32,7 @@ namespace DataLayer
             IDishesTypeRepository dishesTypeRepository,
             IMenusRepository menusRepository,
             IOrdersRepository ordersRepository,
+            IRecipeIngredientRepository recipeIngredientRepository,
             IDataLogger logger
         )
         {
@@ -40,6 +43,7 @@ namespace DataLayer
             DishesTypeRepository = dishesTypeRepository ?? throw new ArgumentNullException(nameof(dishesTypeRepository));
             MenusRepository = menusRepository ?? throw new ArgumentNullException(nameof(menusRepository));
             OrdersRepository = ordersRepository ?? throw new ArgumentNullException(nameof(ordersRepository));
+            RecipeIngredientRepository = recipeIngredientRepository ?? throw new ArgumentNullException(nameof(recipeIngredientRepository));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 

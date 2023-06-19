@@ -331,5 +331,99 @@ namespace RestaurantAPI.Tests.ControllerTests
                 logDebugCount: 0
                 );
         }
+
+        [TestMethod]
+        public async Task AddOrderSingleItem_InputIsOk_ReturnOkResult()
+        {
+            int orderId = 1;
+            int recipeId = 1;
+
+            OrderController.ControllerContext = new ControllerContext();
+            OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
+
+            _mockOrderService.Setup(orderService => orderService.AddOrderSingleItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(true);
+
+            var result = await OrderController.AddOrderSingleItem(orderId, recipeId);
+
+            Assert.IsInstanceOfType(result, typeof(OkResult));
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task AddOrderSingleItem_InputIsInvalid_ReturnBadRequestResult()
+        {
+            int orderId = 1;
+            int recipeId = 1;
+
+            OrderController.ControllerContext = new ControllerContext();
+            OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
+            _mockOrderService.Setup(orderService => orderService.AddOrderSingleItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(false);
+
+            var result = await OrderController.AddOrderSingleItem(orderId, recipeId);
+
+            Assert.IsInstanceOfType(result, typeof(BadRequestResult));
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteOrderSingleItem_InputIsOk_ReturnOkResult()
+        {
+            int orderId = 1;
+            int recipeId = 1;
+
+            OrderController.ControllerContext = new ControllerContext();
+            OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
+
+            _mockOrderService.Setup(orderService => orderService.DeleteOrderSingleItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(true);
+
+            var result = await OrderController.DeleteOrderSingleItem(orderId, recipeId);
+
+            Assert.IsInstanceOfType(result, typeof(OkResult));
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
+
+        [TestMethod]
+        public async Task DeleteOrderSingleItem_InputIsInvalid_ReturnBadRequestResult()
+        {
+            int orderId = 1;
+            int recipeId = 1;
+
+            OrderController.ControllerContext = new ControllerContext();
+            OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
+            _mockOrderService.Setup(orderService => orderService.DeleteOrderSingleItem(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(false);
+
+            var result = await OrderController.DeleteOrderSingleItem(orderId, recipeId);
+
+            Assert.IsInstanceOfType(result, typeof(BadRequestResult));
+
+            TestLoggerMethods(
+                logErrorCount: 0,
+                logErrorExCount: 0,
+                logWarnCount: 0,
+                logInfoCount: 0,
+                logDebugCount: 0
+                );
+        }
     }
 }

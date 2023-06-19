@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Core.Services;
+using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.RecipeDtos;
@@ -32,11 +34,10 @@ namespace DAWM_Project.Controllers
 
         [HttpGet]
         [Route("{recipeId}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetRecipeById(int recipeId)
         {
             var recipe = await _recipeService.GetById(recipeId);
-
+            
             if (recipe == null)
                 return NotFound();
 
@@ -78,6 +79,35 @@ namespace DAWM_Project.Controllers
         public async Task<IActionResult> DeleteRecipe(int recipeId)
         {
             bool result = await _recipeService.Delete(recipeId);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("addIngredient/{recipeId}/{ingredientId}/{weight}")]
+        public async Task<IActionResult> AddRecipeIngredient(int recipeId, int ingredientId, double weight)
+        {
+            bool result = await _recipeService.AddIngredient(recipeId, ingredientId, weight);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        [Route("deleteIngredient/{recipeId}/{ingredientId}")]
+        public async Task<IActionResult> DeleteRecipeIngredient(int recipeId, int ingredientId)
+        {
+            bool result = await _recipeService.DeleteIngredient(recipeId, ingredientId);
 
             if (result)
             {
