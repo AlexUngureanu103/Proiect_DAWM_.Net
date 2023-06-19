@@ -36,6 +36,9 @@ namespace DAWM_Project.Controllers
         {
             var ingredient = await _ingredientsService.GetById(ingredientId);
 
+            if (ingredient == null)
+                return NotFound();
+
             return Ok(ingredient);
         }
 

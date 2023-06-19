@@ -34,6 +34,9 @@ namespace DAWM_Project.Controllers
         {
             var menu = await _menusService.GetMenuById(menuId);
 
+            if (menu == null)
+                return NotFound();
+
             return Ok(menu);
         }
 
@@ -84,10 +87,10 @@ namespace DAWM_Project.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        [Route("addItem/{menuId}/{recipieId}")]
-        public async Task<IActionResult> AddMenuItem(int menuId, int recipieId)
+        [Route("addItem/{menuId}/{recipeId}")]
+        public async Task<IActionResult> AddMenuItem(int menuId, int recipeId)
         {
-            bool result = await _menusService.AddMenuItem(menuId, recipieId);
+            bool result = await _menusService.AddMenuItem(menuId, recipeId);
 
             if (result)
             {
@@ -99,10 +102,10 @@ namespace DAWM_Project.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        [Route("deleteItem/{menuId}/{recipieId}")]
-        public async Task<IActionResult> DeleteMenuItem(int menuId, int recipieId)
+        [Route("deleteItem/{menuId}/{recipeId}")]
+        public async Task<IActionResult> DeleteMenuItem(int menuId, int recipeId)
         {
-            bool result = await _menusService.DeleteMenuItem(menuId, recipieId);
+            bool result = await _menusService.DeleteMenuItem(menuId, recipeId);
 
             if (result)
             {
