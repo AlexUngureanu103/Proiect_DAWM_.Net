@@ -24,8 +24,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Register a new user . No authentication required
         /// </summary>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="payload">Register data</param>
+        /// <returns>OkResult if the register process was successful. Otherwise BadRequestResult</returns>
         [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register(CreateOrUpdateUser payload)
@@ -45,8 +45,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Login as a user. No authentication required
         /// </summary>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="payload">Login data</param>
+        /// <returns>OkResult and Jwt Token if the login was successful. Otherwise UnauthorizedResult</returns>
         [HttpPost("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginDto payload)
@@ -64,8 +64,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Login as an admin. No authentication required
         /// </summary>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="payload">Admin login data</param>
+        /// <returns>OkResult and Jwt Token if the login was successful. Otherwise UnauthorizedResult</returns>
         [HttpPost("login/adm")]
         [AllowAnonymous]
         public async Task<IActionResult> LoginAsAdmin(LoginDto payload)
@@ -83,8 +83,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get user details. Authentication required : User, Admin
         /// </summary>
-        /// <param name="paylod"></param>
-        /// <returns></returns>
+        /// <param name="paylod">Updated user Data</param>
+        /// <returns>OkResult if the update process was successful. Otherwise BadRequestResult</returns>
         [HttpPut("update")]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> EditUserDetails(CreateOrUpdateUser paylod)
@@ -103,8 +103,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Delete an account. Authentication required : Admin
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id of the account to be deleted</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise NotFoundResult</returns>
         [HttpDelete("delete")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteAccount(int id)
@@ -116,17 +116,16 @@ namespace DAWM_Project.Controllers
                 return Ok();
             }
 
-            return BadRequest();
+            return NotFound();
         }
 
         /// <summary>
         /// Get user public data. Authentication required : User, Admin, Guest
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>OkResult if the delete process was successful. Otherwise NotFoundResult</returns>
         [HttpGet("user/data")]
         [Authorize(Roles = "User,Admin,Guest")]
-        public async Task<IActionResult> GetUserPublicData(int id)
+        public async Task<IActionResult> GetUserPublicData()
         {
             ClaimsPrincipal user = User;
 
@@ -136,7 +135,7 @@ namespace DAWM_Project.Controllers
 
             if (response == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             return Ok(response);
