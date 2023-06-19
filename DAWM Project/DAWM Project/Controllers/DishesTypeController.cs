@@ -1,9 +1,7 @@
-﻿using Core.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.DishesTypeDtos;
-using RestaurantAPI.Domain.Dtos.IngredientDtos;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
@@ -35,6 +33,9 @@ namespace DAWM_Project.Controllers
         public async Task<IActionResult> GetDishesTypeById(int dishesTypeId)
         {
             var dishesType = await _dishesTypeService.GetById(dishesTypeId);
+
+            if (dishesType == null)
+                return NotFound();
 
             return Ok(dishesType);
         }

@@ -37,6 +37,9 @@ namespace DAWM_Project.Controllers
         {
             var order = await _ordersService.GetById(orderId);
 
+            if (order == null)
+                return NotFound();
+
             return Ok(order);
         }
 

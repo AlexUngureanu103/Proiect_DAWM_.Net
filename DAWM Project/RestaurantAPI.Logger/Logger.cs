@@ -4,7 +4,12 @@ namespace RestaurantAPI.Logger
 {
     public class Logger : IDataLogger
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private  log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        public void SetLogger(log4net.ILog logger)
+        {
+            log = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
 
         public void LogDebug(string debugMessage)
         {

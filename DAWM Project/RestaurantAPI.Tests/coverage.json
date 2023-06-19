@@ -1,0 +1,6352 @@
+{
+  "Core.dll": {
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\Core\\Services\\AuthorizationService.cs": {
+      "Core.Services.AuthorizationService": {
+        "System.String Core.Services.AuthorizationService::GetToken(RestaurantAPI.Domain.Models.Users.User,System.String)": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "37": 0,
+            "38": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "53": 0,
+            "54": 0,
+            "56": 0,
+            "57": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Core.Services.AuthorizationService::ValidateToken(System.String)": {
+          "Lines": {
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0
+          },
+          "Branches": [
+            {
+              "Line": 73,
+              "Offset": 104,
+              "EndOffset": 106,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 73,
+              "Offset": 104,
+              "EndOffset": 123,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.String Core.Services.AuthorizationService::HashPassword(System.String)": {
+          "Lines": {
+            "84": 4,
+            "85": 4,
+            "86": 1,
+            "87": 1,
+            "92": 3,
+            "93": 3,
+            "94": 3,
+            "95": 3,
+            "96": 3,
+            "98": 3,
+            "99": 3,
+            "100": 3,
+            "101": 3,
+            "102": 3
+          },
+          "Branches": [
+            {
+              "Line": 85,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 85,
+              "Offset": 9,
+              "EndOffset": 23,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        },
+        "System.Boolean Core.Services.AuthorizationService::VerifyHashedPassword(System.String,System.String)": {
+          "Lines": {
+            "105": 4,
+            "106": 4,
+            "107": 1,
+            "108": 1,
+            "110": 3,
+            "111": 1,
+            "112": 1,
+            "115": 2,
+            "117": 2,
+            "118": 0,
+            "119": 0,
+            "122": 2,
+            "123": 2,
+            "124": 2,
+            "125": 2,
+            "128": 2,
+            "129": 2,
+            "130": 2,
+            "131": 2,
+            "132": 2,
+            "133": 3
+          },
+          "Branches": [
+            {
+              "Line": 106,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 106,
+              "Offset": 11,
+              "EndOffset": 22,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            },
+            {
+              "Line": 110,
+              "Offset": 32,
+              "EndOffset": 34,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 110,
+              "Offset": 32,
+              "EndOffset": 46,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 117,
+              "Offset": 71,
+              "EndOffset": 73,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            },
+            {
+              "Line": 117,
+              "Offset": 71,
+              "EndOffset": 81,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 117,
+              "Offset": 86,
+              "EndOffset": 88,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 117,
+              "Offset": 86,
+              "EndOffset": 94,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Boolean Core.Services.AuthorizationService::ByteArraysEqual(System.Byte[],System.Byte[])": {
+          "Lines": {
+            "136": 2,
+            "137": 2,
+            "138": 0,
+            "139": 0,
+            "142": 2,
+            "143": 0,
+            "144": 0,
+            "147": 2,
+            "148": 132,
+            "149": 64,
+            "150": 64,
+            "151": 64,
+            "152": 2,
+            "153": 2
+          },
+          "Branches": [
+            {
+              "Line": 137,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 137,
+              "Offset": 7,
+              "EndOffset": 14,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 142,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 142,
+              "Offset": 18,
+              "EndOffset": 20,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            },
+            {
+              "Line": 142,
+              "Offset": 15,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 142,
+              "Offset": 18,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 142,
+              "Offset": 36,
+              "EndOffset": 38,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 142,
+              "Offset": 36,
+              "EndOffset": 43,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            },
+            {
+              "Line": 148,
+              "Offset": 82,
+              "EndOffset": 50,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 64
+            },
+            {
+              "Line": 148,
+              "Offset": 82,
+              "EndOffset": 84,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Void Core.Services.AuthorizationService::.ctor(Microsoft.Extensions.Configuration.IConfiguration)": {
+          "Lines": {
+            "16": 7,
+            "17": 7,
+            "18": 7,
+            "21": 7,
+            "22": 7,
+            "23": 7,
+            "24": 1,
+            "25": 6,
+            "26": 6
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 41,
+              "EndOffset": 43,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 23,
+              "Offset": 41,
+              "EndOffset": 54,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\Core\\Services\\DishesTypeService.cs": {
+      "Core.Services.DishesTypeService": {
+        "System.Void Core.Services.DishesTypeService::.ctor(RestaurantAPI.Domain.IUnitOfWork,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "16": 11,
+            "17": 11,
+            "18": 11,
+            "19": 10,
+            "20": 9
+          },
+          "Branches": [
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 10
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 9
+            }
+          ]
+        }
+      },
+      "Core.Services.DishesTypeService/<Create>d__3": {
+        "System.Void Core.Services.DishesTypeService/<Create>d__3::MoveNext()": {
+          "Lines": {
+            "23": 2,
+            "24": 2,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "30": 1,
+            "32": 1,
+            "34": 1,
+            "35": 1,
+            "37": 1,
+            "38": 1
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.DishesTypeService/<Delete>d__4": {
+        "System.Void Core.Services.DishesTypeService/<Delete>d__4::MoveNext()": {
+          "Lines": {
+            "41": 2,
+            "43": 2,
+            "44": 2,
+            "45": 1,
+            "46": 1,
+            "47": 1,
+            "48": 1,
+            "50": 1,
+            "53": 1,
+            "54": 1,
+            "56": 1,
+            "57": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.DishesTypeService/<GetAll>d__5": {
+        "System.Void Core.Services.DishesTypeService/<GetAll>d__5::MoveNext()": {
+          "Lines": {
+            "60": 1,
+            "61": 1,
+            "63": 1,
+            "64": 1
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.DishesTypeService/<GetById>d__6": {
+        "System.Void Core.Services.DishesTypeService/<GetById>d__6::MoveNext()": {
+          "Lines": {
+            "67": 2,
+            "68": 2,
+            "70": 2,
+            "71": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.DishesTypeService/<Update>d__7": {
+        "System.Void Core.Services.DishesTypeService/<Update>d__7::MoveNext()": {
+          "Lines": {
+            "74": 2,
+            "75": 2,
+            "76": 1,
+            "77": 1,
+            "79": 1,
+            "82": 1,
+            "84": 1,
+            "85": 1,
+            "86": 1,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "91": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "99": 1,
+            "100": 1,
+            "102": 1,
+            "103": 1
+          },
+          "Branches": [
+            {
+              "Line": 75,
+              "Offset": 37,
+              "EndOffset": 39,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 75,
+              "Offset": 37,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\Core\\Services\\IngredientsService.cs": {
+      "Core.Services.IngredientsService": {
+        "System.Void Core.Services.IngredientsService::.ctor(RestaurantAPI.Domain.IUnitOfWork,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "16": 11,
+            "17": 11,
+            "18": 11,
+            "19": 10,
+            "20": 9
+          },
+          "Branches": [
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 10
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 9
+            }
+          ]
+        }
+      },
+      "Core.Services.IngredientsService/<Create>d__3": {
+        "System.Void Core.Services.IngredientsService/<Create>d__3::MoveNext()": {
+          "Lines": {
+            "23": 2,
+            "24": 2,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "30": 1,
+            "32": 1,
+            "34": 1,
+            "35": 1,
+            "37": 1,
+            "38": 1
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.IngredientsService/<Delete>d__4": {
+        "System.Void Core.Services.IngredientsService/<Delete>d__4::MoveNext()": {
+          "Lines": {
+            "41": 2,
+            "43": 2,
+            "44": 2,
+            "45": 1,
+            "46": 1,
+            "47": 1,
+            "48": 1,
+            "50": 1,
+            "53": 1,
+            "54": 1,
+            "56": 1,
+            "57": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.IngredientsService/<GetAll>d__5": {
+        "System.Void Core.Services.IngredientsService/<GetAll>d__5::MoveNext()": {
+          "Lines": {
+            "60": 1,
+            "61": 1,
+            "63": 1,
+            "64": 1
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.IngredientsService/<GetById>d__6": {
+        "System.Void Core.Services.IngredientsService/<GetById>d__6::MoveNext()": {
+          "Lines": {
+            "67": 2,
+            "68": 2,
+            "70": 2,
+            "71": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.IngredientsService/<Update>d__7": {
+        "System.Void Core.Services.IngredientsService/<Update>d__7::MoveNext()": {
+          "Lines": {
+            "74": 2,
+            "75": 2,
+            "76": 1,
+            "77": 1,
+            "79": 1,
+            "82": 1,
+            "85": 1,
+            "86": 1,
+            "87": 1,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "92": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "100": 1,
+            "101": 1,
+            "103": 1,
+            "104": 1
+          },
+          "Branches": [
+            {
+              "Line": 75,
+              "Offset": 37,
+              "EndOffset": 39,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 75,
+              "Offset": 37,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\Core\\Services\\MenusService.cs": {
+      "Core.Services.MenusService": {
+        "System.Void Core.Services.MenusService::.ctor(RestaurantAPI.Domain.IUnitOfWork,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "16": 17,
+            "17": 17,
+            "18": 17,
+            "19": 16,
+            "20": 15
+          },
+          "Branches": [
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 16
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 15
+            }
+          ]
+        }
+      },
+      "Core.Services.MenusService/<>c": {
+        "RestaurantAPI.Domain.Dtos.MenuDtos.MenuInfos Core.Services.MenusService/<>c::<GetAllMenus>b__7_0(RestaurantAPI.Domain.Models.MenuRelated.Menu)": {
+          "Lines": {
+            "113": 3
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.MenusService/<>c__DisplayClass6_0": {
+        "System.Boolean Core.Services.MenusService/<>c__DisplayClass6_0::<DeleteMenuItem>b__0(RestaurantAPI.Domain.Models.MenuRelated.MenuItem)": {
+          "Lines": {
+            "95": 3
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.MenusService/<AddMenu>d__3": {
+        "System.Void Core.Services.MenusService/<AddMenu>d__3::MoveNext()": {
+          "Lines": {
+            "23": 2,
+            "24": 2,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "30": 1,
+            "32": 1,
+            "33": 0,
+            "35": 1,
+            "37": 1,
+            "38": 1,
+            "40": 1,
+            "41": 1
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 32,
+              "Offset": 104,
+              "EndOffset": 106,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 104,
+              "EndOffset": 113,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.MenusService/<AddMenuItem>d__4": {
+        "System.Void Core.Services.MenusService/<AddMenuItem>d__4::MoveNext()": {
+          "Lines": {
+            "44": 3,
+            "45": 3,
+            "46": 3,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "52": 2,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "58": 1,
+            "60": 1,
+            "61": 1,
+            "63": 1,
+            "64": 3
+          },
+          "Branches": [
+            {
+              "Line": 46,
+              "Offset": 194,
+              "EndOffset": 196,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 46,
+              "Offset": 194,
+              "EndOffset": 278,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 52,
+              "Offset": 416,
+              "EndOffset": 418,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 52,
+              "Offset": 416,
+              "EndOffset": 507,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.MenusService/<DeleteMenu>d__5": {
+        "System.Void Core.Services.MenusService/<DeleteMenu>d__5::MoveNext()": {
+          "Lines": {
+            "67": 2,
+            "69": 2,
+            "70": 2,
+            "71": 1,
+            "72": 1,
+            "73": 1,
+            "74": 1,
+            "76": 1,
+            "79": 1,
+            "80": 1,
+            "82": 1,
+            "83": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.MenusService/<DeleteMenuItem>d__6": {
+        "System.Void Core.Services.MenusService/<DeleteMenuItem>d__6::MoveNext()": {
+          "Lines": {
+            "86": 3,
+            "87": 3,
+            "88": 3,
+            "89": 1,
+            "90": 1,
+            "91": 1,
+            "92": 1,
+            "96": 2,
+            "97": 1,
+            "98": 1,
+            "99": 1,
+            "102": 1,
+            "104": 1,
+            "105": 1,
+            "106": 1,
+            "107": 3
+          },
+          "Branches": [
+            {
+              "Line": 88,
+              "Offset": 208,
+              "EndOffset": 210,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 89,
+              "Offset": 223,
+              "EndOffset": 225,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 88,
+              "Offset": 208,
+              "EndOffset": 307,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 89,
+              "Offset": 223,
+              "EndOffset": 307,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 96,
+              "Offset": 364,
+              "EndOffset": 366,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 96,
+              "Offset": 364,
+              "EndOffset": 467,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.MenusService/<GetAllMenus>d__7": {
+        "System.Void Core.Services.MenusService/<GetAllMenus>d__7::MoveNext()": {
+          "Lines": {
+            "110": 1,
+            "111": 1,
+            "114": 1
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.MenusService/<GetMenuById>d__8": {
+        "System.Void Core.Services.MenusService/<GetMenuById>d__8::MoveNext()": {
+          "Lines": {
+            "117": 2,
+            "118": 2,
+            "120": 2,
+            "121": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.MenusService/<UpdateMenu>d__9": {
+        "System.Void Core.Services.MenusService/<UpdateMenu>d__9::MoveNext()": {
+          "Lines": {
+            "124": 2,
+            "125": 2,
+            "126": 1,
+            "127": 1,
+            "129": 1,
+            "132": 1,
+            "135": 1,
+            "136": 1,
+            "137": 1,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "142": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "150": 1,
+            "151": 1,
+            "153": 1,
+            "154": 1
+          },
+          "Branches": [
+            {
+              "Line": 125,
+              "Offset": 37,
+              "EndOffset": 39,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 125,
+              "Offset": 37,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\Core\\Services\\OrdersService.cs": {
+      "Core.Services.OrdersService": {
+        "System.Void Core.Services.OrdersService::.ctor(RestaurantAPI.Domain.IUnitOfWork,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "17": 17,
+            "18": 17,
+            "19": 17,
+            "20": 16,
+            "21": 15
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 16
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 15
+            }
+          ]
+        }
+      },
+      "Core.Services.OrdersService/<>c": {
+        "RestaurantAPI.Domain.Dtos.RecipeDtos.OrderInfo Core.Services.OrdersService/<>c::<GetAll>b__7_0(RestaurantAPI.Domain.Models.Orders.Order)": {
+          "Lines": {
+            "118": 4
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.OrdersService/<>c__DisplayClass4_0": {
+        "System.Boolean Core.Services.OrdersService/<>c__DisplayClass4_0::<AddOrderItem>b__0(RestaurantAPI.Domain.Models.Orders.OrderItems)": {
+          "Lines": {
+            "57": 1
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.OrdersService/<>c__DisplayClass6_0": {
+        "System.Boolean Core.Services.OrdersService/<>c__DisplayClass6_0::<DeleteOrderItem>b__0(RestaurantAPI.Domain.Models.Orders.OrderItems)": {
+          "Lines": {
+            "100": 3
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.OrdersService/<AddOrderItem>d__4": {
+        "System.Void Core.Services.OrdersService/<AddOrderItem>d__4::MoveNext()": {
+          "Lines": {
+            "44": 3,
+            "45": 3,
+            "46": 3,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "52": 2,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "58": 1,
+            "59": 1,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "65": 1,
+            "66": 1,
+            "68": 1,
+            "69": 3
+          },
+          "Branches": [
+            {
+              "Line": 46,
+              "Offset": 222,
+              "EndOffset": 224,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 46,
+              "Offset": 222,
+              "EndOffset": 306,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 52,
+              "Offset": 449,
+              "EndOffset": 451,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 52,
+              "Offset": 449,
+              "EndOffset": 545,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            },
+            {
+              "Line": 58,
+              "Offset": 597,
+              "EndOffset": 599,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 58,
+              "Offset": 597,
+              "EndOffset": 649,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Core.Services.OrdersService/<Create>d__3": {
+        "System.Void Core.Services.OrdersService/<Create>d__3::MoveNext()": {
+          "Lines": {
+            "23": 2,
+            "24": 2,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "30": 1,
+            "32": 1,
+            "33": 0,
+            "35": 1,
+            "37": 1,
+            "38": 1,
+            "40": 1,
+            "41": 1
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 24,
+              "Offset": 40,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 32,
+              "Offset": 104,
+              "EndOffset": 106,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 104,
+              "EndOffset": 113,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.OrdersService/<Delete>d__5": {
+        "System.Void Core.Services.OrdersService/<Delete>d__5::MoveNext()": {
+          "Lines": {
+            "72": 2,
+            "74": 2,
+            "75": 2,
+            "76": 1,
+            "77": 1,
+            "78": 1,
+            "79": 1,
+            "81": 1,
+            "84": 1,
+            "85": 1,
+            "87": 1,
+            "88": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.OrdersService/<DeleteOrderItem>d__6": {
+        "System.Void Core.Services.OrdersService/<DeleteOrderItem>d__6::MoveNext()": {
+          "Lines": {
+            "91": 3,
+            "92": 3,
+            "93": 3,
+            "94": 1,
+            "95": 1,
+            "96": 1,
+            "97": 1,
+            "101": 2,
+            "102": 1,
+            "103": 1,
+            "104": 1,
+            "107": 1,
+            "109": 1,
+            "110": 1,
+            "111": 1,
+            "112": 3
+          },
+          "Branches": [
+            {
+              "Line": 93,
+              "Offset": 208,
+              "EndOffset": 210,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 94,
+              "Offset": 223,
+              "EndOffset": 225,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 93,
+              "Offset": 208,
+              "EndOffset": 307,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 94,
+              "Offset": 223,
+              "EndOffset": 307,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 101,
+              "Offset": 364,
+              "EndOffset": 366,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 101,
+              "Offset": 364,
+              "EndOffset": 467,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.OrdersService/<GetAll>d__7": {
+        "System.Void Core.Services.OrdersService/<GetAll>d__7::MoveNext()": {
+          "Lines": {
+            "115": 1,
+            "116": 1,
+            "119": 1
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.OrdersService/<GetById>d__8": {
+        "System.Void Core.Services.OrdersService/<GetById>d__8::MoveNext()": {
+          "Lines": {
+            "122": 2,
+            "123": 2,
+            "125": 2,
+            "126": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.OrdersService/<Update>d__9": {
+        "System.Void Core.Services.OrdersService/<Update>d__9::MoveNext()": {
+          "Lines": {
+            "129": 2,
+            "130": 2,
+            "131": 1,
+            "132": 1,
+            "134": 1,
+            "137": 1,
+            "140": 1,
+            "141": 1,
+            "142": 1,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "147": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "155": 1,
+            "156": 1,
+            "158": 1,
+            "159": 1
+          },
+          "Branches": [
+            {
+              "Line": 130,
+              "Offset": 37,
+              "EndOffset": 39,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 130,
+              "Offset": 37,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\Core\\Services\\RecipeService.cs": {
+      "Core.Services.RecipeService": {
+        "System.Void Core.Services.RecipeService::.ctor(RestaurantAPI.Domain.IUnitOfWork,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "16": 11,
+            "17": 11,
+            "18": 11,
+            "19": 10,
+            "20": 9
+          },
+          "Branches": [
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 18,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 10
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 9
+            }
+          ]
+        }
+      },
+      "Core.Services.RecipeService/<Create>d__3": {
+        "System.Void Core.Services.RecipeService/<Create>d__3::MoveNext()": {
+          "Lines": {
+            "24": 2,
+            "25": 2,
+            "26": 1,
+            "27": 1,
+            "28": 1,
+            "31": 1,
+            "33": 1,
+            "35": 1,
+            "36": 1,
+            "38": 1,
+            "39": 1
+          },
+          "Branches": [
+            {
+              "Line": 25,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 25,
+              "Offset": 40,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.RecipeService/<Delete>d__4": {
+        "System.Void Core.Services.RecipeService/<Delete>d__4::MoveNext()": {
+          "Lines": {
+            "42": 2,
+            "44": 2,
+            "45": 2,
+            "46": 1,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "51": 1,
+            "54": 1,
+            "55": 1,
+            "57": 1,
+            "58": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.RecipeService/<GetAll>d__5": {
+        "System.Void Core.Services.RecipeService/<GetAll>d__5::MoveNext()": {
+          "Lines": {
+            "61": 1,
+            "62": 1,
+            "64": 1,
+            "65": 1
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.RecipeService/<GetById>d__6": {
+        "System.Void Core.Services.RecipeService/<GetById>d__6::MoveNext()": {
+          "Lines": {
+            "68": 2,
+            "69": 2,
+            "71": 2,
+            "72": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.RecipeService/<Update>d__7": {
+        "System.Void Core.Services.RecipeService/<Update>d__7::MoveNext()": {
+          "Lines": {
+            "75": 2,
+            "76": 2,
+            "77": 1,
+            "78": 1,
+            "80": 1,
+            "83": 1,
+            "86": 1,
+            "87": 1,
+            "88": 1,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "93": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "101": 1,
+            "102": 1,
+            "104": 1,
+            "105": 1
+          },
+          "Branches": [
+            {
+              "Line": 76,
+              "Offset": 37,
+              "EndOffset": 39,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 76,
+              "Offset": 37,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\Core\\Services\\UsersService.cs": {
+      "Core.Services.UsersService": {
+        "System.Void Core.Services.UsersService::.ctor(RestaurantAPI.Domain.IUnitOfWork,RestaurantAPI.Domain.IAuthorizationService,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "19": 20,
+            "20": 20,
+            "21": 20,
+            "22": 19,
+            "23": 18,
+            "24": 17
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 21,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 19
+            },
+            {
+              "Line": 22,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 22,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 18
+            },
+            {
+              "Line": 23,
+              "Offset": 55,
+              "EndOffset": 57,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 23,
+              "Offset": 55,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 17
+            }
+          ]
+        }
+      },
+      "Core.Services.UsersService/<CredentialsValidator>d__7": {
+        "System.Void Core.Services.UsersService/<CredentialsValidator>d__7::MoveNext()": {
+          "Lines": {
+            "71": 6,
+            "72": 6,
+            "73": 6,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "79": 5,
+            "80": 5,
+            "81": 1,
+            "82": 1,
+            "83": 1,
+            "86": 4,
+            "87": 2,
+            "88": 2,
+            "89": 2,
+            "92": 2,
+            "93": 2,
+            "94": 2,
+            "95": 6
+          },
+          "Branches": [
+            {
+              "Line": 73,
+              "Offset": 174,
+              "EndOffset": 176,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 73,
+              "Offset": 174,
+              "EndOffset": 231,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 5
+            },
+            {
+              "Line": 80,
+              "Offset": 288,
+              "EndOffset": 290,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 80,
+              "Offset": 288,
+              "EndOffset": 324,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
+            },
+            {
+              "Line": 86,
+              "Offset": 368,
+              "EndOffset": 370,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            },
+            {
+              "Line": 86,
+              "Offset": 368,
+              "EndOffset": 475,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            }
+          ]
+        }
+      },
+      "Core.Services.UsersService/<DeleteAccount>d__8": {
+        "System.Void Core.Services.UsersService/<DeleteAccount>d__8::MoveNext()": {
+          "Lines": {
+            "98": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "107": 0,
+            "110": 0,
+            "112": 0,
+            "113": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.UsersService/<GetUserPublicData>d__10": {
+        "System.Void Core.Services.UsersService/<GetUserPublicData>d__10::MoveNext()": {
+          "Lines": {
+            "151": 2,
+            "152": 2,
+            "154": 2,
+            "155": 1,
+            "156": 1,
+            "157": 1,
+            "159": 1,
+            "162": 1,
+            "163": 2
+          },
+          "Branches": [
+            {
+              "Line": 154,
+              "Offset": 169,
+              "EndOffset": 174,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 154,
+              "Offset": 169,
+              "EndOffset": 307,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.UsersService/<Register>d__4": {
+        "System.Void Core.Services.UsersService/<Register>d__4::MoveNext()": {
+          "Lines": {
+            "26": 7,
+            "27": 7,
+            "28": 1,
+            "29": 1,
+            "30": 1,
+            "33": 6,
+            "35": 6,
+            "36": 6,
+            "37": 4,
+            "38": 4,
+            "39": 4,
+            "42": 2,
+            "43": 2,
+            "44": 1,
+            "45": 1,
+            "46": 1,
+            "49": 1,
+            "51": 1,
+            "52": 1,
+            "53": 1,
+            "55": 1,
+            "57": 1,
+            "58": 7
+          },
+          "Branches": [
+            {
+              "Line": 27,
+              "Offset": 54,
+              "EndOffset": 56,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 27,
+              "Offset": 54,
+              "EndOffset": 86,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 35,
+              "Offset": 128,
+              "EndOffset": 130,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 5
+            },
+            {
+              "Line": 35,
+              "Offset": 146,
+              "EndOffset": 148,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 4
+            },
+            {
+              "Line": 35,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 3
+            },
+            {
+              "Line": 35,
+              "Offset": 182,
+              "EndOffset": 184,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 2
+            },
+            {
+              "Line": 35,
+              "Offset": 128,
+              "EndOffset": 209,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
+            },
+            {
+              "Line": 35,
+              "Offset": 146,
+              "EndOffset": 209,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 4
+            },
+            {
+              "Line": 35,
+              "Offset": 164,
+              "EndOffset": 209,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 4
+            },
+            {
+              "Line": 35,
+              "Offset": 182,
+              "EndOffset": 209,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 4
+            },
+            {
+              "Line": 35,
+              "Offset": 212,
+              "EndOffset": 214,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 4
+            },
+            {
+              "Line": 35,
+              "Offset": 212,
+              "EndOffset": 244,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 2
+            },
+            {
+              "Line": 43,
+              "Offset": 407,
+              "EndOffset": 409,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 1
+            },
+            {
+              "Line": 43,
+              "Offset": 407,
+              "EndOffset": 460,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.UsersService/<UpdateUserDetails>d__9": {
+        "System.Void Core.Services.UsersService/<UpdateUserDetails>d__9::MoveNext()": {
+          "Lines": {
+            "116": 2,
+            "117": 2,
+            "118": 2,
+            "119": 1,
+            "120": 1,
+            "121": 1,
+            "124": 1,
+            "126": 1,
+            "129": 1,
+            "130": 1,
+            "131": 1,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "136": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "145": 1,
+            "147": 1,
+            "148": 2
+          },
+          "Branches": [
+            {
+              "Line": 118,
+              "Offset": 192,
+              "EndOffset": 194,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 118,
+              "Offset": 192,
+              "EndOffset": 218,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 118,
+              "Offset": 223,
+              "EndOffset": 225,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 118,
+              "Offset": 223,
+              "EndOffset": 276,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "Core.Services.UsersService/<ValidateAdminCredentials>d__6": {
+        "System.Void Core.Services.UsersService/<ValidateAdminCredentials>d__6::MoveNext()": {
+          "Lines": {
+            "66": 2,
+            "67": 2,
+            "68": 2
+          },
+          "Branches": []
+        }
+      },
+      "Core.Services.UsersService/<ValidateCredentials>d__5": {
+        "System.Void Core.Services.UsersService/<ValidateCredentials>d__5::MoveNext()": {
+          "Lines": {
+            "61": 4,
+            "62": 4,
+            "63": 4
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "DataLayer.dll": {
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\AppDbContext.cs": {
+      "DataLayer.AppDbContext": {
+        "System.Void DataLayer.AppDbContext::OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Void DataLayer.AppDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<RestaurantAPI.Domain.Models.Users.User> DataLayer.AppDbContext::get_Users()": {
+          "Lines": {
+            "25": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<RestaurantAPI.Domain.Models.MenuRelated.DishesType> DataLayer.AppDbContext::get_DishesTypes()": {
+          "Lines": {
+            "27": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<RestaurantAPI.Domain.Models.MenuRelated.Ingredient> DataLayer.AppDbContext::get_Ingredients()": {
+          "Lines": {
+            "29": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<RestaurantAPI.Domain.Models.MenuRelated.Menu> DataLayer.AppDbContext::get_Menus()": {
+          "Lines": {
+            "31": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<RestaurantAPI.Domain.Models.MenuRelated.MenuItem> DataLayer.AppDbContext::get_MenuItems()": {
+          "Lines": {
+            "33": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<RestaurantAPI.Domain.Models.MenuRelated.Recipe> DataLayer.AppDbContext::get_Recipes()": {
+          "Lines": {
+            "35": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient> DataLayer.AppDbContext::get_RecipeIngredients()": {
+          "Lines": {
+            "37": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\UnitOfWork.cs": {
+      "DataLayer.UnitOfWork": {
+        "RestaurantAPI.Domain.RepositoriesAbstractions.IUserRepository DataLayer.UnitOfWork::get_UsersRepository()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.RepositoriesAbstractions.IIngredientRepository DataLayer.UnitOfWork::get_IngredientRepository()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.RepositoriesAbstractions.IDishesTypeRepository DataLayer.UnitOfWork::get_DishesTypeRepository()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.RepositoriesAbstractions.IRecipeRepository DataLayer.UnitOfWork::get_RecipeRepository()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.RepositoriesAbstractions.IMenusRepository DataLayer.UnitOfWork::get_MenusRepository()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.RepositoriesAbstractions.IOrdersRepository DataLayer.UnitOfWork::get_OrdersRepository()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Void DataLayer.UnitOfWork::.ctor(DataLayer.AppDbContext,RestaurantAPI.Domain.RepositoriesAbstractions.IUserRepository,RestaurantAPI.Domain.RepositoriesAbstractions.IIngredientRepository,RestaurantAPI.Domain.RepositoriesAbstractions.IRecipeRepository,RestaurantAPI.Domain.RepositoriesAbstractions.IDishesTypeRepository,RestaurantAPI.Domain.RepositoriesAbstractions.IMenusRepository,RestaurantAPI.Domain.RepositoriesAbstractions.IOrdersRepository,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": [
+            {
+              "Line": 36,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 36,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 37,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 37,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 55,
+              "EndOffset": 57,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 55,
+              "EndOffset": 69,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 78,
+              "EndOffset": 80,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 78,
+              "EndOffset": 92,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 40,
+              "Offset": 101,
+              "EndOffset": 103,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 40,
+              "Offset": 101,
+              "EndOffset": 115,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 41,
+              "Offset": 124,
+              "EndOffset": 126,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 41,
+              "Offset": 124,
+              "EndOffset": 138,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 42,
+              "Offset": 147,
+              "EndOffset": 149,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 42,
+              "Offset": 147,
+              "EndOffset": 161,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 170,
+              "EndOffset": 172,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 170,
+              "EndOffset": 184,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "DataLayer.UnitOfWork/<SaveChangesAsync>d__21": {
+        "System.Void DataLayer.UnitOfWork/<SaveChangesAsync>d__21::MoveNext()": {
+          "Lines": {
+            "47": 0,
+            "49": 0,
+            "50": 0,
+            "52": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "58": 0,
+            "60": 0,
+            "62": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Repositories\\DishesTypeRepository.cs": {
+      "DataLayer.Repositories.DishesTypeRepository": {
+        "System.Void DataLayer.Repositories.DishesTypeRepository::.ctor(DataLayer.AppDbContext)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.DishesTypeRepository/<UpdateAsync>d__1": {
+        "System.Void DataLayer.Repositories.DishesTypeRepository/<UpdateAsync>d__1::MoveNext()": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 15,
+              "Offset": 26,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 183,
+              "EndOffset": 185,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 183,
+              "EndOffset": 266,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Repositories\\IngredientRepository.cs": {
+      "DataLayer.Repositories.IngredientRepository": {
+        "System.Void DataLayer.Repositories.IngredientRepository::.ctor(DataLayer.AppDbContext)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.IngredientRepository/<UpdateAsync>d__1": {
+        "System.Void DataLayer.Repositories.IngredientRepository/<UpdateAsync>d__1::MoveNext()": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 15,
+              "Offset": 26,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 183,
+              "EndOffset": 185,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 183,
+              "EndOffset": 266,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Repositories\\MenusRepository.cs": {
+      "DataLayer.Repositories.MenusRepository": {
+        "System.Void DataLayer.Repositories.MenusRepository::.ctor(DataLayer.AppDbContext)": {
+          "Lines": {
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.MenusRepository/<GetAllAsync>d__1": {
+        "System.Void DataLayer.Repositories.MenusRepository/<GetAllAsync>d__1::MoveNext()": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.MenusRepository/<GetByIdAsync>d__2": {
+        "System.Void DataLayer.Repositories.MenusRepository/<GetByIdAsync>d__2::MoveNext()": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "24": 0,
+            "25": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.MenusRepository/<UpdateAsync>d__3": {
+        "System.Void DataLayer.Repositories.MenusRepository/<UpdateAsync>d__3::MoveNext()": {
+          "Lines": {
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": [
+            {
+              "Line": 29,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 29,
+              "Offset": 26,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 183,
+              "EndOffset": 185,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 183,
+              "EndOffset": 266,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Repositories\\OrdersRepository.cs": {
+      "DataLayer.Repositories.OrdersRepository": {
+        "System.Void DataLayer.Repositories.OrdersRepository::.ctor(DataLayer.AppDbContext)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.OrdersRepository/<GetAllAsync>d__1": {
+        "System.Void DataLayer.Repositories.OrdersRepository/<GetAllAsync>d__1::MoveNext()": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.OrdersRepository/<GetByIdAsync>d__2": {
+        "System.Void DataLayer.Repositories.OrdersRepository/<GetByIdAsync>d__2::MoveNext()": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.OrdersRepository/<UpdateAsync>d__3": {
+        "System.Void DataLayer.Repositories.OrdersRepository/<UpdateAsync>d__3::MoveNext()": {
+          "Lines": {
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": [
+            {
+              "Line": 28,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 28,
+              "Offset": 26,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 183,
+              "EndOffset": 185,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 183,
+              "EndOffset": 266,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Repositories\\RecipeRepository.cs": {
+      "DataLayer.Repositories.RecipeRepository": {
+        "System.Void DataLayer.Repositories.RecipeRepository::.ctor(DataLayer.AppDbContext)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.RecipeRepository/<UpdateAsync>d__1": {
+        "System.Void DataLayer.Repositories.RecipeRepository/<UpdateAsync>d__1::MoveNext()": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": [
+            {
+              "Line": 16,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 16,
+              "Offset": 26,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 20,
+              "Offset": 183,
+              "EndOffset": 185,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 20,
+              "Offset": 183,
+              "EndOffset": 266,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Repositories\\RepositoryBase.cs": {
+      "DataLayer.Repositories.RepositoryBase`1": {
+        "System.Boolean DataLayer.Repositories.RepositoryBase`1::Any(System.Func`2<T,System.Boolean>)": {
+          "Lines": {
+            "52": 0,
+            "53": 0,
+            "54": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<T> DataLayer.Repositories.RepositoryBase`1::GetRecords()": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "59": 0
+          },
+          "Branches": []
+        },
+        "System.Void DataLayer.Repositories.RepositoryBase`1::.ctor(DataLayer.AppDbContext)": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 15,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "DataLayer.Repositories.RepositoryBase`1/<AddAsync>d__4": {
+        "System.Void DataLayer.Repositories.RepositoryBase`1/<AddAsync>d__4::MoveNext()": {
+          "Lines": {
+            "27": 0,
+            "28": 0,
+            "29": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.RepositoryBase`1/<DeleteAsync>d__6": {
+        "System.Void DataLayer.Repositories.RepositoryBase`1/<DeleteAsync>d__6::MoveNext()": {
+          "Lines": {
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "42": 0,
+            "44": 0
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 167,
+              "EndOffset": 169,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 167,
+              "EndOffset": 245,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "DataLayer.Repositories.RepositoryBase`1/<GetAllAsync>d__7": {
+        "System.Void DataLayer.Repositories.RepositoryBase`1/<GetAllAsync>d__7::MoveNext()": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "49": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.RepositoryBase`1/<GetByIdAsync>d__3": {
+        "System.Void DataLayer.Repositories.RepositoryBase`1/<GetByIdAsync>d__3::MoveNext()": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.RepositoryBase`1/<UpdateAsync>d__5": {
+        "System.Void DataLayer.Repositories.RepositoryBase`1/<UpdateAsync>d__5::MoveNext()": {
+          "Lines": {
+            "32": 0,
+            "33": 0,
+            "34": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Repositories\\UsersRepository.cs": {
+      "DataLayer.Repositories.UsersRepository": {
+        "System.Void DataLayer.Repositories.UsersRepository::.ctor(DataLayer.AppDbContext)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.UsersRepository/<GetUserByEmail>d__1": {
+        "System.Void DataLayer.Repositories.UsersRepository/<GetUserByEmail>d__1::MoveNext()": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        }
+      },
+      "DataLayer.Repositories.UsersRepository/<UpdateAsync>d__2": {
+        "System.Void DataLayer.Repositories.UsersRepository/<UpdateAsync>d__2::MoveNext()": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 23,
+              "Offset": 26,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 183,
+              "EndOffset": 185,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 183,
+              "EndOffset": 266,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230601105124_AccountsMigration.cs": {
+      "DataLayer.Migrations.AccountsMigration": {
+        "System.Void DataLayer.Migrations.AccountsMigration::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0
+          },
+          "Branches": []
+        },
+        "System.Void DataLayer.Migrations.AccountsMigration::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230601105124_AccountsMigration.Designer.cs": {
+      "DataLayer.Migrations.AccountsMigration": {
+        "System.Void DataLayer.Migrations.AccountsMigration::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "91": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230602083340_removedPersonalData.cs": {
+      "DataLayer.Migrations.removedPersonalData": {
+        "System.Void DataLayer.Migrations.removedPersonalData::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "18": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0
+          },
+          "Branches": []
+        },
+        "System.Void DataLayer.Migrations.removedPersonalData::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230602083340_removedPersonalData.Designer.cs": {
+      "DataLayer.Migrations.removedPersonalData": {
+        "System.Void DataLayer.Migrations.removedPersonalData::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "62": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230603132324_MenuMigration.cs": {
+      "DataLayer.Migrations.MenuMigration": {
+        "System.Void DataLayer.Migrations.MenuMigration::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0
+          },
+          "Branches": []
+        },
+        "System.Void DataLayer.Migrations.MenuMigration::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "160": 0,
+            "161": 0,
+            "163": 0,
+            "164": 0,
+            "166": 0,
+            "167": 0,
+            "169": 0,
+            "170": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230603132324_MenuMigration.Designer.cs": {
+      "DataLayer.Migrations.MenuMigration": {
+        "System.Void DataLayer.Migrations.MenuMigration::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "193": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "203": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "209": 0,
+            "210": 0,
+            "212": 0,
+            "213": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "219": 0,
+            "220": 0,
+            "221": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "226": 0,
+            "227": 0,
+            "228": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "233": 0,
+            "234": 0,
+            "235": 0,
+            "236": 0,
+            "237": 0,
+            "238": 0,
+            "239": 0,
+            "240": 0,
+            "242": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230617092848_orders.cs": {
+      "DataLayer.Migrations.orders": {
+        "System.Void DataLayer.Migrations.orders::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0
+          },
+          "Branches": []
+        },
+        "System.Void DataLayer.Migrations.orders::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\20230617092848_orders.Designer.cs": {
+      "DataLayer.Migrations.orders": {
+        "System.Void DataLayer.Migrations.orders::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "20": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "193": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "203": 0,
+            "204": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "209": 0,
+            "210": 0,
+            "211": 0,
+            "212": 0,
+            "213": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "219": 0,
+            "220": 0,
+            "221": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "226": 0,
+            "227": 0,
+            "228": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "233": 0,
+            "234": 0,
+            "235": 0,
+            "236": 0,
+            "237": 0,
+            "238": 0,
+            "239": 0,
+            "241": 0,
+            "242": 0,
+            "243": 0,
+            "244": 0,
+            "245": 0,
+            "246": 0,
+            "247": 0,
+            "248": 0,
+            "249": 0,
+            "250": 0,
+            "251": 0,
+            "252": 0,
+            "253": 0,
+            "254": 0,
+            "255": 0,
+            "256": 0,
+            "257": 0,
+            "258": 0,
+            "260": 0,
+            "261": 0,
+            "262": 0,
+            "263": 0,
+            "264": 0,
+            "265": 0,
+            "266": 0,
+            "267": 0,
+            "268": 0,
+            "269": 0,
+            "271": 0,
+            "272": 0,
+            "273": 0,
+            "274": 0,
+            "275": 0,
+            "276": 0,
+            "277": 0,
+            "278": 0,
+            "279": 0,
+            "280": 0,
+            "281": 0,
+            "282": 0,
+            "283": 0,
+            "284": 0,
+            "285": 0,
+            "286": 0,
+            "287": 0,
+            "288": 0,
+            "290": 0,
+            "291": 0,
+            "292": 0,
+            "293": 0,
+            "294": 0,
+            "295": 0,
+            "296": 0,
+            "297": 0,
+            "298": 0,
+            "299": 0,
+            "301": 0,
+            "302": 0,
+            "303": 0,
+            "304": 0,
+            "305": 0,
+            "306": 0,
+            "307": 0,
+            "308": 0,
+            "309": 0,
+            "310": 0,
+            "311": 0,
+            "312": 0,
+            "313": 0,
+            "314": 0,
+            "315": 0,
+            "316": 0,
+            "317": 0,
+            "318": 0,
+            "320": 0,
+            "321": 0,
+            "322": 0,
+            "323": 0,
+            "325": 0,
+            "326": 0,
+            "327": 0,
+            "328": 0,
+            "330": 0,
+            "331": 0,
+            "332": 0,
+            "333": 0,
+            "335": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DataLayer\\Migrations\\AppDbContextModelSnapshot.cs": {
+      "DataLayer.Migrations.AppDbContextModelSnapshot": {
+        "System.Void DataLayer.Migrations.AppDbContextModelSnapshot::BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "17": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "193": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "203": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "209": 0,
+            "210": 0,
+            "211": 0,
+            "212": 0,
+            "213": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "219": 0,
+            "220": 0,
+            "221": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "226": 0,
+            "227": 0,
+            "228": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "233": 0,
+            "234": 0,
+            "235": 0,
+            "236": 0,
+            "238": 0,
+            "239": 0,
+            "240": 0,
+            "241": 0,
+            "242": 0,
+            "243": 0,
+            "244": 0,
+            "245": 0,
+            "246": 0,
+            "247": 0,
+            "248": 0,
+            "249": 0,
+            "250": 0,
+            "251": 0,
+            "252": 0,
+            "253": 0,
+            "254": 0,
+            "255": 0,
+            "257": 0,
+            "258": 0,
+            "259": 0,
+            "260": 0,
+            "261": 0,
+            "262": 0,
+            "263": 0,
+            "264": 0,
+            "265": 0,
+            "266": 0,
+            "268": 0,
+            "269": 0,
+            "270": 0,
+            "271": 0,
+            "272": 0,
+            "273": 0,
+            "274": 0,
+            "275": 0,
+            "276": 0,
+            "277": 0,
+            "278": 0,
+            "279": 0,
+            "280": 0,
+            "281": 0,
+            "282": 0,
+            "283": 0,
+            "284": 0,
+            "285": 0,
+            "287": 0,
+            "288": 0,
+            "289": 0,
+            "290": 0,
+            "291": 0,
+            "292": 0,
+            "293": 0,
+            "294": 0,
+            "295": 0,
+            "296": 0,
+            "298": 0,
+            "299": 0,
+            "300": 0,
+            "301": 0,
+            "302": 0,
+            "303": 0,
+            "304": 0,
+            "305": 0,
+            "306": 0,
+            "307": 0,
+            "308": 0,
+            "309": 0,
+            "310": 0,
+            "311": 0,
+            "312": 0,
+            "313": 0,
+            "314": 0,
+            "315": 0,
+            "317": 0,
+            "318": 0,
+            "319": 0,
+            "320": 0,
+            "322": 0,
+            "323": 0,
+            "324": 0,
+            "325": 0,
+            "327": 0,
+            "328": 0,
+            "329": 0,
+            "330": 0,
+            "332": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Restaurant API.dll": {
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Program.cs": {
+      "Program": {
+        "System.Void Program::<Main>$(System.String[])": {
+          "Lines": {
+            "10": 0,
+            "12": 0,
+            "14": 0,
+            "17": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "48": 0,
+            "50": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "61": 0,
+            "63": 0,
+            "65": 0,
+            "67": 0,
+            "68": 0
+          },
+          "Branches": [
+            {
+              "Line": 53,
+              "Offset": 222,
+              "EndOffset": 224,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 222,
+              "EndOffset": 242,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Settings\\Dependencies.cs": {
+      "DAWM_Project.Settings.Dependencies": {
+        "System.Void DAWM_Project.Settings.Dependencies::Inject(Microsoft.AspNetCore.Builder.WebApplicationBuilder)": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.Void DAWM_Project.Settings.Dependencies::AddServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": []
+        },
+        "System.Void DAWM_Project.Settings.Dependencies::AddRepositories(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
+          "Lines": {
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\AccountController.cs": {
+      "DAWM_Project.Controllers.AccountController": {
+        "System.Void DAWM_Project.Controllers.AccountController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IUsersService,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "18": 16,
+            "19": 16,
+            "20": 16,
+            "21": 15,
+            "22": 14
+          },
+          "Branches": [
+            {
+              "Line": 20,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 15
+            },
+            {
+              "Line": 21,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 21,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 14
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.AccountController/<DeleteAccount>d__7": {
+        "System.Void DAWM_Project.Controllers.AccountController/<DeleteAccount>d__7::MoveNext()": {
+          "Lines": {
+            "86": 2,
+            "87": 2,
+            "89": 2,
+            "90": 1,
+            "91": 1,
+            "94": 1,
+            "95": 2
+          },
+          "Branches": [
+            {
+              "Line": 89,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 89,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.AccountController/<EditUserDetails>d__6": {
+        "System.Void DAWM_Project.Controllers.AccountController/<EditUserDetails>d__6::MoveNext()": {
+          "Lines": {
+            "71": 2,
+            "72": 2,
+            "74": 2,
+            "76": 2,
+            "77": 2,
+            "78": 1,
+            "80": 1,
+            "81": 2
+          },
+          "Branches": [
+            {
+              "Line": 77,
+              "Offset": 215,
+              "EndOffset": 217,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 77,
+              "Offset": 215,
+              "EndOffset": 231,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.AccountController/<GetUserPublicData>d__8": {
+        "System.Void DAWM_Project.Controllers.AccountController/<GetUserPublicData>d__8::MoveNext()": {
+          "Lines": {
+            "100": 2,
+            "101": 2,
+            "103": 2,
+            "105": 2,
+            "107": 2,
+            "108": 1,
+            "109": 1,
+            "112": 1,
+            "113": 2
+          },
+          "Branches": [
+            {
+              "Line": 107,
+              "Offset": 213,
+              "EndOffset": 215,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 107,
+              "Offset": 213,
+              "EndOffset": 230,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.AccountController/<Login>d__4": {
+        "System.Void DAWM_Project.Controllers.AccountController/<Login>d__4::MoveNext()": {
+          "Lines": {
+            "43": 2,
+            "44": 2,
+            "46": 2,
+            "47": 1,
+            "48": 1,
+            "51": 1,
+            "52": 2
+          },
+          "Branches": [
+            {
+              "Line": 46,
+              "Offset": 166,
+              "EndOffset": 168,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 46,
+              "Offset": 166,
+              "EndOffset": 183,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.AccountController/<LoginAsAdmin>d__5": {
+        "System.Void DAWM_Project.Controllers.AccountController/<LoginAsAdmin>d__5::MoveNext()": {
+          "Lines": {
+            "57": 2,
+            "58": 2,
+            "60": 2,
+            "61": 1,
+            "62": 1,
+            "65": 1,
+            "66": 2
+          },
+          "Branches": [
+            {
+              "Line": 60,
+              "Offset": 166,
+              "EndOffset": 168,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 60,
+              "Offset": 166,
+              "EndOffset": 183,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.AccountController/<Register>d__3": {
+        "System.Void DAWM_Project.Controllers.AccountController/<Register>d__3::MoveNext()": {
+          "Lines": {
+            "27": 2,
+            "28": 2,
+            "30": 2,
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "36": 1,
+            "37": 1,
+            "38": 2
+          },
+          "Branches": [
+            {
+              "Line": 30,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 30,
+              "Offset": 154,
+              "EndOffset": 193,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\DishesTypeController.cs": {
+      "DAWM_Project.Controllers.DishesTypeController": {
+        "System.Void DAWM_Project.Controllers.DishesTypeController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IDishesTypeService,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "17": 13,
+            "18": 13,
+            "19": 13,
+            "20": 12,
+            "21": 11
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 12
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 11
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.DishesTypeController/<AddDishesType>d__5": {
+        "System.Void DAWM_Project.Controllers.DishesTypeController/<AddDishesType>d__5::MoveNext()": {
+          "Lines": {
+            "46": 2,
+            "47": 2,
+            "49": 2,
+            "50": 1,
+            "51": 1,
+            "54": 1,
+            "55": 2
+          },
+          "Branches": [
+            {
+              "Line": 49,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 49,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.DishesTypeController/<DeleteIngredient>d__7": {
+        "System.Void DAWM_Project.Controllers.DishesTypeController/<DeleteIngredient>d__7::MoveNext()": {
+          "Lines": {
+            "76": 2,
+            "77": 2,
+            "79": 2,
+            "80": 1,
+            "81": 1,
+            "84": 1,
+            "85": 2
+          },
+          "Branches": [
+            {
+              "Line": 79,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 79,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.DishesTypeController/<GetAllDishesTypes>d__3": {
+        "System.Void DAWM_Project.Controllers.DishesTypeController/<GetAllDishesTypes>d__3::MoveNext()": {
+          "Lines": {
+            "25": 1,
+            "26": 1,
+            "28": 1,
+            "29": 1
+          },
+          "Branches": []
+        }
+      },
+      "DAWM_Project.Controllers.DishesTypeController/<GetDishesTypeById>d__4": {
+        "System.Void DAWM_Project.Controllers.DishesTypeController/<GetDishesTypeById>d__4::MoveNext()": {
+          "Lines": {
+            "34": 2,
+            "35": 2,
+            "37": 2,
+            "38": 1,
+            "40": 1,
+            "41": 2
+          },
+          "Branches": [
+            {
+              "Line": 37,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 37,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.DishesTypeController/<UpdateDishesType>d__6": {
+        "System.Void DAWM_Project.Controllers.DishesTypeController/<UpdateDishesType>d__6::MoveNext()": {
+          "Lines": {
+            "61": 2,
+            "62": 2,
+            "64": 2,
+            "65": 1,
+            "66": 1,
+            "69": 1,
+            "70": 2
+          },
+          "Branches": [
+            {
+              "Line": 64,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 64,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\IngredientsController.cs": {
+      "DAWM_Project.Controllers.IngredientsController": {
+        "System.Void DAWM_Project.Controllers.IngredientsController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IIngredientsService,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "17": 13,
+            "18": 13,
+            "19": 13,
+            "20": 12,
+            "21": 11
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 12
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 11
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.IngredientsController/<AddIngredient>d__5": {
+        "System.Void DAWM_Project.Controllers.IngredientsController/<AddIngredient>d__5::MoveNext()": {
+          "Lines": {
+            "48": 2,
+            "49": 2,
+            "51": 2,
+            "52": 1,
+            "53": 1,
+            "56": 1,
+            "57": 2
+          },
+          "Branches": [
+            {
+              "Line": 51,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 51,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.IngredientsController/<DeleteIngredient>d__7": {
+        "System.Void DAWM_Project.Controllers.IngredientsController/<DeleteIngredient>d__7::MoveNext()": {
+          "Lines": {
+            "78": 2,
+            "79": 2,
+            "81": 2,
+            "82": 1,
+            "83": 1,
+            "86": 1,
+            "87": 2
+          },
+          "Branches": [
+            {
+              "Line": 81,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 81,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.IngredientsController/<GetAllIngredients>d__3": {
+        "System.Void DAWM_Project.Controllers.IngredientsController/<GetAllIngredients>d__3::MoveNext()": {
+          "Lines": {
+            "26": 1,
+            "27": 1,
+            "29": 1,
+            "30": 1
+          },
+          "Branches": []
+        }
+      },
+      "DAWM_Project.Controllers.IngredientsController/<GetIngredientById>d__4": {
+        "System.Void DAWM_Project.Controllers.IngredientsController/<GetIngredientById>d__4::MoveNext()": {
+          "Lines": {
+            "36": 2,
+            "37": 2,
+            "39": 2,
+            "40": 1,
+            "42": 1,
+            "43": 2
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.IngredientsController/<UpdateIngredient>d__6": {
+        "System.Void DAWM_Project.Controllers.IngredientsController/<UpdateIngredient>d__6::MoveNext()": {
+          "Lines": {
+            "63": 2,
+            "64": 2,
+            "66": 2,
+            "67": 1,
+            "68": 1,
+            "71": 1,
+            "72": 2
+          },
+          "Branches": [
+            {
+              "Line": 66,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 66,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\MenusController.cs": {
+      "DAWM_Project.Controllers.MenusController": {
+        "System.Void DAWM_Project.Controllers.MenusController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IMenusService,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "17": 17,
+            "18": 17,
+            "19": 17,
+            "20": 16,
+            "21": 15
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 16
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 15
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.MenusController/<AddMenu>d__5": {
+        "System.Void DAWM_Project.Controllers.MenusController/<AddMenu>d__5::MoveNext()": {
+          "Lines": {
+            "46": 2,
+            "47": 2,
+            "49": 2,
+            "50": 1,
+            "51": 1,
+            "54": 1,
+            "55": 2
+          },
+          "Branches": [
+            {
+              "Line": 49,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 49,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.MenusController/<AddMenuItem>d__8": {
+        "System.Void DAWM_Project.Controllers.MenusController/<AddMenuItem>d__8::MoveNext()": {
+          "Lines": {
+            "92": 2,
+            "93": 2,
+            "95": 2,
+            "96": 1,
+            "97": 1,
+            "100": 1,
+            "101": 2
+          },
+          "Branches": [
+            {
+              "Line": 95,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 95,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.MenusController/<DeleteMenu>d__7": {
+        "System.Void DAWM_Project.Controllers.MenusController/<DeleteMenu>d__7::MoveNext()": {
+          "Lines": {
+            "77": 2,
+            "78": 2,
+            "80": 2,
+            "81": 1,
+            "82": 1,
+            "85": 1,
+            "86": 2
+          },
+          "Branches": [
+            {
+              "Line": 80,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 80,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.MenusController/<DeleteMenuItem>d__9": {
+        "System.Void DAWM_Project.Controllers.MenusController/<DeleteMenuItem>d__9::MoveNext()": {
+          "Lines": {
+            "107": 2,
+            "108": 2,
+            "110": 2,
+            "111": 1,
+            "112": 1,
+            "115": 1,
+            "116": 2
+          },
+          "Branches": [
+            {
+              "Line": 110,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 110,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.MenusController/<GetAllMenus>d__3": {
+        "System.Void DAWM_Project.Controllers.MenusController/<GetAllMenus>d__3::MoveNext()": {
+          "Lines": {
+            "25": 1,
+            "26": 1,
+            "28": 1,
+            "29": 1
+          },
+          "Branches": []
+        }
+      },
+      "DAWM_Project.Controllers.MenusController/<GetMenuById>d__4": {
+        "System.Void DAWM_Project.Controllers.MenusController/<GetMenuById>d__4::MoveNext()": {
+          "Lines": {
+            "34": 2,
+            "35": 2,
+            "37": 2,
+            "38": 1,
+            "40": 1,
+            "41": 2
+          },
+          "Branches": [
+            {
+              "Line": 37,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 37,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.MenusController/<UpdateMenu>d__6": {
+        "System.Void DAWM_Project.Controllers.MenusController/<UpdateMenu>d__6::MoveNext()": {
+          "Lines": {
+            "62": 2,
+            "63": 2,
+            "65": 2,
+            "66": 1,
+            "67": 1,
+            "70": 1,
+            "71": 2
+          },
+          "Branches": [
+            {
+              "Line": 65,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 65,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\OrdersController.cs": {
+      "DAWM_Project.Controllers.OrdersController": {
+        "System.Void DAWM_Project.Controllers.OrdersController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IOrdersService,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "17": 17,
+            "18": 17,
+            "19": 17,
+            "20": 16,
+            "21": 15
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 16
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 15
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.OrdersController/<AddOrder>d__5": {
+        "System.Void DAWM_Project.Controllers.OrdersController/<AddOrder>d__5::MoveNext()": {
+          "Lines": {
+            "48": 2,
+            "49": 2,
+            "51": 2,
+            "52": 1,
+            "53": 1,
+            "56": 1,
+            "57": 2
+          },
+          "Branches": [
+            {
+              "Line": 51,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 51,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.OrdersController/<AddOrderItem>d__8": {
+        "System.Void DAWM_Project.Controllers.OrdersController/<AddOrderItem>d__8::MoveNext()": {
+          "Lines": {
+            "94": 2,
+            "95": 2,
+            "97": 2,
+            "98": 1,
+            "99": 1,
+            "102": 1,
+            "103": 2
+          },
+          "Branches": [
+            {
+              "Line": 97,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 97,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.OrdersController/<DeleteOrder>d__7": {
+        "System.Void DAWM_Project.Controllers.OrdersController/<DeleteOrder>d__7::MoveNext()": {
+          "Lines": {
+            "79": 2,
+            "80": 2,
+            "82": 2,
+            "83": 1,
+            "84": 1,
+            "87": 1,
+            "88": 2
+          },
+          "Branches": [
+            {
+              "Line": 82,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 82,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.OrdersController/<DeleteOrderItem>d__9": {
+        "System.Void DAWM_Project.Controllers.OrdersController/<DeleteOrderItem>d__9::MoveNext()": {
+          "Lines": {
+            "109": 2,
+            "110": 2,
+            "112": 2,
+            "113": 1,
+            "114": 1,
+            "117": 1,
+            "118": 2
+          },
+          "Branches": [
+            {
+              "Line": 112,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 112,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.OrdersController/<GetAllOrders>d__3": {
+        "System.Void DAWM_Project.Controllers.OrdersController/<GetAllOrders>d__3::MoveNext()": {
+          "Lines": {
+            "26": 1,
+            "27": 1,
+            "29": 1,
+            "30": 1
+          },
+          "Branches": []
+        }
+      },
+      "DAWM_Project.Controllers.OrdersController/<GetOrderById>d__4": {
+        "System.Void DAWM_Project.Controllers.OrdersController/<GetOrderById>d__4::MoveNext()": {
+          "Lines": {
+            "36": 2,
+            "37": 2,
+            "39": 2,
+            "40": 1,
+            "42": 1,
+            "43": 2
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 39,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.OrdersController/<UpdateOrder>d__6": {
+        "System.Void DAWM_Project.Controllers.OrdersController/<UpdateOrder>d__6::MoveNext()": {
+          "Lines": {
+            "64": 2,
+            "65": 2,
+            "67": 2,
+            "68": 1,
+            "69": 1,
+            "72": 1,
+            "73": 2
+          },
+          "Branches": [
+            {
+              "Line": 67,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 67,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\DAWM Project\\Controllers\\RecipesController.cs": {
+      "DAWM_Project.Controllers.RecipesController": {
+        "System.Void DAWM_Project.Controllers.RecipesController::.ctor(RestaurantAPI.Domain.ServicesAbstractions.IRecipeService,RestaurantAPI.Domain.IDataLogger)": {
+          "Lines": {
+            "17": 13,
+            "18": 13,
+            "19": 13,
+            "20": 12,
+            "21": 11
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 12
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 35,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 33,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 11
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.RecipesController/<AddRecipe>d__5": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<AddRecipe>d__5::MoveNext()": {
+          "Lines": {
+            "49": 2,
+            "50": 2,
+            "52": 2,
+            "53": 1,
+            "54": 1,
+            "57": 1,
+            "58": 2
+          },
+          "Branches": [
+            {
+              "Line": 52,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 52,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.RecipesController/<DeleteRecipe>d__7": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<DeleteRecipe>d__7::MoveNext()": {
+          "Lines": {
+            "79": 2,
+            "80": 2,
+            "82": 2,
+            "83": 1,
+            "84": 1,
+            "87": 1,
+            "88": 2
+          },
+          "Branches": [
+            {
+              "Line": 82,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 82,
+              "Offset": 154,
+              "EndOffset": 171,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.RecipesController/<GetAllRecipes>d__3": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<GetAllRecipes>d__3::MoveNext()": {
+          "Lines": {
+            "27": 1,
+            "28": 1,
+            "30": 1,
+            "31": 1
+          },
+          "Branches": []
+        }
+      },
+      "DAWM_Project.Controllers.RecipesController/<GetRecipeById>d__4": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<GetRecipeById>d__4::MoveNext()": {
+          "Lines": {
+            "37": 2,
+            "38": 2,
+            "40": 2,
+            "41": 1,
+            "43": 1,
+            "44": 2
+          },
+          "Branches": [
+            {
+              "Line": 40,
+              "Offset": 164,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 40,
+              "Offset": 164,
+              "EndOffset": 180,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "DAWM_Project.Controllers.RecipesController/<UpdateRecipe>d__6": {
+        "System.Void DAWM_Project.Controllers.RecipesController/<UpdateRecipe>d__6::MoveNext()": {
+          "Lines": {
+            "64": 2,
+            "65": 2,
+            "67": 2,
+            "68": 1,
+            "69": 1,
+            "72": 1,
+            "73": 2
+          },
+          "Branches": [
+            {
+              "Line": 67,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 67,
+              "Offset": 160,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "RestaurantAPI.Domain.dll": {
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\BaseEntity.cs": {
+      "RestaurantAPI.Domain.Models.BaseEntity": {
+        "System.Int32 RestaurantAPI.Domain.Models.BaseEntity::get_Id()": {
+          "Lines": {
+            "5": 102
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\Users\\User.cs": {
+      "RestaurantAPI.Domain.Models.Users.User": {
+        "System.String RestaurantAPI.Domain.Models.Users.User::get_FirstName()": {
+          "Lines": {
+            "7": 16
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Models.Users.User::get_LastName()": {
+          "Lines": {
+            "9": 16
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Models.Users.User::get_Email()": {
+          "Lines": {
+            "11": 18
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Models.Users.User::get_PasswordHash()": {
+          "Lines": {
+            "13": 10
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Enums.Role RestaurantAPI.Domain.Models.Users.User::get_Role()": {
+          "Lines": {
+            "15": 16
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\Orders\\Order.cs": {
+      "RestaurantAPI.Domain.Models.Orders.Order": {
+        "System.Int32 RestaurantAPI.Domain.Models.Orders.Order::get_UserId()": {
+          "Lines": {
+            "7": 18
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.Users.User RestaurantAPI.Domain.Models.Orders.Order::get_User()": {
+          "Lines": {
+            "8": 24
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<RestaurantAPI.Domain.Models.Orders.OrderItems> RestaurantAPI.Domain.Models.Orders.Order::get_OrderItems()": {
+          "Lines": {
+            "10": 39
+          },
+          "Branches": []
+        },
+        "System.DateTime RestaurantAPI.Domain.Models.Orders.Order::get_OrderDate()": {
+          "Lines": {
+            "12": 12
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\Orders\\OrderItems.cs": {
+      "RestaurantAPI.Domain.Models.Orders.OrderItems": {
+        "System.Int32 RestaurantAPI.Domain.Models.Orders.OrderItems::get_OrderId()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.Orders.Order RestaurantAPI.Domain.Models.Orders.OrderItems::get_Order()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 RestaurantAPI.Domain.Models.Orders.OrderItems::get_MenuId()": {
+          "Lines": {
+            "10": 3
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.MenuRelated.Menu RestaurantAPI.Domain.Models.Orders.OrderItems::get_Menu()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 RestaurantAPI.Domain.Models.Orders.OrderItems::get_Quantity()": {
+          "Lines": {
+            "13": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\MenuRelated\\DishesType.cs": {
+      "RestaurantAPI.Domain.Models.MenuRelated.DishesType": {
+        "System.String RestaurantAPI.Domain.Models.MenuRelated.DishesType::get_Name()": {
+          "Lines": {
+            "5": 10
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\MenuRelated\\Ingredient.cs": {
+      "RestaurantAPI.Domain.Models.MenuRelated.Ingredient": {
+        "System.String RestaurantAPI.Domain.Models.MenuRelated.Ingredient::get_Name()": {
+          "Lines": {
+            "5": 10
+          },
+          "Branches": []
+        },
+        "System.Double RestaurantAPI.Domain.Models.MenuRelated.Ingredient::get_TotalWeight()": {
+          "Lines": {
+            "7": 10
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\MenuRelated\\Menu.cs": {
+      "RestaurantAPI.Domain.Models.MenuRelated.Menu": {
+        "System.String RestaurantAPI.Domain.Models.MenuRelated.Menu::get_Name()": {
+          "Lines": {
+            "5": 22
+          },
+          "Branches": []
+        },
+        "System.Single RestaurantAPI.Domain.Models.MenuRelated.Menu::get_Price()": {
+          "Lines": {
+            "7": 22
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<RestaurantAPI.Domain.Models.MenuRelated.MenuItem> RestaurantAPI.Domain.Models.MenuRelated.Menu::get_MenuItems()": {
+          "Lines": {
+            "9": 28
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\MenuRelated\\MenuItem.cs": {
+      "RestaurantAPI.Domain.Models.MenuRelated.MenuItem": {
+        "System.Int32 RestaurantAPI.Domain.Models.MenuRelated.MenuItem::get_MenuId()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.MenuRelated.Menu RestaurantAPI.Domain.Models.MenuRelated.MenuItem::get_Menu()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 RestaurantAPI.Domain.Models.MenuRelated.MenuItem::get_RecipeId()": {
+          "Lines": {
+            "8": 3
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.MenuRelated.Recipe RestaurantAPI.Domain.Models.MenuRelated.MenuItem::get_Recipe()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\MenuRelated\\Recipe.cs": {
+      "RestaurantAPI.Domain.Models.MenuRelated.Recipe": {
+        "System.String RestaurantAPI.Domain.Models.MenuRelated.Recipe::get_Name()": {
+          "Lines": {
+            "5": 10
+          },
+          "Branches": []
+        },
+        "System.Single RestaurantAPI.Domain.Models.MenuRelated.Recipe::get_Price()": {
+          "Lines": {
+            "7": 10
+          },
+          "Branches": []
+        },
+        "System.Int32 RestaurantAPI.Domain.Models.MenuRelated.Recipe::get_DishesTypeId()": {
+          "Lines": {
+            "9": 10
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.MenuRelated.DishesType RestaurantAPI.Domain.Models.MenuRelated.Recipe::get_DishesType()": {
+          "Lines": {
+            "10": 4
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient> RestaurantAPI.Domain.Models.MenuRelated.Recipe::get_Ingredients()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Models\\MenuRelated\\RecipeIngredient.cs": {
+      "RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient": {
+        "System.Int32 RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient::get_RecipeId()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.MenuRelated.Recipe RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient::get_Recipe()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient::get_IngredientId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.MenuRelated.Ingredient RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient::get_Ingredient()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Double RestaurantAPI.Domain.Models.MenuRelated.RecipeIngredient::get_Weight()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Mapping\\DishesTypeMapping.cs": {
+      "RestaurantAPI.Domain.Mapping.DishesTypeMapping": {
+        "RestaurantAPI.Domain.Models.MenuRelated.DishesType RestaurantAPI.Domain.Mapping.DishesTypeMapping::MapToDishesType(RestaurantAPI.Domain.Dtos.DishesTypeDtos.CreateOrUpdateDishesType)": {
+          "Lines": {
+            "9": 3,
+            "10": 3,
+            "11": 0,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 3,
+            "17": 3
+          },
+          "Branches": [
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Mapping\\IngredientMapping.cs": {
+      "RestaurantAPI.Domain.Mapping.IngredientMapping": {
+        "RestaurantAPI.Domain.Models.MenuRelated.Ingredient RestaurantAPI.Domain.Mapping.IngredientMapping::MapToIngredient(RestaurantAPI.Domain.Dtos.IngredientDtos.CreateOrUpdateIngredient)": {
+          "Lines": {
+            "9": 5,
+            "10": 5,
+            "11": 2,
+            "12": 3,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 3,
+            "17": 5
+          },
+          "Branches": [
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Mapping\\MenuMapping.cs": {
+      "RestaurantAPI.Domain.Mapping.MenuMapping": {
+        "RestaurantAPI.Domain.Models.MenuRelated.Menu RestaurantAPI.Domain.Mapping.MenuMapping::MapToMenu(RestaurantAPI.Domain.Dtos.MenuDtos.CreateOrUpdateMenu)": {
+          "Lines": {
+            "9": 4,
+            "10": 4,
+            "11": 1,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 3,
+            "17": 3,
+            "18": 3,
+            "19": 4
+          },
+          "Branches": [
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        },
+        "RestaurantAPI.Domain.Dtos.MenuDtos.MenuInfos RestaurantAPI.Domain.Mapping.MenuMapping::MapToMenuInfos(RestaurantAPI.Domain.Models.MenuRelated.Menu)": {
+          "Lines": {
+            "22": 7,
+            "23": 7,
+            "24": 2,
+            "26": 5,
+            "27": 5,
+            "28": 5,
+            "29": 5,
+            "30": 5,
+            "31": 0,
+            "32": 5,
+            "33": 7
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 5
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Mapping\\OrderMapping.cs": {
+      "RestaurantAPI.Domain.Mapping.OrderMapping": {
+        "RestaurantAPI.Domain.Models.Orders.Order RestaurantAPI.Domain.Mapping.OrderMapping::MapToOrder(RestaurantAPI.Domain.Dtos.OrderDtos.CreateOrUpdateOrder)": {
+          "Lines": {
+            "11": 4,
+            "12": 4,
+            "13": 1,
+            "15": 3,
+            "16": 3,
+            "17": 3,
+            "18": 3,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 4
+          },
+          "Branches": [
+            {
+              "Line": 12,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 12,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        },
+        "RestaurantAPI.Domain.Dtos.RecipeDtos.OrderInfo RestaurantAPI.Domain.Mapping.OrderMapping::MapToOrderInfos(RestaurantAPI.Domain.Models.Orders.Order)": {
+          "Lines": {
+            "25": 8,
+            "26": 8,
+            "27": 2,
+            "29": 6,
+            "30": 6,
+            "31": 6,
+            "32": 6,
+            "33": 0,
+            "34": 0,
+            "35": 6,
+            "36": 8
+          },
+          "Branches": [
+            {
+              "Line": 26,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 26,
+              "Offset": 7,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Mapping\\RecipeMapping.cs": {
+      "RestaurantAPI.Domain.Mapping.RecipeMapping": {
+        "RestaurantAPI.Domain.Models.MenuRelated.Recipe RestaurantAPI.Domain.Mapping.RecipeMapping::MapToRecipe(RestaurantAPI.Domain.Dtos.RecipeDtos.CreateOrUpdateRecipe)": {
+          "Lines": {
+            "9": 4,
+            "10": 4,
+            "11": 1,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 3,
+            "17": 3,
+            "18": 3,
+            "19": 3,
+            "20": 4
+          },
+          "Branches": [
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Mapping\\UserMapping.cs": {
+      "RestaurantAPI.Domain.Mapping.UserMapping": {
+        "RestaurantAPI.Domain.Models.Users.User RestaurantAPI.Domain.Mapping.UserMapping::MapToUser(RestaurantAPI.Domain.Dtos.UserDtos.CreateOrUpdateUser)": {
+          "Lines": {
+            "14": 4,
+            "15": 4,
+            "16": 1,
+            "17": 3,
+            "18": 3,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 3,
+            "23": 3,
+            "24": 3,
+            "25": 3,
+            "26": 4
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 15,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        },
+        "RestaurantAPI.Domain.Dtos.UserDtos.UserPublicData RestaurantAPI.Domain.Mapping.UserMapping::MapToUserPublicData(RestaurantAPI.Domain.Models.Users.User)": {
+          "Lines": {
+            "34": 9,
+            "35": 9,
+            "36": 1,
+            "38": 8,
+            "39": 8,
+            "40": 8,
+            "41": 8,
+            "42": 8,
+            "43": 8,
+            "44": 9
+          },
+          "Branches": [
+            {
+              "Line": 35,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 35,
+              "Offset": 7,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 8
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\UserDtos\\CreateOrUpdateUser.cs": {
+      "RestaurantAPI.Domain.Dtos.UserDtos.CreateOrUpdateUser": {
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.CreateOrUpdateUser::get_FirstName()": {
+          "Lines": {
+            "7": 39
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.CreateOrUpdateUser::get_LastName()": {
+          "Lines": {
+            "9": 38
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.CreateOrUpdateUser::get_Email()": {
+          "Lines": {
+            "11": 43
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.CreateOrUpdateUser::get_Password()": {
+          "Lines": {
+            "13": 40
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Enums.Role RestaurantAPI.Domain.Dtos.UserDtos.CreateOrUpdateUser::get_Role()": {
+          "Lines": {
+            "15": 30
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\UserDtos\\LoginDto.cs": {
+      "RestaurantAPI.Domain.Dtos.UserDtos.LoginDto": {
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.LoginDto::get_Email()": {
+          "Lines": {
+            "5": 27
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.LoginDto::get_Password()": {
+          "Lines": {
+            "7": 25
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\UserDtos\\UserPublicData.cs": {
+      "RestaurantAPI.Domain.Dtos.UserDtos.UserPublicData": {
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.UserPublicData::get_FirstName()": {
+          "Lines": {
+            "5": 12
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.UserPublicData::get_LastName()": {
+          "Lines": {
+            "7": 12
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Dtos.UserDtos.UserPublicData::get_Email()": {
+          "Lines": {
+            "9": 12
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\RecipeDtos\\CreateOrUpdateRecipe.cs": {
+      "RestaurantAPI.Domain.Dtos.RecipeDtos.CreateOrUpdateRecipe": {
+        "System.String RestaurantAPI.Domain.Dtos.RecipeDtos.CreateOrUpdateRecipe::get_Name()": {
+          "Lines": {
+            "7": 17
+          },
+          "Branches": []
+        },
+        "System.Single RestaurantAPI.Domain.Dtos.RecipeDtos.CreateOrUpdateRecipe::get_Price()": {
+          "Lines": {
+            "9": 17
+          },
+          "Branches": []
+        },
+        "System.Int32 RestaurantAPI.Domain.Dtos.RecipeDtos.CreateOrUpdateRecipe::get_DishesTypeId()": {
+          "Lines": {
+            "11": 17
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.MenuRelated.DishesType RestaurantAPI.Domain.Dtos.RecipeDtos.CreateOrUpdateRecipe::get_DishesType()": {
+          "Lines": {
+            "12": 6
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\RecipeDtos\\OrderInfo.cs": {
+      "RestaurantAPI.Domain.Dtos.RecipeDtos.OrderInfo": {
+        "System.Int32 RestaurantAPI.Domain.Dtos.RecipeDtos.OrderInfo::get_OrderId()": {
+          "Lines": {
+            "8": 6
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Dtos.UserDtos.UserPublicData RestaurantAPI.Domain.Dtos.RecipeDtos.OrderInfo::get_User()": {
+          "Lines": {
+            "10": 8
+          },
+          "Branches": []
+        },
+        "System.Single RestaurantAPI.Domain.Dtos.RecipeDtos.OrderInfo::get_Price()": {
+          "Lines": {
+            "12": 8
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<RestaurantAPI.Domain.Models.MenuRelated.Menu> RestaurantAPI.Domain.Dtos.RecipeDtos.OrderInfo::get_OrderedMenus()": {
+          "Lines": {
+            "14": 9
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\OrderDtos\\CreateOrUpdateOrder.cs": {
+      "RestaurantAPI.Domain.Dtos.OrderDtos.CreateOrUpdateOrder": {
+        "System.Int32 RestaurantAPI.Domain.Dtos.OrderDtos.CreateOrUpdateOrder::get_UserId()": {
+          "Lines": {
+            "7": 26
+          },
+          "Branches": []
+        },
+        "RestaurantAPI.Domain.Models.Users.User RestaurantAPI.Domain.Dtos.OrderDtos.CreateOrUpdateOrder::get_User()": {
+          "Lines": {
+            "8": 26
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\MenuDtos\\CreateOrUpdateMenu.cs": {
+      "RestaurantAPI.Domain.Dtos.MenuDtos.CreateOrUpdateMenu": {
+        "System.String RestaurantAPI.Domain.Dtos.MenuDtos.CreateOrUpdateMenu::get_Name()": {
+          "Lines": {
+            "5": 26
+          },
+          "Branches": []
+        },
+        "System.Single RestaurantAPI.Domain.Dtos.MenuDtos.CreateOrUpdateMenu::get_Price()": {
+          "Lines": {
+            "7": 9
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\MenuDtos\\MenuInfos.cs": {
+      "RestaurantAPI.Domain.Dtos.MenuDtos.MenuInfos": {
+        "System.Int32 RestaurantAPI.Domain.Dtos.MenuDtos.MenuInfos::get_MenuId()": {
+          "Lines": {
+            "5": 5
+          },
+          "Branches": []
+        },
+        "System.String RestaurantAPI.Domain.Dtos.MenuDtos.MenuInfos::get_Name()": {
+          "Lines": {
+            "6": 7
+          },
+          "Branches": []
+        },
+        "System.Single RestaurantAPI.Domain.Dtos.MenuDtos.MenuInfos::get_Price()": {
+          "Lines": {
+            "8": 7
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<System.Int32> RestaurantAPI.Domain.Dtos.MenuDtos.MenuInfos::get_RecipiesIds()": {
+          "Lines": {
+            "10": 8
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\IngredientDtos\\CreateOrUpdateIngredient.cs": {
+      "RestaurantAPI.Domain.Dtos.IngredientDtos.CreateOrUpdateIngredient": {
+        "System.String RestaurantAPI.Domain.Dtos.IngredientDtos.CreateOrUpdateIngredient::get_Name()": {
+          "Lines": {
+            "5": 17
+          },
+          "Branches": []
+        },
+        "System.Double RestaurantAPI.Domain.Dtos.IngredientDtos.CreateOrUpdateIngredient::get_TotalWeight()": {
+          "Lines": {
+            "7": 17
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Domain\\Dtos\\DishesTypeDtos\\CreateOrUpdateDishesType.cs": {
+      "RestaurantAPI.Domain.Dtos.DishesTypeDtos.CreateOrUpdateDishesType": {
+        "System.String RestaurantAPI.Domain.Dtos.DishesTypeDtos.CreateOrUpdateDishesType::get_Name()": {
+          "Lines": {
+            "11": 17
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "RestaurantAPI.Exceptions.dll": {
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Exceptions\\EntityNotFoundException.cs": {
+      "RestaurantAPI.Exceptions.EntityNotFoundException": {
+        "System.Void RestaurantAPI.Exceptions.EntityNotFoundException::.ctor(System.Int32)": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Void RestaurantAPI.Exceptions.EntityNotFoundException::.ctor(System.String)": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Void RestaurantAPI.Exceptions.EntityNotFoundException::.ctor()": {
+          "Lines": {
+            "11": 15
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "RestaurantAPI.Logger.dll": {
+    "C:\\Users\\aungu\\Documents\\GitHub\\Proiect_DAWM_.Net\\DAWM Project\\RestaurantAPI.Logger\\Logger.cs": {
+      "RestaurantAPI.Logger.Logger": {
+        "System.Void RestaurantAPI.Logger.Logger::SetLogger(log4net.ILog)": {
+          "Lines": {
+            "10": 7,
+            "11": 7,
+            "12": 6
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 4,
+              "EndOffset": 6,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 11,
+              "Offset": 4,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        },
+        "System.Void RestaurantAPI.Logger.Logger::LogDebug(System.String)": {
+          "Lines": {
+            "15": 1,
+            "16": 1,
+            "17": 1
+          },
+          "Branches": []
+        },
+        "System.Void RestaurantAPI.Logger.Logger::LogError(System.String)": {
+          "Lines": {
+            "20": 1,
+            "21": 1,
+            "22": 1
+          },
+          "Branches": []
+        },
+        "System.Void RestaurantAPI.Logger.Logger::LogError(System.String,System.Exception)": {
+          "Lines": {
+            "25": 1,
+            "26": 1,
+            "27": 1
+          },
+          "Branches": []
+        },
+        "System.Void RestaurantAPI.Logger.Logger::LogInfo(System.String)": {
+          "Lines": {
+            "30": 1,
+            "31": 1,
+            "32": 1
+          },
+          "Branches": []
+        },
+        "System.Void RestaurantAPI.Logger.Logger::LogWarn(System.String)": {
+          "Lines": {
+            "35": 1,
+            "36": 1,
+            "37": 1
+          },
+          "Branches": []
+        },
+        "System.Void RestaurantAPI.Logger.Logger::.ctor()": {
+          "Lines": {
+            "7": 6
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

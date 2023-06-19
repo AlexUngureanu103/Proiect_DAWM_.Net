@@ -1,5 +1,6 @@
-﻿using Core.Services;
+using Core.Services;
 using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.RecipeDtos;
@@ -23,6 +24,7 @@ namespace DAWM_Project.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllRecipes()
         {
             var recipes = await _recipeService.GetAll();
@@ -35,6 +37,9 @@ namespace DAWM_Project.Controllers
         public async Task<IActionResult> GetRecipeById(int recipeId)
         {
             var recipe = await _recipeService.GetById(recipeId);
+            
+            if (recipe == null)
+                return NotFound();
 
             return Ok(recipe);
         }
@@ -82,7 +87,6 @@ namespace DAWM_Project.Controllers
 
             return BadRequest();
         }
-
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("addIngredient/{recipeId}/{ingredientId}/{weight}")]
@@ -112,6 +116,5 @@ namespace DAWM_Project.Controllers
 
             return BadRequest();
         }
-
     }
 }
