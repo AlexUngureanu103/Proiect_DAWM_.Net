@@ -22,7 +22,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get all recipes. Authentication required : Admin
+        /// Get all recipes.
+        /// Authentication required : Admin
         /// </summary>
         /// <returns>OkResult containing the recipes</returns>
         [HttpGet]
@@ -35,7 +36,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get a recipe by id. Authentication required : Admin
+        /// Get a recipe by id.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="recipeId">Recipe id to get</param>
         /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
@@ -52,7 +54,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add a new recipe. Authentication required : Admin
+        /// Add a new recipe.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="payload">Recipe to add</param>
         /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
@@ -71,7 +74,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Update a recipe. Authentication required : Admin
+        /// Update a recipe.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="recipeId">Recipe id to be updated</param>
         /// <param name="payload">New recipe data</param>
@@ -92,7 +96,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete a recipe. Authentication required : Admin
+        /// Delete a recipe.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="recipeId">Recipe id to delete</param>
         /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
@@ -112,7 +117,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add an ingredient to a recipe. Authentication required : Admin
+        /// Add an ingredient to a recipe.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="recipeId">Recipe id to add ingredient into</param>
         /// <param name="ingredientId">Ingredient id to add</param>
@@ -134,7 +140,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete an ingredient from a recipe. Authentication required : Admin
+        /// Delete an ingredient from a recipe.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="recipeId">Recipe id to delete ingredient from</param>
         /// <param name="ingredientId">Ingredient id to delete</param>

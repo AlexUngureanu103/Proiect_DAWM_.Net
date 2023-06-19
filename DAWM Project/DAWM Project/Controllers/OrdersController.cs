@@ -21,7 +21,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get all orders. Authentication required : User, Admin
+        /// Get all orders.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <returns>OkResult containing the orders</returns>
         [HttpGet]
@@ -34,7 +35,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get an order by id. Authentication required : User, Admin
+        /// Get an order by id.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="orderId">Order id to get</param>
         /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
@@ -52,7 +54,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add a new order. Authentication required : User, Admin
+        /// Add a new order.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="payload">Order to add</param>
         /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
@@ -71,7 +74,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Update an order. Authentication required : User, Admin
+        /// Update an order.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="orderId">Order id to be uodated</param>
         /// <param name="payload">New order data</param>
@@ -92,7 +96,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete an order. Authentication required : User, Admin
+        /// Delete an order.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="orderId">Order Id to be deleted</param>
         /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
@@ -112,7 +117,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add an item to an order. Authentication required : User, Admin
+        /// Add an item to an order.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="orderId">Order id to add menu into</param>
         /// <param name="menuId">Menu id to add</param>
@@ -133,7 +139,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete an item from an order. Authentication required : User, Admin
+        /// Delete an item from an order.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="orderId">Order id to delete menu from</param>
         /// <param name="menuId">Menu id to delete(remove) </param>
@@ -154,7 +161,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add a single item to an order. Authentication required : User, Admin
+        /// Add a single item to an order.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="orderId">Order id to add the recipe</param>
         /// <param name="recipieId">Recipe id to add </param>
@@ -175,7 +183,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete a single item from an order. Authentication required : User, Admin
+        /// Delete a single item from an order.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="orderId">Order id to delete recipe from</param>
         /// <param name="recipieId">Recipe id to delete(remove)</param>

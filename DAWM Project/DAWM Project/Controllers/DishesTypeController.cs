@@ -21,7 +21,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get all dishes types. No authentication required
+        /// Get all dishes types.
+        /// No authentication required
         /// </summary>
         /// <returns>OkResult containing the dishes types</returns>
         [HttpGet]
@@ -33,7 +34,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get a dishes type by id. No authentication required
+        /// Get a dishes type by id.
+        /// No authentication required
         /// </summary>
         /// <param name="dishesTypeId">Dish type id to get </param>
         /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
@@ -50,7 +52,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add a new dishes type. Authentication required : Admin
+        /// Add a new dishes type.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="payload">Dish type to add </param>
         /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
@@ -69,7 +72,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Update a dishes type. Authentication required : Admin
+        /// Update a dishes type.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="dishesTypeId">Dish type id to be updated</param>
         /// <param name="payload">New dish type data</param>
@@ -90,7 +94,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete a dishes type. Authentication required : Admin
+        /// Delete a dishes type.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="dishesTypeId">Dish type id to be deleted</param>
         /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>

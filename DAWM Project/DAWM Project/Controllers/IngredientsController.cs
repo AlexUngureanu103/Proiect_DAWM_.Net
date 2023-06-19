@@ -21,7 +21,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get all ingredients. No authentication required
+        /// Get all ingredients.
+        /// No authentication required
         /// </summary>
         /// <returns>OkResult containing the ingredients</returns>
         [HttpGet]
@@ -33,7 +34,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get an ingredient by id. No authentication required
+        /// Get an ingredient by id.
+        /// No authentication required
         /// </summary>
         /// <param name="ingredientId">Ingredient id to get </param>
         /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
@@ -50,7 +52,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add a new ingredient. Authentication required : Admin
+        /// Add a new ingredient.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="payload">Ingredient to add</param>
         /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
@@ -69,7 +72,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Update an ingredient. Authentication required : Admin
+        /// Update an ingredient.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="ingredientId">Ingredient id to be updated</param>
         /// <param name="payload">New ingredient data</param>
@@ -90,7 +94,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete an ingredient. Authentication required : Admin
+        /// Delete an ingredient.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="ingredientId">Ingredient id to be deleted</param>
         /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>

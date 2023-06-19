@@ -22,7 +22,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Register a new user . No authentication required
+        /// Register a new user .
+        /// No authentication required
         /// </summary>
         /// <param name="payload">Register data</param>
         /// <returns>OkResult if the register process was successful. Otherwise BadRequestResult</returns>
@@ -43,7 +44,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Login as a user. No authentication required
+        /// Login as a user.
+        /// No authentication required
         /// </summary>
         /// <param name="payload">Login data</param>
         /// <returns>OkResult and Jwt Token if the login was successful. Otherwise UnauthorizedResult</returns>
@@ -62,7 +64,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Login as an admin. No authentication required
+        /// Login as an admin.
+        /// No authentication required
         /// </summary>
         /// <param name="payload">Admin login data</param>
         /// <returns>OkResult and Jwt Token if the login was successful. Otherwise UnauthorizedResult</returns>
@@ -81,7 +84,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get user details. Authentication required : User, Admin
+        /// Get user details.
+        /// Authentication required : User, Admin
         /// </summary>
         /// <param name="paylod">Updated user Data</param>
         /// <returns>OkResult if the update process was successful. Otherwise BadRequestResult</returns>
@@ -101,7 +105,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete an account. Authentication required : Admin
+        /// Delete an account.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="id">Id of the account to be deleted</param>
         /// <returns>OkResult if the delete process was successful. Otherwise NotFoundResult</returns>
@@ -120,7 +125,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get user public data. Authentication required : User, Admin, Guest
+        /// Get user public data.
+        /// Authentication required : User, Admin, Guest
         /// </summary>
         /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
         [HttpGet("user/data")]

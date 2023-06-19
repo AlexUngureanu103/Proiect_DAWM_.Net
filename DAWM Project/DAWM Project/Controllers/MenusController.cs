@@ -21,7 +21,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get all menus. No authentication required
+        /// Get all menus.
+        /// No authentication required
         /// </summary>
         /// <returns>OkResult containing the menus</returns>
         [HttpGet]
@@ -33,7 +34,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Get a menu by id. No authentication required
+        /// Get a menu by id.
+        /// No authentication required
         /// </summary>
         /// <param name="menuId">Menu id to get </param>
         /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
@@ -50,7 +52,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add a new menu. Authentication required : Admin
+        /// Add a new menu.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="payload">Menu to add</param>
         /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
@@ -69,7 +72,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Update a menu. Authentication required : Admin
+        /// Update a menu.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="menuId">Menu id to be updated</param>
         /// <param name="payload">New menu data</param>
@@ -90,7 +94,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete a menu. Authentication required : Admin
+        /// Delete a menu.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="menuId">Menu id to be deleted</param>
         /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
@@ -110,7 +115,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Add a recipe to a menu. Authentication required : Admin
+        /// Add a recipe to a menu.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="menuId">Menu id to add the new recipe</param>
         /// <param name="recipeId">Recipe id to be added into the menu</param>
@@ -131,7 +137,8 @@ namespace DAWM_Project.Controllers
         }
 
         /// <summary>
-        /// Delete a recipe from a menu. Authentication required : Admin
+        /// Delete a recipe from a menu.
+        /// Authentication required : Admin
         /// </summary>
         /// <param name="menuId">Menu id to delete the recipe from</param>
         /// <param name="recipeId">Recipe id to be deleted</param>
