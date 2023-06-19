@@ -122,7 +122,7 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get user public data. Authentication required : User, Admin, Guest
         /// </summary>
-        /// <returns>OkResult if the delete process was successful. Otherwise NotFoundResult</returns>
+        /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
         [HttpGet("user/data")]
         [Authorize(Roles = "User,Admin,Guest")]
         public async Task<IActionResult> GetUserPublicData()

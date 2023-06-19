@@ -23,7 +23,7 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get all menus. No authentication required
         /// </summary>
-        /// <returns></returns>
+        /// <returns>OkResult containing the menus</returns>
         [HttpGet]
         public async Task<IActionResult> GetAllMenus()
         {
@@ -35,8 +35,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get a menu by id. No authentication required
         /// </summary>
-        /// <param name="menuId"></param>
-        /// <returns></returns>
+        /// <param name="menuId">Menu id to get </param>
+        /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
         [HttpGet]
         [Route("{menuId}")]
         public async Task<IActionResult> GetMenuById(int menuId)
@@ -52,8 +52,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Add a new menu. Authentication required : Admin
         /// </summary>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="payload">Menu to add</param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddMenu(CreateOrUpdateMenu payload)
@@ -71,9 +71,9 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Update a menu. Authentication required : Admin
         /// </summary>
-        /// <param name="menuId"></param>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="menuId">Menu id to be updated</param>
+        /// <param name="payload">New menu data</param>
+        /// <returns>OkResult if the update process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("{menuId}")]
@@ -92,8 +92,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Delete a menu. Authentication required : Admin
         /// </summary>
-        /// <param name="menuId"></param>
-        /// <returns></returns>
+        /// <param name="menuId">Menu id to be deleted</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         [Route("{menuId}")]
@@ -112,9 +112,9 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Add a recipe to a menu. Authentication required : Admin
         /// </summary>
-        /// <param name="menuId"></param>
-        /// <param name="recipeId"></param>
-        /// <returns></returns>
+        /// <param name="menuId">Menu id to add the new recipe</param>
+        /// <param name="recipeId">Recipe id to be added into the menu</param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("addItem/{menuId}/{recipeId}")]
@@ -133,9 +133,9 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Delete a recipe from a menu. Authentication required : Admin
         /// </summary>
-        /// <param name="menuId"></param>
-        /// <param name="recipeId"></param>
-        /// <returns></returns>
+        /// <param name="menuId">Menu id to delete the recipe from</param>
+        /// <param name="recipeId">Recipe id to be deleted</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("deleteItem/{menuId}/{recipeId}")]

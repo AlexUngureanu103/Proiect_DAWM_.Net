@@ -24,7 +24,7 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get all recipes. Authentication required : Admin
         /// </summary>
-        /// <returns></returns>
+        /// <returns>OkResult containing the recipes</returns>
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllRecipes()
@@ -37,8 +37,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get a recipe by id. Authentication required : Admin
         /// </summary>
-        /// <param name="recipeId"></param>
-        /// <returns></returns>
+        /// <param name="recipeId">Recipe id to get</param>
+        /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
         [HttpGet]
         [Route("{recipeId}")]
         public async Task<IActionResult> GetRecipeById(int recipeId)
@@ -54,8 +54,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Add a new recipe. Authentication required : Admin
         /// </summary>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="payload">Recipe to add</param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddRecipe(CreateOrUpdateRecipe payload)
@@ -73,9 +73,9 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Update a recipe. Authentication required : Admin
         /// </summary>
-        /// <param name="recipeId"></param>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="recipeId">Recipe id to be updated</param>
+        /// <param name="payload">New recipe data</param>
+        /// <returns>OkResult if the update process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("{recipeId}")]
@@ -94,8 +94,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Delete a recipe. Authentication required : Admin
         /// </summary>
-        /// <param name="recipeId"></param>
-        /// <returns></returns>
+        /// <param name="recipeId">Recipe id to delete</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         [Route("{recipeId}")]
@@ -114,10 +114,10 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Add an ingredient to a recipe. Authentication required : Admin
         /// </summary>
-        /// <param name="recipeId"></param>
-        /// <param name="ingredientId"></param>
-        /// <param name="weight"></param>
-        /// <returns></returns>
+        /// <param name="recipeId">Recipe id to add ingredient into</param>
+        /// <param name="ingredientId">Ingredient id to add</param>
+        /// <param name="weight">Weight of the ingredient</param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("addIngredient/{recipeId}/{ingredientId}/{weight}")]
@@ -136,9 +136,9 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Delete an ingredient from a recipe. Authentication required : Admin
         /// </summary>
-        /// <param name="recipeId"></param>
-        /// <param name="ingredientId"></param>
-        /// <returns></returns>
+        /// <param name="recipeId">Recipe id to delete ingredient from</param>
+        /// <param name="ingredientId">Ingredient id to delete</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("deleteIngredient/{recipeId}/{ingredientId}")]

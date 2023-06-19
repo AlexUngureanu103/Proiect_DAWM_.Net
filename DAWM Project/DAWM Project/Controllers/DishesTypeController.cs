@@ -23,7 +23,7 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get all dishes types. No authentication required
         /// </summary>
-        /// <returns></returns>
+        /// <returns>OkResult containing the dishes types</returns>
         [HttpGet]
         public async Task<IActionResult> GetAllDishesTypes()
         {
@@ -35,8 +35,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Get a dishes type by id. No authentication required
         /// </summary>
-        /// <param name="dishesTypeId"></param>
-        /// <returns></returns>
+        /// <param name="dishesTypeId">Dish type id to get </param>
+        /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
         [HttpGet]
         [Route("{dishesTypeId}")]
         public async Task<IActionResult> GetDishesTypeById(int dishesTypeId)
@@ -52,8 +52,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Add a new dishes type. Authentication required : Admin
         /// </summary>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="payload">Dish type to add </param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddDishesType(CreateOrUpdateDishesType payload)
@@ -71,9 +71,9 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Update a dishes type. Authentication required : Admin
         /// </summary>
-        /// <param name="dishesTypeId"></param>
-        /// <param name="payload"></param>
-        /// <returns></returns>
+        /// <param name="dishesTypeId">Dish type id to be updated</param>
+        /// <param name="payload">New dish type data</param>
+        /// <returns>OkResult if the update process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("{dishesTypeId}")]
@@ -92,8 +92,8 @@ namespace DAWM_Project.Controllers
         /// <summary>
         /// Delete a dishes type. Authentication required : Admin
         /// </summary>
-        /// <param name="dishesTypeId"></param>
-        /// <returns></returns>
+        /// <param name="dishesTypeId">Dish type id to be deleted</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         [Route("{dishesTypeId}")]
