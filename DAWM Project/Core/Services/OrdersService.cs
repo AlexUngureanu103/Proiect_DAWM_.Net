@@ -159,7 +159,7 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<bool> AddOrderSingleItem(int orderId, int recipeid)
+        public async Task<bool> AddOrderSingleItem(int orderId, int recipeId)
         {
             Order order = await _unitOfWork.OrdersRepository.GetByIdAsync(orderId);
             if (order == null)
@@ -168,21 +168,21 @@ namespace Core.Services
                 return false;
             }
 
-            if (await _unitOfWork.RecipeRepository.GetByIdAsync(recipeid) == null)
+            if (await _unitOfWork.RecipeRepository.GetByIdAsync(recipeId) == null)
             {
-                logger.LogWarn($"Recipe with id {recipeid} not found");
+                logger.LogWarn($"Recipe with id {recipeId} not found");
                 return false;
             }
-            var orderSingleItm = order.OrderSingleItems.FirstOrDefault(x => x.RecipieId == recipeid);
+            var orderSingleItm = order.OrderSingleItems.FirstOrDefault(x => x.RecipieId == recipeId);
             if (orderSingleItm == null)
-                order.OrderSingleItems.Add(new OrderSingleItems { RecipieId = recipeid, Quantity = 1 });
+                order.OrderSingleItems.Add(new OrderSingleItems { RecipieId = recipeId, Quantity = 1 });
             else
             {
                 orderSingleItm.Quantity++;
             }
 
             bool response = await _unitOfWork.SaveChangesAsync();
-            logger.LogInfo($"Order with id {orderId} updated. Added recipe with id {recipeid}");
+            logger.LogInfo($"Order with id {orderId} updated. Added recipe with id {recipeId}");
 
             return response;
         }

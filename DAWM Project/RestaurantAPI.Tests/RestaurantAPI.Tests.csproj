@@ -25,9 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\DAWM Project\Restaurant API.csproj" />
-    <ProjectReference Include="..\RestaurantAPI.Exceptions\RestaurantAPI.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>
