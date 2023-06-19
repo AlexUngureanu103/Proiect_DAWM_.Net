@@ -20,6 +20,10 @@ namespace DAWM_Project.Controllers
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <summary>
+        /// Get all ingredients. No authentication required
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllIngredients()
         {
@@ -28,6 +32,11 @@ namespace DAWM_Project.Controllers
             return Ok(ingredients);
         }
 
+        /// <summary>
+        /// Get an ingredient by id. No authentication required
+        /// </summary>
+        /// <param name="ingredientId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{ingredientId}")]
         public async Task<IActionResult> GetIngredientById(int ingredientId)
@@ -40,6 +49,11 @@ namespace DAWM_Project.Controllers
             return Ok(ingredient);
         }
 
+        /// <summary>
+        /// Add a new ingredient. Authentication required : Admin
+        /// </summary>
+        /// <param name="payload"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddIngredient(CreateOrUpdateIngredient payload)
@@ -54,6 +68,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Update an ingredient. Authentication required : Admin
+        /// </summary>
+        /// <param name="ingredientId"></param>
+        /// <param name="payload"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("{ingredientId}")]
@@ -69,6 +89,11 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete an ingredient. Authentication required : Admin
+        /// </summary>
+        /// <param name="ingredientId"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         [Route("{ingredientId}")]

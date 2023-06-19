@@ -1,4 +1,3 @@
-using Core.Services;
 using Microsoft.AspNetCore.Authorization;
 
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +21,10 @@ namespace DAWM_Project.Controllers
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-
+        /// <summary>
+        /// Get all recipes. Authentication required : Admin
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllRecipes()
@@ -32,18 +34,28 @@ namespace DAWM_Project.Controllers
             return Ok(recipes);
         }
 
+        /// <summary>
+        /// Get a recipe by id. Authentication required : Admin
+        /// </summary>
+        /// <param name="recipeId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{recipeId}")]
         public async Task<IActionResult> GetRecipeById(int recipeId)
         {
             var recipe = await _recipeService.GetById(recipeId);
-            
+
             if (recipe == null)
                 return NotFound();
 
             return Ok(recipe);
         }
 
+        /// <summary>
+        /// Add a new recipe. Authentication required : Admin
+        /// </summary>
+        /// <param name="payload"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddRecipe(CreateOrUpdateRecipe payload)
@@ -58,6 +70,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Update a recipe. Authentication required : Admin
+        /// </summary>
+        /// <param name="recipeId"></param>
+        /// <param name="payload"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("{recipeId}")]
@@ -73,6 +91,11 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete a recipe. Authentication required : Admin
+        /// </summary>
+        /// <param name="recipeId"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         [Route("{recipeId}")]
@@ -87,6 +110,14 @@ namespace DAWM_Project.Controllers
 
             return BadRequest();
         }
+
+        /// <summary>
+        /// Add an ingredient to a recipe. Authentication required : Admin
+        /// </summary>
+        /// <param name="recipeId"></param>
+        /// <param name="ingredientId"></param>
+        /// <param name="weight"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("addIngredient/{recipeId}/{ingredientId}/{weight}")]
@@ -102,6 +133,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete an ingredient from a recipe. Authentication required : Admin
+        /// </summary>
+        /// <param name="recipeId"></param>
+        /// <param name="ingredientId"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
         [Route("deleteIngredient/{recipeId}/{ingredientId}")]

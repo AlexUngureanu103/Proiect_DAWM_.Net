@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.OrderDtos;
-using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
@@ -21,6 +20,10 @@ namespace DAWM_Project.Controllers
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <summary>
+        /// Get all orders. Authentication required : User, Admin
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAllOrders()
@@ -30,6 +33,11 @@ namespace DAWM_Project.Controllers
             return Ok(orders);
         }
 
+        /// <summary>
+        /// Get an order by id. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{orderId}")]
         [Authorize(Roles = "User,Admin")]
@@ -43,6 +51,11 @@ namespace DAWM_Project.Controllers
             return Ok(order);
         }
 
+        /// <summary>
+        /// Add a new order. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="payload"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> AddOrder(CreateOrUpdateOrder payload)
@@ -57,7 +70,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
-
+        /// <summary>
+        /// Update an order. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="payload"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("{orderId}")]
@@ -73,6 +91,11 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete an order. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Authorize(Roles = "User,Admin")]
         [Route("{orderId}")]
@@ -88,6 +111,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Add an item to an order. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="menuId"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("addItem/{orderId}/{menuId}")]
@@ -103,6 +132,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete an item from an order. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="menuId"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("deleteItem/{orderId}/{menuId}")]
@@ -118,6 +153,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Add a single item to an order. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="recipieId"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("addSingleItem/{orderId}/{recipieId}")]
@@ -133,6 +174,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete a single item from an order. Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="recipieId"></param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("deleteSingleItem/{orderId}/{recipieId}")]
