@@ -10,7 +10,7 @@ using RestaurantAPI.Exceptions;
 namespace RestaurantAPI.Tests.ServicesTests
 {
     [TestClass]
-    public class OrdersServiceTests:LoggerTests
+    public class OrdersServiceTests : LoggerTests
     {
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private CreateOrUpdateOrder orderData;
@@ -57,6 +57,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -65,6 +66,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 2,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -73,6 +75,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 3,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 2,
                     User = new User { Id = 2 }
                 }
@@ -106,6 +109,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -114,6 +118,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 2,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -122,6 +127,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 3,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 2,
                     User = new User { Id = 2 }
                 }
@@ -155,6 +161,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 1,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -163,6 +170,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 2,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 1,
                     User = new User { Id = 1 }
                 },
@@ -171,6 +179,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                     Id = 3,
                     OrderDate = DateTime.Now,
                     OrderItems = new(),
+                    OrderSingleItems = new(),
                     UserId = 2,
                     User = new User { Id = 2 }
                 }

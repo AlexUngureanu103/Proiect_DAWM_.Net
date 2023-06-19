@@ -24,7 +24,8 @@ namespace RestaurantAPI.Tests.MappingTests
                 Id = 1,
                 User = new User { Id = 1 },
                 UserId = 1,
-                OrderItems = new()
+                OrderItems = new(),
+                OrderSingleItems = new(),
             };
         }
 

@@ -83,7 +83,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         public async Task GetById_WhenInputIsInValid_ReturnOkObjectResult()
         {
             int recipeId = 1;
-            _mockRecipeService.Setup(recipeService => recipeService.GetById(It.IsAny<int>())).ReturnsAsync(new Recipe());
+            _mockRecipeService.Setup(recipeService => recipeService.GetById(It.IsAny<int>())).ReturnsAsync(new RecipeInfo());
 
             var result = await RecipeController.GetRecipeById(recipeId);
 
