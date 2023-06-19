@@ -16,7 +16,6 @@ namespace RestaurantAPI.Tests.MappingTests
         {
             orderData = new CreateOrUpdateOrder
             {
-                User = new User { Id = 1 },
                 UserId = 1,
             };
             order = new Order
@@ -51,7 +50,6 @@ namespace RestaurantAPI.Tests.MappingTests
 
             Assert.IsNotNull(mappedOrder, "User shouldn't be null when dto is null");
 
-            Assert.AreEqual(mappedOrder.User, orderData.User, "Resulted Order is not the same ");
             Assert.AreEqual(mappedOrder.UserId, orderData.UserId, "Resulted Order is not the same ");
         }
 

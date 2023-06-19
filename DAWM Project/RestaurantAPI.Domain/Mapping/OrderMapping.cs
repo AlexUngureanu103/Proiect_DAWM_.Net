@@ -15,7 +15,6 @@ namespace RestaurantAPI.Domain.Mapping
             return new Order
             {
                 UserId = order.UserId,
-                User = order.User,
                 OrderItems = new(),
                 OrderSingleItems = new(),
                 OrderDate = DateTime.Now

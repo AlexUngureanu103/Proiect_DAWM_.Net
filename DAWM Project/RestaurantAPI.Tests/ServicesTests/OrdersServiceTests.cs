@@ -23,7 +23,6 @@ namespace RestaurantAPI.Tests.ServicesTests
             orderData = new()
             {
                 UserId = 1,
-                User = new User { Id = 1 }
             };
         }
 
