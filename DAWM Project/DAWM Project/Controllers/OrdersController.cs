@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.OrderDtos;
-using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.ServicesAbstractions;
 
 namespace DAWM_Project.Controllers
@@ -21,6 +20,11 @@ namespace DAWM_Project.Controllers
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <summary>
+        /// Get all orders.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <returns>OkResult containing the orders</returns>
         [HttpGet]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAllOrders()
@@ -30,6 +34,12 @@ namespace DAWM_Project.Controllers
             return Ok(orders);
         }
 
+        /// <summary>
+        /// Get an order by id.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId">Order id to get</param>
+        /// <returns>OkResult if the get process was successful. Otherwise NotFoundResult</returns>
         [HttpGet]
         [Route("{orderId}")]
         [Authorize(Roles = "User,Admin")]
@@ -43,6 +53,12 @@ namespace DAWM_Project.Controllers
             return Ok(order);
         }
 
+        /// <summary>
+        /// Add a new order.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="payload">Order to add</param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPost]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> AddOrder(CreateOrUpdateOrder payload)
@@ -57,7 +73,13 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
-
+        /// <summary>
+        /// Update an order.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId">Order id to be uodated</param>
+        /// <param name="payload">New order data</param>
+        /// <returns>OkResult if the update process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("{orderId}")]
@@ -73,6 +95,12 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete an order.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId">Order Id to be deleted</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpDelete]
         [Authorize(Roles = "User,Admin")]
         [Route("{orderId}")]
@@ -88,6 +116,13 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Add an item to an order.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId">Order id to add menu into</param>
+        /// <param name="menuId">Menu id to add</param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("addItem/{orderId}/{menuId}")]
@@ -103,6 +138,13 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete an item from an order.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId">Order id to delete menu from</param>
+        /// <param name="menuId">Menu id to delete(remove) </param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("deleteItem/{orderId}/{menuId}")]
@@ -118,6 +160,13 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Add a single item to an order.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId">Order id to add the recipe</param>
+        /// <param name="recipieId">Recipe id to add </param>
+        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("addSingleItem/{orderId}/{recipieId}")]
@@ -133,6 +182,13 @@ namespace DAWM_Project.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Delete a single item from an order.
+        /// Authentication required : User, Admin
+        /// </summary>
+        /// <param name="orderId">Order id to delete recipe from</param>
+        /// <param name="recipieId">Recipe id to delete(remove)</param>
+        /// <returns>OkResult if the delete process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "User,Admin")]
         [Route("deleteSingleItem/{orderId}/{recipieId}")]

@@ -33,7 +33,7 @@ namespace Core.Services
             Role[] enumValues = (Role[])Enum.GetValues(typeof(Role));
 
             if (string.IsNullOrEmpty(registerData.FirstName) || string.IsNullOrEmpty(registerData.LastName) || string.IsNullOrEmpty(registerData.Email)
-                || string.IsNullOrEmpty(registerData.Password) || (int)registerData.Role > enumValues.Length - 1)
+                || string.IsNullOrEmpty(registerData.Password))
             {
                 logger.LogWarn("Register data is not valid");
                 return false;
@@ -49,6 +49,7 @@ namespace Core.Services
             registerData.Password = _authService.HashPassword(registerData.Password);
 
             User user = UserMapping.MapToUser(registerData);
+            user.Role = Role.User;
             logger.LogInfo($"User: {user.FirstName}  {user.LastName}, E-mail: {user.Email}, Role: {user.Role} has been registered successfully.");
             await _unitOfWork.UsersRepository.AddAsync(user);
 

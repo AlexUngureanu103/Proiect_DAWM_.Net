@@ -221,7 +221,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task DeleteAccount_InvalidInput_ReturnBadRequestResult()
+        public async Task DeleteAccount_InvalidInput_ReturnNotFoundResult()
         {
             int testId = 1;
 
@@ -232,7 +232,7 @@ namespace RestaurantAPI.Tests.ControllerTests
 
             var result = await accountController.DeleteAccount(testId);
 
-            Assert.IsInstanceOfType(result, typeof(BadRequestResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -267,7 +267,7 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task GetUserPublicData_InvalidInput_ReturnBadRequestResult()
+        public async Task GetUserPublicData_InvalidInput_ReturnNotFoundResult()
         {
             int testId = 1;
             CreateOrUpdateUser testUserPayload = new CreateOrUpdateUser()
@@ -287,9 +287,9 @@ namespace RestaurantAPI.Tests.ControllerTests
 
             _mockUserService.Setup(usersService => usersService.GetUserPublicData(It.IsAny<int>())).ReturnsAsync(() => null);
 
-            var result = await accountController.GetUserPublicData(testId);
+            var result = await accountController.GetUserPublicData();
 
-            Assert.IsInstanceOfType(result, typeof(BadRequestResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -321,7 +321,7 @@ namespace RestaurantAPI.Tests.ControllerTests
 
             _mockUserService.Setup(usersService => usersService.GetUserPublicData(It.IsAny<int>())).ReturnsAsync(new UserPublicData());
 
-            var result = await accountController.GetUserPublicData(testId);
+            var result = await accountController.GetUserPublicData();
 
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
 

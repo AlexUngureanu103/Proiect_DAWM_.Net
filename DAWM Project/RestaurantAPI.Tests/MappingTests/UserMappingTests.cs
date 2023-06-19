@@ -18,7 +18,6 @@ namespace RestaurantAPI.Tests.MappingTests
                 FirstName = "test",
                 LastName = "test",
                 Password = "test",
-                Role = Domain.Enums.Role.Admin
             };
         }
 
@@ -45,7 +44,6 @@ namespace RestaurantAPI.Tests.MappingTests
 
             Assert.AreEqual(user.Email, userData.Email, "Resulted user is not the same ");
             Assert.AreEqual(user.PasswordHash, userData.Password, "Resulted user is not the same ");
-            Assert.AreEqual(user.Role, userData.Role, "Resulted user is not the same ");
             Assert.AreEqual(user.FirstName, userData.FirstName, "Resulted user is not the same ");
             Assert.AreEqual(user.LastName, userData.LastName, "Resulted user is not the same ");
         }

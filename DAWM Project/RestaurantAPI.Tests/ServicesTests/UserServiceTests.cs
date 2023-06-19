@@ -27,7 +27,6 @@ namespace RestaurantAPI.Tests.ServicesTests
                 FirstName = "test",
                 LastName = "test",
                 Password = "test",
-                Role = Role.Guest
             };
             loginData = new()
             {
