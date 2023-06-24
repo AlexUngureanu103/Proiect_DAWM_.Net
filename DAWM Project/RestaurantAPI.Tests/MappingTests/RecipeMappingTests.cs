@@ -76,6 +76,7 @@ namespace RestaurantAPI.Tests.MappingTests
             Assert.AreEqual(recipe.Price, recipeInfo.Price, "Resulted recipe Info is not the same ");
             Assert.AreEqual(recipe.DishesTypeId, recipeInfo.DishesTypeId, "Resulted recipe Info is not the same ");
             Assert.AreEqual(recipe.ImageUrl, recipeInfo.ImageUrl, "Resulted recipe Info is not the same ");
+            Assert.AreEqual(recipe.Id, recipeInfo.Id, "Resulted recipe Info is not the same ");
         }
     }
 }

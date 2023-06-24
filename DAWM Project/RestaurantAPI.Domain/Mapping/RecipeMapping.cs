@@ -25,6 +25,7 @@ namespace RestaurantAPI.Domain.Mapping
                 return null;
             return new RecipeInfo
             {
+                Id = recipe.Id,
                 Name = recipe.Name,
                 Price = recipe.Price,
                 DishesTypeId = recipe.DishesTypeId,
