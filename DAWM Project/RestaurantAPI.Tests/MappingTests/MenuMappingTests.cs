@@ -73,7 +73,7 @@ namespace RestaurantAPI.Tests.MappingTests
 
             Assert.AreEqual(menuInfo.Name, menu.Name, "Resulted Menu Info is not the same ");
             Assert.AreEqual(menuInfo.Price, menu.Price, "Resulted Menu Info is not the same ");
-            Assert.IsNotNull(menuInfo.RecipiesIds, "Resulted Menu Info  recipes Id's is not null");
+            Assert.IsNotNull(menuInfo.RecipesIds, "Resulted Menu Info  recipes Id's is not null");
             Assert.IsNotNull(menuInfo.ImageUrl, "Resulted Menu Info  recipes Id's is not null");
         }
 
@@ -88,8 +88,70 @@ namespace RestaurantAPI.Tests.MappingTests
             Assert.AreEqual(menuInfo.Name, menu.Name, "Resulted Menu Info is not the same ");
             Assert.AreEqual(menuInfo.ImageUrl, menu.ImageUrl, "Resulted Menu Info is not the same ");
             Assert.AreEqual(menuInfo.Price, menu.Price, "Resulted Menu Info is not the same ");
-            Assert.IsNotNull(menuInfo.RecipiesIds, "Resulted Menu Info recipes Id's is null");
-            Assert.AreEqual(menuInfo.RecipiesIds.Count, menu.MenuItems.Count, "Recipes Id's count should be the same ad menu items count");
+            Assert.IsNotNull(menuInfo.RecipesIds, "Resulted Menu Info recipes Id's is null");
+            Assert.AreEqual(menuInfo.RecipesIds.Count, menu.MenuItems.Count, "Recipes Id's count should be the same ad menu items count");
+        }
+
+        [TestMethod]
+        public void MapToMenuOrderInfos_WhenMenuIsNull_ReturnNull()
+        {
+            var menuInfo = MenuMapping.MapToMenuInfos(null, 2);
+
+            Assert.IsNull(menuInfo, "Menu should be null when dto is null");
+        }
+
+        [TestMethod]
+        public void MapToMenuOrderInfos_WhenMenuIsNotNullButMenuItemsIsNull_ReturnMenuInfoWithNullRecipesIds()
+        {
+            var menuInfo = MenuMapping.MapToMenuInfos(menu, 2);
+
+            Assert.IsNotNull(menuInfo, "User shouldn't be null when dto is null");
+
+            Assert.AreEqual(menuInfo.Name, menu.Name, "Resulted Menu Info is not the same ");
+            Assert.AreEqual(menuInfo.Price, menu.Price, "Resulted Menu Info is not the same ");
+            Assert.IsNotNull(menuInfo.RecipesIds, "Resulted Menu Info  recipes Id's is not null");
+            Assert.IsNotNull(menuInfo.ImageUrl, "Resulted Menu Info  recipes Id's is not null");
+        }
+
+        [TestMethod]
+        public void MapToMenuOrderInfos_WhenMenuIsNotNull_ReturnMenuInfo()
+        {
+            menu.MenuItems = new List<MenuItem>() { };
+            var menuInfo = MenuMapping.MapToMenuInfos(menu, 2);
+
+            Assert.IsNotNull(menuInfo, "User shouldn't be null when dto is null");
+
+            Assert.AreEqual(menuInfo.Name, menu.Name, "Resulted Menu Info is not the same ");
+            Assert.AreEqual(menuInfo.ImageUrl, menu.ImageUrl, "Resulted Menu Info is not the same ");
+            Assert.AreEqual(menuInfo.Price, menu.Price, "Resulted Menu Info is not the same ");
+            Assert.IsNotNull(menuInfo.RecipesIds, "Resulted Menu Info recipes Id's is null");
+            Assert.AreEqual(menuInfo.RecipesIds.Count, menu.MenuItems.Count, "Recipes Id's count should be the same ad menu items count");
+        }
+
+        [TestMethod]
+        public void MapToMenuItemDto_WhenMenuItemIsNull_ReturnNull()
+        {
+            var mappedMenuItem = MenuMapping.MapToMenuItemDto(null);
+
+            Assert.IsNull(mappedMenuItem, "MenuItem should be null when dto is null");
+        }
+
+        [TestMethod]
+        public void MapToMenuItemDto_WhenMenuItemIsNotNull_ReturnNull()
+        {
+            var menuItem = new MenuItem
+            {
+                Id = 1,
+                Menu = new Menu(),
+                MenuId = 1,
+                Recipe = new Recipe(),
+                RecipeId = 1,
+            };
+            var mappedMenuItem = MenuMapping.MapToMenuItemDto(menuItem);
+
+            Assert.IsNotNull(mappedMenuItem, "MenuItem shouldn't be null when dto is null");
+            Assert.AreEqual(mappedMenuItem.MenuId, menuItem.MenuId, "MenuItem shouldn't be null when dto is null");
+            Assert.AreEqual(mappedMenuItem.RecipeId, menuItem.RecipeId, "MenuItem shouldn't be null when dto is null");
         }
     }
 }

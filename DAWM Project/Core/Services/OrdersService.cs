@@ -114,6 +114,14 @@ namespace Core.Services
         {
             var ordersFromDb = await _unitOfWork.OrdersRepository.GetAllAsync();
 
+            foreach (var order in ordersFromDb)
+            {
+                foreach (var orderItem in order.OrderItems)
+                {
+                    orderItem.Menu = await _unitOfWork.MenusRepository.GetByIdAsync(orderItem.MenuId);
+                }
+            }
+
             return ordersFromDb
                 .Where(order => order.UserId == userId)
                 .Select(order => OrderMapping.MapToOrderInfos(order)).ToList();
@@ -122,6 +130,12 @@ namespace Core.Services
         public async Task<OrderInfo> GetById(int orderId)
         {
             var orderFromDb = await _unitOfWork.OrdersRepository.GetByIdAsync(orderId);
+
+            if (orderFromDb != null && orderFromDb.OrderItems != null)
+                foreach (var orderItem in orderFromDb.OrderItems)
+                {
+                    orderItem.Menu = await _unitOfWork.MenusRepository.GetByIdAsync(orderItem.MenuId);
+                }
 
             return OrderMapping.MapToOrderInfos(orderFromDb);
         }

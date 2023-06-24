@@ -29,8 +29,40 @@ namespace RestaurantAPI.Domain.Mapping
                 MenuId = menu.Id,
                 Name = menu.Name,
                 Price = menu.Price,
-                RecipiesIds = menu.MenuItems.Select(i => i.RecipeId).ToList(),
+                RecipesIds = menu.MenuItems
+                .Select(i => i.RecipeId)
+                .ToList(),
                 ImageUrl = menu.ImageUrl
+            };
+        }
+
+        public static MenuOrderInfo MapToMenuInfos(Menu menu, int quantity)
+        {
+            if (menu == null)
+                return null;
+
+            return new MenuOrderInfo
+            {
+                MenuId = menu.Id,
+                Name = menu.Name,
+                Price = menu.Price,
+                RecipesIds = menu.MenuItems
+                .Select(i => i.RecipeId)
+                .ToList(),
+                ImageUrl = menu.ImageUrl,
+                Quantity = quantity
+            };
+        }
+
+        public static MenuItemDto MapToMenuItemDto(MenuItem menuItem)
+        {
+            if (menuItem == null)
+                return null;
+
+            return new MenuItemDto
+            {
+                MenuId = menuItem.MenuId,
+                RecipeId = menuItem.RecipeId
             };
         }
     }
