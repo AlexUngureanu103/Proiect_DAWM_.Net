@@ -80,14 +80,14 @@ namespace RestaurantAPI.Tests.ServicesTests
                 }
             };
 
-            _mockUnitOfWork.Setup(x => x.OrdersRepository.GetAllAsync()).ReturnsAsync(Orders);
+            _mockUnitOfWork.Setup(x => x.OrdersRepository.GetAllAsync()).ReturnsAsync(Orders.Where(order => order.UserId == 1));
 
             var OrdersService = new OrdersService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            var result = await OrdersService.GetAll();
+            var result = await OrdersService.GetAll(1);
 
             Assert.IsNotNull(result, "Order list shouldn't be null");
-            Assert.AreEqual(3, result.Count(), "Order list should only contain 2 elements");
+            Assert.AreEqual(2, result.Count(), "Order list should only contain 2 elements");
 
             TestLoggerMethods(
                 logErrorCount: 0,

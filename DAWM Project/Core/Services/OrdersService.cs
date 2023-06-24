@@ -1,7 +1,6 @@
 ﻿using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.OrderDtos;
 using RestaurantAPI.Domain.Mapping;
-using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.Models.Orders;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
@@ -111,11 +110,13 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<IEnumerable<OrderInfo>> GetAll()
+        public async Task<IEnumerable<OrderInfo>> GetAll(int userId)
         {
             var ordersFromDb = await _unitOfWork.OrdersRepository.GetAllAsync();
 
-            return ordersFromDb.Select(order => OrderMapping.MapToOrderInfos(order)).ToList();
+            return ordersFromDb
+                .Where(order => order.UserId == userId)
+                .Select(order => OrderMapping.MapToOrderInfos(order)).ToList();
         }
 
         public async Task<OrderInfo> GetById(int orderId)

@@ -46,7 +46,7 @@ namespace Core.Services
                 Issuer = "Backend",
                 Audience = "Frontend",
                 Subject = new ClaimsIdentity(new[] { roleClaim, idClaim, infoClaim }),
-                Expires = DateTime.Now.AddMinutes(10),
+                Expires = DateTime.Now.AddHours(10),
                 SigningCredentials = credentials
             };
 

@@ -12,7 +12,7 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 
         Task<OrderInfo> GetById(int orderId);
 
-        Task<IEnumerable<OrderInfo>> GetAll();
+        Task<IEnumerable<OrderInfo>> GetAll(int userId);
 
         Task<bool> AddOrderItem(int orderId, int menuId);
 
