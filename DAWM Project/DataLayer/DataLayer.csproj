@@ -8,12 +8,11 @@
 
   <ItemGroup>
     <Compile Remove="Entities\**" />
+    <Compile Remove="Enums\**" />
     <EmbeddedResource Remove="Entities\**" />
+    <EmbeddedResource Remove="Enums\**" />
     <None Remove="Entities\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Enums\" />
+    <None Remove="Enums\**" />
   </ItemGroup>
 
   <ItemGroup>
