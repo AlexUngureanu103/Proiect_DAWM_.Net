@@ -10,7 +10,7 @@
 			"name": "Ingredients",
 			"item": [
 				{
-					"name": "GetAllIngredients",
+					"name": "Get All Ingredients",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -25,7 +25,7 @@
 					"response": []
 				},
 				{
-					"name": "AddIngredient",
+					"name": "Add Ingredient",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -37,7 +37,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Rosii\",\r\n  \"totalWeight\": 102\r\n}",
+							"raw": "{\r\n  \"name\": \"Water\",\r\n  \"totalWeight\": 99999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -49,7 +49,7 @@
 					"response": []
 				},
 				{
-					"name": "GetIngredientById",
+					"name": "Get Ingredient By Id",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -64,7 +64,7 @@
 					"response": []
 				},
 				{
-					"name": "UpdateIngredient",
+					"name": "Update Ingredient",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -88,7 +88,7 @@
 					"response": []
 				},
 				{
-					"name": "DeleteIngredient",
+					"name": "Delete Ingredient",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -99,6 +99,104 @@
 						"method": "DELETE",
 						"header": [],
 						"url": "{{BaseURL}}api/ingredients/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dishes Type",
+			"item": [
+				{
+					"name": "Get All Dishes Types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/DishesType"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Dish Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Secondary Meal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/DishesType"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dish Type By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/DishesType/1002"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dish Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Beverages\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/DishesType/1002"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dish Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseURL}}api/DishesType/2"
 					},
 					"response": []
 				}
@@ -133,7 +231,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"adm\",\r\n  \"password\": \"adm\"\r\n}",
+							"raw": "{\r\n  \"email\": \"test1\",\r\n  \"password\": \"string\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -151,7 +249,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"firstName\": \"test\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"test\",\r\n  \"password\": \"string\",\r\n  \"role\": 0\r\n}",
+							"raw": "{\r\n  \"firstName\": \"test\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"test1\",\r\n  \"password\": \"string\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -163,7 +261,7 @@
 					"response": []
 				},
 				{
-					"name": "UpdateAccount",
+					"name": "Update Account",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -175,7 +273,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"role\": 0\r\n}",
+							"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +285,7 @@
 					"response": []
 				},
 				{
-					"name": "DeleteAccount",
+					"name": "Delete Account",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -215,14 +313,9 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Recipe",
-			"item": [
+				},
 				{
-					"name": "GetAllRecipes",
+					"name": "Get User Public Data",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -232,12 +325,31 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}api/recipes"
+						"url": "{{BaseURL}}api/account/user/data"
 					},
 					"response": []
 				},
 				{
-					"name": "AddRecipe",
+					"name": "Admin Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body\r",
+									"var responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract the token value\r",
+									"var token = responseBody.token;\r",
+									"\r",
+									"// Set the token as a variable\r",
+									"pm.environment.set(\"token\", token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -249,19 +361,24 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"string\",\r\n  \"price\": 0,\r\n  \"dishesTypeId\": 0,\r\n  \"dishesType\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  }\r\n}",
+							"raw": "{\r\n  \"email\": \"adm\",\r\n  \"password\": \"adm\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{BaseURL}}api/recipes"
+						"url": "{{BaseURL}}api/account/login/adm"
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Recipe",
+			"item": [
 				{
-					"name": "GetRecipeById",
+					"name": "Get All Recipes",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -271,12 +388,51 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{BaseURL}}api/recipes/1"
+						"url": "{{BaseURL}}api/Recipes"
 					},
 					"response": []
 				},
 				{
-					"name": "UpdateRecipe",
+					"name": "Add Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Noodle Soup\",\r\n  \"price\": 2,\r\n  \"dishesTypeId\": 1005,\r\n  \"imageUrl\": \"URL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/Recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipe By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/Recipes/1002"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recipe",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -288,19 +444,19 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Salata\",\r\n  \"price\": 0,\r\n  \"dishesTypeId\": 2,\r\n  \"dishesType\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  }\r\n}",
+							"raw": "{\r\n  \"name\": \"Noodle Soup\",\r\n  \"price\": 2,\r\n  \"dishesTypeId\": 1005,\r\n  \"imageUrl\": \"URL\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{BaseURL}}api/recipes/1"
+						"url": "{{BaseURL}}api/Recipes/1"
 					},
 					"response": []
 				},
 				{
-					"name": "DeleteRecipe",
+					"name": "Delete Recipe",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -310,7 +466,323 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "{{BaseURL}}api/recipes/1"
+						"url": "{{BaseURL}}api/Recipes/1005"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Recipe Ingredient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Recipes/addIngredient/1002/1003/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe Ingredient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Recipes/deleteIngredient/1002/1003"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menu",
+			"item": [
+				{
+					"name": "Get All Menus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/Menus"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Menu",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Daily Deal\",\r\n  \"price\": 20,\r\n  \"imageUrl\": \"Deal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/Menus"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Menu By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/Menus/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Menu",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Daily\",\r\n  \"price\": 0,\r\n  \"imageUrl\": \"Deal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/Menus/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Menu",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseURL}}api/Menus/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Menu Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Menus/addItem/2/1004"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Menu Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Menus/deleteItem/2/1003"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/Orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/Orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURL}}api/Orders/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Daily\",\r\n  \"price\": 0,\r\n  \"imageUrl\": \"Deal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURL}}api/Orders/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{BaseURL}}api/Orders/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Order Menu",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Orders/addItem/2/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Order Single Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Orders/addItem/2/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order Menu",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Orders/deleteItem/1002/1003"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order Single Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "{{BaseURL}}api/Orders/deleteItem/1002/1003"
 					},
 					"response": []
 				}
