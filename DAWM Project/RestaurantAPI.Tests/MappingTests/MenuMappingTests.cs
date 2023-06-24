@@ -17,13 +17,15 @@ namespace RestaurantAPI.Tests.MappingTests
             {
                 Name = "test",
                 Price = 12,
+                ImageUrl = "test"
             };
             menu = new Menu
             {
                 Id = 1,
                 Name = "test",
                 Price = 15,
-                MenuItems = new()
+                MenuItems = new(),
+                ImageUrl = "test"
             };
         }
 
@@ -51,6 +53,7 @@ namespace RestaurantAPI.Tests.MappingTests
 
             Assert.AreEqual(mappedMenu.Name, menuData.Name, "Resulted Menu is not the same ");
             Assert.AreEqual(mappedMenu.Price, menuData.Price, "Resulted Menu is not the same ");
+            Assert.AreEqual(mappedMenu.ImageUrl, menuData.ImageUrl, "Resulted Menu is not the same ");
         }
 
         [TestMethod]
@@ -71,6 +74,7 @@ namespace RestaurantAPI.Tests.MappingTests
             Assert.AreEqual(menuInfo.Name, menu.Name, "Resulted Menu Info is not the same ");
             Assert.AreEqual(menuInfo.Price, menu.Price, "Resulted Menu Info is not the same ");
             Assert.IsNotNull(menuInfo.RecipiesIds, "Resulted Menu Info  recipes Id's is not null");
+            Assert.IsNotNull(menuInfo.ImageUrl, "Resulted Menu Info  recipes Id's is not null");
         }
 
         [TestMethod]
@@ -82,6 +86,7 @@ namespace RestaurantAPI.Tests.MappingTests
             Assert.IsNotNull(menuInfo, "User shouldn't be null when dto is null");
 
             Assert.AreEqual(menuInfo.Name, menu.Name, "Resulted Menu Info is not the same ");
+            Assert.AreEqual(menuInfo.ImageUrl, menu.ImageUrl, "Resulted Menu Info is not the same ");
             Assert.AreEqual(menuInfo.Price, menu.Price, "Resulted Menu Info is not the same ");
             Assert.IsNotNull(menuInfo.RecipiesIds, "Resulted Menu Info recipes Id's is null");
             Assert.AreEqual(menuInfo.RecipiesIds.Count, menu.MenuItems.Count, "Recipes Id's count should be the same ad menu items count");

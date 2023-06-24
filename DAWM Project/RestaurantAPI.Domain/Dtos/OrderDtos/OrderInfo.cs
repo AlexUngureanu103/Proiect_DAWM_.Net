@@ -1,7 +1,7 @@
 ﻿using RestaurantAPI.Domain.Dtos.UserDtos;
 using RestaurantAPI.Domain.Models.MenuRelated;
 
-namespace RestaurantAPI.Domain.Dtos.RecipeDtos
+namespace RestaurantAPI.Domain.Dtos.OrderDtos
 {
     public class OrderInfo
     {

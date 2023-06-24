@@ -8,5 +8,7 @@
         public float Price { get; set; }
 
         public List<int> RecipiesIds { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }

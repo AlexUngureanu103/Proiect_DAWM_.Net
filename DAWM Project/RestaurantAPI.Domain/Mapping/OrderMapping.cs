@@ -1,7 +1,5 @@
 ﻿using RestaurantAPI.Domain.Dtos.OrderDtos;
-using RestaurantAPI.Domain.Dtos.RecipeDtos;
 using RestaurantAPI.Domain.Models.Orders;
-using RestaurantAPI.Domain.Models.Users;
 
 namespace RestaurantAPI.Domain.Mapping
 {
