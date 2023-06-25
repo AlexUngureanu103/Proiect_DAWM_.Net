@@ -14,7 +14,8 @@ namespace RestaurantAPI.Domain.Mapping
             {
                 DishesTypeId = recipe.DishesTypeId,
                 Name = recipe.Name,
-                Price = recipe.Price
+                Price = recipe.Price,
+                ImageUrl = recipe.ImageUrl
             };
         }
 
@@ -24,10 +25,12 @@ namespace RestaurantAPI.Domain.Mapping
                 return null;
             return new RecipeInfo
             {
+                Id = recipe.Id,
                 Name = recipe.Name,
                 Price = recipe.Price,
                 DishesTypeId = recipe.DishesTypeId,
-                IngredientIdAndWeight = recipe.Ingredients.Select(r => new IngredientAndWeight { IngredientId = r.IngredientId, Weight = r.Weight}).ToList()
+                ImageUrl = recipe.ImageUrl,
+                IngredientIdAndWeight = recipe.Ingredients.Select(r => new IngredientAndWeight { IngredientId = r.IngredientId, Weight = r.Weight }).ToList()
             };
         }
     }

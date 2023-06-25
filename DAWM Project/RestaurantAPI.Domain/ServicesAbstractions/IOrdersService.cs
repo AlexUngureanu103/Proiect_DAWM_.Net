@@ -1,5 +1,4 @@
 ﻿using RestaurantAPI.Domain.Dtos.OrderDtos;
-using RestaurantAPI.Domain.Dtos.RecipeDtos;
 
 namespace RestaurantAPI.Domain.ServicesAbstractions
 {
@@ -13,7 +12,7 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 
         Task<OrderInfo> GetById(int orderId);
 
-        Task<IEnumerable<OrderInfo>> GetAll();
+        Task<IEnumerable<OrderInfo>> GetAll(int userId);
 
         Task<bool> AddOrderItem(int orderId, int menuId);
 

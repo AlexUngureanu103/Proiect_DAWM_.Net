@@ -1,7 +1,5 @@
 ﻿using RestaurantAPI.Domain.Dtos.OrderDtos;
-using RestaurantAPI.Domain.Dtos.RecipeDtos;
 using RestaurantAPI.Domain.Models.Orders;
-using RestaurantAPI.Domain.Models.Users;
 
 namespace RestaurantAPI.Domain.Mapping
 {
@@ -31,7 +29,7 @@ namespace RestaurantAPI.Domain.Mapping
                 OrderId = order.Id,
                 User = UserMapping.MapToUserPublicData(order.User),
                 Price = order.OrderItems.Sum((order) => order.Menu.Price),
-                OrderedMenus = order.OrderItems.Select(orderItems => orderItems.Menu).ToList(),
+                OrderedMenus = order.OrderItems.Select(orderItems => MenuMapping.MapToMenuInfos(orderItems.Menu,orderItems.Quantity)).ToList(),
                 OrderSingleItem = order.OrderSingleItems.Select(orderSingleItems => orderSingleItems.RecipieId).ToList()
             };
         }

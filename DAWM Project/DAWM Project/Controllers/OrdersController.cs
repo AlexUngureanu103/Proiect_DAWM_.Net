@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.OrderDtos;
 using RestaurantAPI.Domain.ServicesAbstractions;
+using System.Security.Claims;
 
 namespace DAWM_Project.Controllers
 {
@@ -29,7 +30,11 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAllOrders()
         {
-            var orders = await _ordersService.GetAll();
+            ClaimsPrincipal user = User;
+
+            int userId = int.Parse(user.FindFirst("userId").Value);
+            
+            var orders = await _ordersService.GetAll(userId);
 
             return Ok(orders);
         }

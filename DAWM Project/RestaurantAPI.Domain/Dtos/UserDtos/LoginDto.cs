@@ -1,9 +1,13 @@
-﻿namespace RestaurantAPI.Domain.Dtos.UserDtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RestaurantAPI.Domain.Dtos.UserDtos
 {
     public class LoginDto
     {
+        [Required]
         public string Email { get; set; }
 
+        [Required]
         public string Password { get; set; }
     }
 }

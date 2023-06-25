@@ -5,6 +5,7 @@ using Moq;
 using RestaurantAPI.Domain.Dtos.OrderDtos;
 using RestaurantAPI.Domain.Dtos.RecipeDtos;
 using RestaurantAPI.Domain.ServicesAbstractions;
+using System.Security.Claims;
 
 namespace RestaurantAPI.Tests.ControllerTests
 {
@@ -45,7 +46,13 @@ namespace RestaurantAPI.Tests.ControllerTests
         [TestMethod]
         public async Task GetAll__ReturnOkObjectResult()
         {
-            _mockOrderService.Setup(orderService => orderService.GetAll());
+            OrderController.ControllerContext = new ControllerContext();
+            OrderController.ControllerContext.HttpContext = new DefaultHttpContext();
+            OrderController.ControllerContext.HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
+            {
+                new Claim("userId", 1.ToString())
+            }));
+            _mockOrderService.Setup(orderService => orderService.GetAll(It.IsAny<int>()));
 
             var result = await OrderController.GetAllOrders();
 

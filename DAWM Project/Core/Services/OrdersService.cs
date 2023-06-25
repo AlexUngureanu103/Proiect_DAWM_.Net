@@ -1,8 +1,6 @@
 ﻿using RestaurantAPI.Domain;
 using RestaurantAPI.Domain.Dtos.OrderDtos;
-using RestaurantAPI.Domain.Dtos.RecipeDtos;
 using RestaurantAPI.Domain.Mapping;
-using RestaurantAPI.Domain.Models.MenuRelated;
 using RestaurantAPI.Domain.Models.Orders;
 using RestaurantAPI.Domain.ServicesAbstractions;
 using RestaurantAPI.Exceptions;
@@ -112,16 +110,32 @@ namespace Core.Services
             return response;
         }
 
-        public async Task<IEnumerable<OrderInfo>> GetAll()
+        public async Task<IEnumerable<OrderInfo>> GetAll(int userId)
         {
             var ordersFromDb = await _unitOfWork.OrdersRepository.GetAllAsync();
 
-            return ordersFromDb.Select(order => OrderMapping.MapToOrderInfos(order)).ToList();
+            foreach (var order in ordersFromDb)
+            {
+                foreach (var orderItem in order.OrderItems)
+                {
+                    orderItem.Menu = await _unitOfWork.MenusRepository.GetByIdAsync(orderItem.MenuId);
+                }
+            }
+
+            return ordersFromDb
+                .Where(order => order.UserId == userId)
+                .Select(order => OrderMapping.MapToOrderInfos(order)).ToList();
         }
 
         public async Task<OrderInfo> GetById(int orderId)
         {
             var orderFromDb = await _unitOfWork.OrdersRepository.GetByIdAsync(orderId);
+
+            if (orderFromDb != null && orderFromDb.OrderItems != null)
+                foreach (var orderItem in orderFromDb.OrderItems)
+                {
+                    orderItem.Menu = await _unitOfWork.MenusRepository.GetByIdAsync(orderItem.MenuId);
+                }
 
             return OrderMapping.MapToOrderInfos(orderFromDb);
         }

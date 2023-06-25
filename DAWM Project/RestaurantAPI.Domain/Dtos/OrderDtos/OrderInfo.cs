@@ -1,7 +1,7 @@
-﻿using RestaurantAPI.Domain.Dtos.UserDtos;
-using RestaurantAPI.Domain.Models.MenuRelated;
+﻿using RestaurantAPI.Domain.Dtos.MenuDtos;
+using RestaurantAPI.Domain.Dtos.UserDtos;
 
-namespace RestaurantAPI.Domain.Dtos.RecipeDtos
+namespace RestaurantAPI.Domain.Dtos.OrderDtos
 {
     public class OrderInfo
     {
@@ -11,7 +11,7 @@ namespace RestaurantAPI.Domain.Dtos.RecipeDtos
 
         public float Price { get; set; }
 
-        public List<Menu> OrderedMenus { get; set; }
+        public List<MenuOrderInfo> OrderedMenus { get; set; }
 
         public List<int> OrderSingleItem { get; set; }
     }

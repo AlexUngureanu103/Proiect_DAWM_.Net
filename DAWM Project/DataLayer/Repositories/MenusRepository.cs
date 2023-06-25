@@ -14,12 +14,17 @@ namespace DataLayer.Repositories
 
         public new async Task<IEnumerable<Menu>> GetAllAsync()
         {
-            return await GetRecords().Include(r => r.MenuItems).ToListAsync();
+            return await GetRecords()
+                .Include(r => r.MenuItems)
+                .ToListAsync();
         }
 
         public new async Task<Menu> GetByIdAsync(int entityId)
         {
-            var resultFromDb = await GetRecords().Include(r => r.MenuItems).Where(r => r.Id == entityId).FirstOrDefaultAsync();
+            var resultFromDb = await GetRecords()
+                .Include(r => r.MenuItems)
+                .Where(r => r.Id == entityId)
+                .FirstOrDefaultAsync();
 
             return resultFromDb;
         }
