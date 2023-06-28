@@ -11,7 +11,7 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 
         Task<bool> Update(int recipeId, CreateOrUpdateRecipe recipe);
 
-        Task<bool> AddIngredient(int recipeId, int ingredientId, double weight);
+        Task<bool> AddIngredient(int recipeId, int ingredientId);
 
         Task<bool> DeleteIngredient(int recipeId, int ingredientId);
 

@@ -20,7 +20,6 @@ namespace DataLayer.Repositories
                 throw new EntityNotFoundException($"{nameof(Ingredient)} with id {entity.Id} does not exist.");
 
             entityFromDb.Name = entity.Name;
-            entityFromDb.TotalWeight = entity.TotalWeight;
         }
     }
 }

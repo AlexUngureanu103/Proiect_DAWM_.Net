@@ -19,7 +19,7 @@ namespace Core.Services
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<bool> AddIngredient(int recipeId, int ingredientId, double weight)
+        public async Task<bool> AddIngredient(int recipeId, int ingredientId)
         {
             
             if (await _unitOfWork.IngredientRepository.GetByIdAsync(ingredientId) == null) 
@@ -33,7 +33,7 @@ namespace Core.Services
                 return false;
             }
 
-            await _unitOfWork.RecipeIngredientRepository.AddAsync(new RecipeIngredient { RecipeId = recipeId, IngredientId = ingredientId, Weight = weight });
+            await _unitOfWork.RecipeIngredientRepository.AddAsync(new RecipeIngredient { RecipeId = recipeId, IngredientId = ingredientId});
 
             bool result = await _unitOfWork.SaveChangesAsync();
 

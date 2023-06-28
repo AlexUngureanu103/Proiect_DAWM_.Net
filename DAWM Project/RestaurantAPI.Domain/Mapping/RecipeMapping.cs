@@ -30,7 +30,7 @@ namespace RestaurantAPI.Domain.Mapping
                 Price = recipe.Price,
                 DishesTypeId = recipe.DishesTypeId,
                 ImageUrl = recipe.ImageUrl,
-                IngredientIdAndWeight = recipe.Ingredients.Select(r => new IngredientAndWeight { IngredientId = r.IngredientId, Weight = r.Weight }).ToList()
+                RecipeIds = recipe.Ingredients.Select(r => r.IngredientId).ToList()
             };
         }
     }

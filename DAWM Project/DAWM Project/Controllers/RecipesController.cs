@@ -122,14 +122,13 @@ namespace DAWM_Project.Controllers
         /// </summary>
         /// <param name="recipeId">Recipe id to add ingredient into</param>
         /// <param name="ingredientId">Ingredient id to add</param>
-        /// <param name="weight">Weight of the ingredient</param>
-        /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
+        /// /// <returns>OkResult if the create process was successful. Otherwise BadRequestResult</returns>
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        [Route("addIngredient/{recipeId}/{ingredientId}/{weight}")]
-        public async Task<IActionResult> AddRecipeIngredient(int recipeId, int ingredientId, double weight)
+        [Route("addIngredient/{recipeId}/{ingredientId}")]
+        public async Task<IActionResult> AddRecipeIngredient(int recipeId, int ingredientId)
         {
-            bool result = await _recipeService.AddIngredient(recipeId, ingredientId, weight);
+            bool result = await _recipeService.AddIngredient(recipeId, ingredientId);
 
             if (result)
             {

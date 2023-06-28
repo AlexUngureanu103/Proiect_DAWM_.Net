@@ -12,7 +12,6 @@ namespace RestaurantAPI.Domain.Mapping
             return new Ingredient
             {
                 Name = ingredient.Name,
-                TotalWeight = ingredient.TotalWeight
             };
         }
     }

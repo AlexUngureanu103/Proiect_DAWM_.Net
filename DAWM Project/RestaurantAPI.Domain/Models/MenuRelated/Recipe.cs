@@ -12,5 +12,7 @@
         public List<RecipeIngredient> Ingredients { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public int PortionSize { get; set; }
     }
 }

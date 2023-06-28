@@ -7,9 +7,5 @@ namespace RestaurantAPI.Domain.Dtos.IngredientDtos
         [Required]
         [MaxLength(63)]
         public string Name { get; set; }
-
-        [Required]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Total weight must be greater than 0.")]
-        public double TotalWeight { get; set; }
     }
 }
