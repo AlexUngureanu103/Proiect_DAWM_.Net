@@ -10,7 +10,7 @@
 
         public int DishesTypeId { get; set; }
 
-        public List<int> RecipeIds { get; set; }
+        public List<int> IngredientsIds { get; set; }
 
         public string ImageUrl { get; set; }
 
