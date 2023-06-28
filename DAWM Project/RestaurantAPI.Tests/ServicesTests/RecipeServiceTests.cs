@@ -38,8 +38,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                         new RecipeIngredient
                         {
                             IngredientId = 1,
-                            RecipeId = 1,
-                            Weight = 12
+                            RecipeId = 1
                         }
                     }
                 },
@@ -54,8 +53,7 @@ namespace RestaurantAPI.Tests.ServicesTests
                         new RecipeIngredient
                         {
                             IngredientId = 2,
-                            RecipeId = 2,
-                            Weight = 12
+                            RecipeId = 2
                         }
                     }
                 }

@@ -17,5 +17,9 @@ namespace RestaurantAPI.Domain.Dtos.RecipeDtos
 
         [Required]
         public string ImageUrl { get; set; }
+
+
+        [Required]
+        public int PortionSize { get; set; }
     }
 }

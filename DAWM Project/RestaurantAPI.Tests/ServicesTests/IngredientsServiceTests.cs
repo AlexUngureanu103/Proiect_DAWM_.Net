@@ -20,8 +20,7 @@ namespace RestaurantAPI.Tests.ServicesTests
             _mockLogger = new();
             ingredientData = new()
             {
-                Name = "test",
-                TotalWeight = 10
+                Name = "test"
             };
         }
 
@@ -53,14 +52,12 @@ namespace RestaurantAPI.Tests.ServicesTests
                 new Ingredient
                 {
                     Id = 1,
-                    Name = "Ingredient 1",
-                    TotalWeight=214
+                    Name = "Ingredient 1"
                 },
                 new Ingredient
                 {
                     Id = 2,
-                    Name = "Ingredient 2",
-                    TotalWeight=12
+                    Name = "Ingredient 2"
                 }
             };
 
@@ -90,14 +87,12 @@ namespace RestaurantAPI.Tests.ServicesTests
                 new Ingredient
                 {
                     Id = 1,
-                    Name = "Ingredient 1",
-                    TotalWeight=214
+                    Name = "Ingredient 1"
                 },
                 new Ingredient
                 {
                     Id = 2,
-                    Name = "Ingredient 2",
-                    TotalWeight=12
+                    Name = "Ingredient 2"
                 }
             };
             int id = 1;
@@ -127,14 +122,12 @@ namespace RestaurantAPI.Tests.ServicesTests
                 new Ingredient
                 {
                     Id = 1,
-                    Name = "Ingredient 1",
-                    TotalWeight=214
+                    Name = "Ingredient 1"
                 },
                 new Ingredient
                 {
                     Id = 2,
-                    Name = "Ingredient 2",
-                    TotalWeight=12
+                    Name = "Ingredient 2"
                 }
             };
             int id = 351;

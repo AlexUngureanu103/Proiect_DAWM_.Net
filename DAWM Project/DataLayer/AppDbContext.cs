@@ -10,7 +10,7 @@ namespace DataLayer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                    .UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString1"))
+                    .UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString"))
                     .LogTo(Console.WriteLine);
         }
 

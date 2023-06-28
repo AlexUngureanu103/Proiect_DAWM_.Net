@@ -13,5 +13,7 @@
         public List<int> RecipeIds { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public int PortionSize { get; set; }
     }
 }

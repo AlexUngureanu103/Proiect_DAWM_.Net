@@ -14,7 +14,6 @@ namespace RestaurantAPI.Tests.MappingTests
             ingredientData = new CreateOrUpdateIngredient
             {
                 Name = "test",
-                TotalWeight = 12
             };
         }
 
@@ -40,7 +39,6 @@ namespace RestaurantAPI.Tests.MappingTests
             Assert.IsNotNull(ingredient, "Ingredient shouldn't be null when dto is null");
 
             Assert.AreEqual(ingredient.Name, ingredientData.Name, "Resulted ingredient is not the same ");
-            Assert.AreEqual(ingredient.TotalWeight, ingredientData.TotalWeight, "Resulted ingredient is not the same ");
 
         }
     }

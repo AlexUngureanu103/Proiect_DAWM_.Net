@@ -15,7 +15,8 @@ namespace RestaurantAPI.Domain.Mapping
                 DishesTypeId = recipe.DishesTypeId,
                 Name = recipe.Name,
                 Price = recipe.Price,
-                ImageUrl = recipe.ImageUrl
+                ImageUrl = recipe.ImageUrl,
+                PortionSize = recipe.PortionSize
             };
         }
 
@@ -30,6 +31,7 @@ namespace RestaurantAPI.Domain.Mapping
                 Price = recipe.Price,
                 DishesTypeId = recipe.DishesTypeId,
                 ImageUrl = recipe.ImageUrl,
+                PortionSize = recipe.PortionSize,
                 RecipeIds = recipe.Ingredients.Select(r => r.IngredientId).ToList()
             };
         }
