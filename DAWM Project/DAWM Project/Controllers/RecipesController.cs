@@ -63,11 +63,11 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddRecipe(CreateOrUpdateRecipe payload)
         {
-            bool result = await _recipeService.Create(payload);
+            var result = await _recipeService.Create(payload);
 
-            if (result)
+            if (result !=0)
             {
-                return Ok();
+                return Ok(result);
             }
 
             return BadRequest();

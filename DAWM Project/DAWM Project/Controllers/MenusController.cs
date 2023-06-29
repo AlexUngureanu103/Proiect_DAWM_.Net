@@ -61,11 +61,11 @@ namespace DAWM_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddMenu(CreateOrUpdateMenu payload)
         {
-            bool result = await _menusService.AddMenu(payload);
+            var result = await _menusService.AddMenu(payload);
 
-            if (result)
+            if (result!=0)
             {
-                return Ok();
+                return Ok(result);
             }
 
             return BadRequest();

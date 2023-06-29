@@ -40,7 +40,7 @@ namespace Core.Services
             return result;
         }
 
-        public async Task<bool> Create(CreateOrUpdateRecipe recipe)
+        public async Task<int> Create(CreateOrUpdateRecipe recipe)
         {
             if (recipe == null)
             {
@@ -50,7 +50,7 @@ namespace Core.Services
             if (await _unitOfWork.DishesTypeRepository.GetByIdAsync(recipe.DishesTypeId) == null)
             {
                 logger.LogWarn($"DishesType with id {recipe.DishesTypeId} not found");
-                return false;
+                return 0;
             }
 
             Recipe recipeData = RecipeMapping.MapToRecipe(recipe);
@@ -60,7 +60,7 @@ namespace Core.Services
             bool result = await _unitOfWork.SaveChangesAsync();
             logger.LogInfo($"Recipe with id {recipeData.Id} added");
 
-            return result;
+            return recipeData.Id;
         }
 
         public async Task<bool> Delete(int recipeId)

@@ -19,25 +19,25 @@ namespace Core.Services
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<bool> AddMenu(CreateOrUpdateMenu menu)
+        public async Task<int> AddMenu(CreateOrUpdateMenu menu)
         {
             if (menu == null)
             {
                 logger.LogError($"Null argument from controller: {nameof(menu)}");
                 throw new ArgumentNullException(nameof(menu));
             }
-
+            
             Menu menuData = MenuMapping.MapToMenu(menu);
 
             if (menuData == null)
-                return false;
+                return 0;
 
             await _unitOfWork.MenusRepository.AddAsync(menuData);
 
             bool result = await _unitOfWork.SaveChangesAsync();
             logger.LogInfo($"Menu with id {menuData.Id} added");
 
-            return result;
+            return menuData.Id;
         }
 
         public async Task<bool> AddMenuItem(int menuId, int recipeId)

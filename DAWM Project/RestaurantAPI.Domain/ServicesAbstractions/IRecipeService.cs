@@ -5,8 +5,8 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 {
     public interface IRecipeService
     {
-        Task<bool> Create(CreateOrUpdateRecipe recipe);
-
+        Task<int> Create(CreateOrUpdateRecipe recipe);
+        
         Task<bool> Delete(int recipeId);
 
         Task<bool> Update(int recipeId, CreateOrUpdateRecipe recipe);

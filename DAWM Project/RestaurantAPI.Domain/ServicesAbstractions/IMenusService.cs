@@ -4,7 +4,7 @@ namespace RestaurantAPI.Domain.ServicesAbstractions
 {
     public interface IMenusService
     {
-        Task<bool> AddMenu(CreateOrUpdateMenu menu);
+        Task<int> AddMenu(CreateOrUpdateMenu menu);
 
         Task<bool> DeleteMenu(int menuId);
 
