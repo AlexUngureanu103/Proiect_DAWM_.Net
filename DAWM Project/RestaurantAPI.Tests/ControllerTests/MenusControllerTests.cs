@@ -98,18 +98,18 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddMenu_InputIsOk_ReturnOkResult()
+        public async Task AddMenu_InputIsOk_ReturnOkObjectResult()
         {
             CreateOrUpdateMenu newMenu = new();
 
             MenuController.ControllerContext = new ControllerContext();
             MenuController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockMenuService.Setup(menuService => menuService.AddMenu(It.IsAny<CreateOrUpdateMenu>())).ReturnsAsync(true);
+            _mockMenuService.Setup(menuService => menuService.AddMenu(It.IsAny<CreateOrUpdateMenu>())).ReturnsAsync(2);
 
             var result = await MenuController.AddMenu(newMenu);
 
-            Assert.IsInstanceOfType(result, typeof(OkResult));
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -128,7 +128,7 @@ namespace RestaurantAPI.Tests.ControllerTests
             MenuController.ControllerContext = new ControllerContext();
             MenuController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockMenuService.Setup(menuService => menuService.AddMenu(It.IsAny<CreateOrUpdateMenu>())).ReturnsAsync(false);
+            _mockMenuService.Setup(menuService => menuService.AddMenu(It.IsAny<CreateOrUpdateMenu>())).ReturnsAsync(0);
 
             var result = await MenuController.AddMenu(newMenu);
 

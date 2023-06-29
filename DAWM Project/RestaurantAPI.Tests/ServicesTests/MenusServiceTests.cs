@@ -250,9 +250,9 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var MenusService = new MenusService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await MenusService.AddMenu(menuData);
+            var result = await MenusService.AddMenu(menuData);
 
-            Assert.IsTrue(result, "Menu creation shouldn't fail");
+            Assert.AreNotEqual(-1,result, "Menu creation shouldn't fail");
 
             TestLoggerMethods(
                 logErrorCount: 0,

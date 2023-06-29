@@ -99,18 +99,18 @@ namespace RestaurantAPI.Tests.ControllerTests
         }
 
         [TestMethod]
-        public async Task AddRecipe_InputIsOk_ReturnOkResult()
+        public async Task AddRecipe_InputIsOk_ReturnOkObjectResult()
         {
             CreateOrUpdateRecipe newRecipe = new();
 
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(recipeService => recipeService.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(true);
+            _mockRecipeService.Setup(recipeService => recipeService.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(1);
 
             var result = await RecipeController.AddRecipe(newRecipe);
 
-            Assert.IsInstanceOfType(result, typeof(OkResult));
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -129,7 +129,7 @@ namespace RestaurantAPI.Tests.ControllerTests
             RecipeController.ControllerContext = new ControllerContext();
             RecipeController.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            _mockRecipeService.Setup(recipeService => recipeService.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(false);
+            _mockRecipeService.Setup(recipeService => recipeService.Create(It.IsAny<CreateOrUpdateRecipe>())).ReturnsAsync(0);
 
             var result = await RecipeController.AddRecipe(newRecipe);
 

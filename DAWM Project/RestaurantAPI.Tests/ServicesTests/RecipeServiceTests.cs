@@ -303,9 +303,9 @@ namespace RestaurantAPI.Tests.ServicesTests
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
 
-            bool result = await RecipeService.Create(recipeData);
+            var result = await RecipeService.Create(recipeData);
 
-            Assert.IsTrue(result, "Recipe creation shouldn't fail");
+            Assert.AreNotEqual(-1,result, "Recipe creation shouldn't fail");
 
             TestLoggerMethods(
                 logErrorCount: 0,
@@ -340,10 +340,10 @@ namespace RestaurantAPI.Tests.ServicesTests
             _mockUnitOfWork.Setup(unitOfWork => unitOfWork.SaveChangesAsync()).ReturnsAsync(true);
 
             var RecipeService = new RecipeService(_mockUnitOfWork.Object, _mockLogger.Object);
+            
+            var result = await RecipeService.Create(recipeData);
 
-            bool result = await RecipeService.Create(recipeData);
-
-            Assert.IsTrue(!result, "Recipe creation shouldn fail");
+            Assert.AreEqual(0,result, "Recipe creation shouldn fail");
 
             TestLoggerMethods(
                 logErrorCount: 0,
